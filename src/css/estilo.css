@@ -1,0 +1,22 @@
+/* Reset Universal */
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+
+/* Váriaveis */
+:root{
+    --CorTema: #AC0000; /* variável para mudança de tema */
+    --CorFundo: #000; /* mudança de fundo */
+}
+
+header{
+    display:flex;
+    justify-content:center
+}
+
+#volte-escutar{
+    display:flex;
+    justify-content: center;
+}
