@@ -7,13 +7,24 @@
 
 /* Váriaveis */
 :root{
-    --CorTema: #AC0000; /* variável para mudança de tema */
-    --CorFundo: #000; /* mudança de fundo */
+    --CorTema:#AC0000; /* variável para mudança de tema */
+    --CorFundo:#000; /* mudança de fundo */
+}
+
+/* estilização */
+
+body{
+    color:#fff;
+}
+
+.content-site{
+    background:linear-gradient(var(--CorFundo) 70%, var(--CorTema) 100%);
+    background-attachment:local;
 }
 
 header{
     display:flex;
-    justify-content:center
+    justify-content:space-between;
 }
 
 #volte-escutar{
