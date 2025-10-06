@@ -16,15 +16,22 @@
 body{
     font-family:Arial, Helvetica, sans-serif;
     color:#fff;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+    "barra-lateral header header"
+    "barra-lateral content-site content-site"
 }
 
 .content-site{
+    grid-area:content-site;
     background:linear-gradient(var(--CorFundo) 70%, var(--CorTema) 100%);
     background-attachment:local;
 }
 
 /* header */
 header{
+    grid-area:header;
     display:flex;
     justify-content:space-between;
     background:var(--CorFundo);
@@ -46,8 +53,7 @@ header input{
 }
 
 #banner-img{
-    height:35vh;
-    min-width:600vh;
+    width:600px;
     background-size:cover;
     background-repeat: no-repeat;
     background-image: url(../assets/image/banner/banner_epico.jfif);
@@ -70,4 +76,13 @@ header input{
 
 .musica-content h3{
     font-size:0.8em;
+}
+
+/* barra lateral */
+
+.barra-lateral{
+    display:grid;
+    grid-area:barra-lateral;
+    column-width:30px;
+    font-size:2px;
 }
