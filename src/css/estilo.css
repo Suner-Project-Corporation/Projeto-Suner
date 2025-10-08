@@ -1,205 +1,42 @@
-/* Reset Universal */
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+/* reset */
+*{
+    padding:0;
+    box-sizing:border-box;
+    margin:0;
 }
 
-/* Váriaveis */
-:root {
-    --CorTema: #AC0000;
-    /* variável para mudança de tema */
-    --CorFundo: #000;
-    /* mudança de fundo */
+.barra-duracao{
+    width:80%;
+    background:#5b5b5b;
+    height:12px;
+    border-radius:30px;
+    position:relative;
+    cursor:pointer;
 }
 
-/* estilização */
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #fff;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas:
-        "barra-lateral header header"
-        "barra-lateral content-site content-site"
-        "barra-lateral controle-musica controle-musica ";
+.progresso-musica{
+    height:100%;
+    width:50%;
+    background-image:linear-gradient(90deg, #8b0000 57%, #500202 100%);
+    border-radius:30px;
 }
 
-.content-site {
-    /* position:absolute; */
-    grid-area: content-site;
-    background: linear-gradient(var(--CorFundo) 70%, var(--CorTema) 100%);
-    background-attachment: local;
-    z-index: 0;
-}
-
-/* header */
-header {
-    grid-area: header;
-    display: flex;
-    justify-content: space-between;
-    background: var(--CorFundo);
-}
-
-header input {
-    background: var(--CorFundo);
-}
-
-#volte-escutar {
-    display: flex;
-    justify-content: center;
-}
-
-/* banner */
-
-#banner {
-    display: flex;
-}
-
-#banner-img {
-    width: 600px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: url(../assets/image/banner/banner_epico.jfif);
-}
-
-/* main */
-.musica-content {
-    text-align: center;
-}
-
-.musica img {
-    border-radius: 100%;
-    max-width: 20vh;
-    max-height: 20vh;
-}
-
-.musica-content h1 {
-    font-size: 1em;
-}
-
-.musica-content h3 {
-    font-size: 0.8em;
-}
-
-/* barra lateral */
-
-.barra-lateral {
-    display: grid;
-    grid-area: barra-lateral;
-    column-width: 30px;
-    font-size: 2px;
-}
-
-/* Controles da música */
-.controle-musica {
-    position: relative;
-    grid-area: controle-musica;
-    display: flex;
-    justify-content: center;
-    background: var(--CorFundo);
-    border-radius: 15px;
-    width: fit-content;
-    padding: 10px;
-}
-
-.controle-musica img {
-    border-radius: 100%;
-    width: auto;
-    height: 50px;
-}
-
-.info-musica {
-    padding: 5px;
-}
-
-.info-musica h1 {
-    font-size: 1.3rem;
-}
-
-.info-musica h3 {
-    font-size: 0.8rem;
-    color: var(--CorTema);
-}
-
-.barra-duracao-musica {
-    grid-area: duracao;
-    height: 1vh;
-}
-
-.botoes-controle {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas:
-        "voltar pausar avancar"
-        "duracao duracao duracao"
-}
-
-.botao-pause {
-    position: absolute;
-    width: 46.86px;
-    height: 51px;
-    left: 524.86px;
-    top: 609px;
-}
-
-#tempo-atual {
-    position: absolute;
-    width: 129px;
-    height: 23px;
-    left: 266px;
-    top: 615px;
-
-    font-family: 'Roboto Flex';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 23px;
-
-    color: #FFFFFF;
-
-}
-
-#teste {
-    position: absolute;
-    width: 626.14px;
-    height: 8px;
-    left: 255.86px;
-    top: 675px;
-
-    background: #5B5B5B;
-    border-radius: 30px;
-}
-
-.barra-progresso {
-    width: 100%;
-    height: 8px; /* Altura da barra */
-    background-color: #e0e0e0; /* Cor de fundo (tempo restante) */
-    border-radius: 4px;
-    position: relative;
-    cursor: pointer; /* Indica que é clicável */
-    margin-top: 10px;
-}
-
-/* O preenchimento da barra (tempo decorrido) */
-.progresso {
-    height: 100%;
-    width: 0%; /* O JavaScript vai alterar essa propriedade */
-    background-color: #2196F3; /* Cor do progresso */
-    border-radius: 4px;
-}
-
-/* O arrastador/handle (círculo ou ponto na barra) */
-.arrastador {
-    width: 12px;
-    height: 12px;
-    background-color: var;
+.bolinha-musica{
+    aspect-ratio:1/1;
+    height: 130%;
+    background-color: #fff;
     border-radius: 50%;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     /* O JavaScript vai alterar a posição horizontal (left) */
-    left: 0%; 
-    pointer-events: none; /* Ignora eventos de clique para não interferir na barra */
+    left: calc(50% - 12px); 
+    pointer-events: none;
+}
+
+.controle-musica{
+    background:#000;
+    padding:10px;
+    border-radius:10px;
+    color:#fff;
 }
