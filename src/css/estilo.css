@@ -5,8 +5,13 @@
     margin:0;
 }
 
+:root{
+    --CorTema:#AC0000;
+    --CorFundo:#000000;
+}
+
 .barra-duracao{
-    width:80%;
+    width:100%;
     background:#5b5b5b;
     height:12px;
     border-radius:30px;
@@ -35,8 +40,39 @@
 }
 
 .controle-musica{
-    background:#000;
+    background:var(--CorFundo);
     padding:10px;
     border-radius:10px;
     color:#fff;
+}
+
+.controle-musica p{
+    text-align:right;
+}
+
+.btn-voltar{
+    background:transparent;
+    border:none;
+}
+
+.btn-voltar img{
+    transform:rotate(180deg);
+}
+
+.btn-avancar{
+    background:transparent;
+    border:none;
+}
+
+.btn-pausar{
+    background:transparent;
+    border:none;
+}
+
+.fundo-pausar{
+    background-image:linear-gradient(#ac0000 0%, #460000 100%);
+    position:absolute;
+    width:45px;
+    aspect-ratio:1/1;
+    border-radius:100px;
 }
