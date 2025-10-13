@@ -10,6 +10,7 @@
     --CorFundo:#000000;
 }
 
+/* Controle da musica */
 .barra-duracao{
     width:100%;
     background:#5b5b5b;
@@ -40,6 +41,7 @@
 }
 
 .controle-musica{
+    width:100%;
     background:var(--CorFundo);
     padding:10px;
     border-radius:10px;
@@ -50,18 +52,63 @@
     text-align:right;
 }
 
+.controle-musica article{
+    display:flex;
+    justify-content:space-between;
+}
+
+.info-musica{
+    text-align:left;
+    display:flex;
+    gap:10px;
+}
+
+.info-musica h1{
+    margin-top:10px;
+    font-size:30px;
+}
+
+.info-musica h2{
+    margin-top:1px;
+    font-size:20px;
+}
+
+.tocando-agora{
+    width:110px;
+    aspect-ratio:1/1;
+    border-radius:100%;
+}
+
+/* botões de musica */
+
+.botoes-musica{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    margin-right:44.05%;
+}
+
 .btn-voltar{
     background:transparent;
     border:none;
+    cursor:pointer;
 }
 
 .btn-voltar img{
     transform:rotate(180deg);
+    width:30px;
+    height:auto;
 }
 
 .btn-avancar{
     background:transparent;
     border:none;
+    cursor:pointer;
+}
+
+.btn-avancar img{
+    width:30px;
+    height:auto;
 }
 
 .btn-pausar{
@@ -70,9 +117,29 @@
 }
 
 .fundo-pausar{
+    display:flex;
     background-image:linear-gradient(#ac0000 0%, #460000 100%);
-    position:absolute;
-    width:45px;
+    position:relative;
+    width:5rem;
     aspect-ratio:1/1;
-    border-radius:100px;
+    border-radius:100%;
+    justify-content:space-around;
+    cursor:pointer;
+}
+
+.barra-pausar1{
+    width:15%;
+    height:60%;
+    background-image: linear-gradient(177deg, #ffffff 20%, #999999 92%);
+    margin-top:18%;
+    margin-left:10%;
+}
+
+.barra-pausar2{
+    width:15%;
+    height:60%;
+    background-image: linear-gradient(177deg, #ffffff 20%, #999999 92%);
+    transform: matrix(-1,0,0,1,0,0);
+    margin-top:18%;
+    margin-right:10%;
 }
