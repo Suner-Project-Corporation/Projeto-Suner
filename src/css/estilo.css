@@ -45,12 +45,14 @@
 }
 
 .controle-musica{
-    width:100%;
+    width:80%;
     background:var(--CorFundo);
     padding:10px;
     border-radius:10px;
     color:#fff;
-    position:relative;
+    position:fixed;
+    left:10%;
+    bottom:10px;
 }
 
 .controle-musica p{
@@ -90,7 +92,7 @@
     display:flex;
     gap:10px;
     justify-content:center;
-    margin-right:44.05%;
+    margin-right:calc(50% - 80px);
 }
 
 .btn-voltar{
@@ -147,4 +149,40 @@
     transform: matrix(-1,0,0,1,0,0);
     margin-top:18%;
     margin-right:10%;
+}
+
+/* Playlists */
+
+.barra-lateral{
+    background:var(--CorTema);
+    width:fit-content;
+    padding: 0px 10px 0px 10px;
+    display:grid; /*permite que as setinhas fiquem na extremidade direita, não me pergunte o porque só aceite*/
+}
+
+.playlist-content{
+    gap:20px;
+}
+
+.playlist img{
+    width:8em;
+    aspect-ratio:1/1;
+    border-radius:30px;
+}
+
+.btn-playlist{
+    background:transparent;
+    border:none;
+    color:#fff;
+    font-size:18px;
+    display:flex;
+    justify-content:space-between;
+}
+
+.playlist::after{
+    visibility:hidden;
+}
+
+.playlist:hover::after{
+    visibility:visible;
 }
