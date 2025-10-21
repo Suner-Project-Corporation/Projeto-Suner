@@ -1,73 +1,223 @@
-/* Reset Universal */
+/* reset */
 *{
     padding:0;
-    margin:0;
     box-sizing:border-box;
+    margin:0;
 }
 
-/* Váriaveis */
 :root{
-    --CorTema:#AC0000; /* variável para mudança de tema */
-    --CorFundo:#000; /* mudança de fundo */
+    --CorTema:#AC0000;
+    --CorFundo:#000000;
 }
 
-/* estilização */
+.site{
+    scroll-behavior:smooth;
+    display:flex;
+    background-image:linear-gradient(var(--CorFundo) 60%, #4c0f0f 70%);
+    width:100%;
+    height:1080px
+}
 
-body{
-    font-family:Arial, Helvetica, sans-serif;
+/* Controle da musica */
+.barra-duracao{
+    width:100%;
+    background:#5b5b5b;
+    height:12px;
+    border-radius:30px;
+    position:relative;
+    cursor:pointer;
+}
+
+.progresso-musica{
+    height:100%;
+    width:50%;
+    background-image:linear-gradient(90deg, var(--CorTema) 57%, #500202 100%);
+    border-radius:30px;
+}
+
+.bolinha-musica{
+    aspect-ratio:1/1;
+    height: 130%;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    /* O JavaScript vai alterar a posição horizontal (left) */
+    left: calc(50% - 12px); 
+    pointer-events: none;
+}
+
+.controle-musica{
+    width:60%;
+    background:var(--CorFundo);
+    padding:10px;
+    border-radius:10px;
+    color:#fff;
+    position:fixed;
+    left:20%;
+    bottom:10px;
+}
+
+.controle-musica p{
+    text-align:right;
+}
+
+.controle-musica article{
+    display:flex;
+    justify-content:space-between;
+}
+
+.info-musica{
+    text-align:left;
+    display:flex;
+    gap:10px;
+}
+
+.info-musica h1{
+    margin-top:10px;
+    font-size:30px;
+}
+
+.info-musica h2{
+    margin-top:1px;
+    font-size:20px;
+}
+
+.tocando-agora{
+    width:110px;
+    aspect-ratio:1/1;
+    border-radius:100%;
+}
+
+/* botões de musica */
+
+.botoes-musica{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    margin-right:calc(50% - 80px);
+}
+
+.btn-voltar{
+    background:transparent;
+    border:none;
+    cursor:pointer;
+}
+
+.btn-voltar img{
+    transform:rotate(180deg);
+    width:30px;
+    height:auto;
+}
+
+.btn-avancar{
+    background:transparent;
+    border:none;
+    cursor:pointer;
+}
+
+.btn-avancar img{
+    width:30px;
+    height:auto;
+}
+
+.btn-pausar{
+    background:transparent;
+    border:none;
+}
+
+.fundo-pausar{
+    display:flex;
+    background-image:linear-gradient(#ac0000 0%, #460000 100%);
+    position:relative;
+    width:5rem;
+    aspect-ratio:1/1;
+    border-radius:100%;
+    justify-content:space-around;
+    cursor:pointer;
+}
+
+.barra-pausar1{
+    width:15%;
+    height:60%;
+    background-image: linear-gradient(177deg, #ffffff 20%, #999999 92%);
+    margin-top:18%;
+    margin-left:10%;
+}
+
+.barra-pausar2{
+    width:15%;
+    height:60%;
+    background-image: linear-gradient(177deg, #ffffff 20%, #999999 92%);
+    transform: matrix(-1,0,0,1,0,0);
+    margin-top:18%;
+    margin-right:10%;
+}
+
+/* Playlists */
+
+.barra-lateral{
+    background-image:linear-gradient(var(--CorFundo) 0%, #4c0f0f 49%);
+    width:fit-content;
+    padding:0px 10px 0px 10px;
+    display:grid; /*permite que as setinhas fiquem na extremidade direita, não me pergunte o porque só aceite*/
+    overflow-y:auto;
+    position:fixed;
+    top:0;
+    bottom:0;
+    max-height:100vh;
+    scrollbar-width:thin;
+    scroll-behavior:smooth;
+    scrollbar-color:var(--CorTema) transparent;
+}
+
+.playlist-content{
+    gap:20px;
+}
+
+.playlist img{
+    width:8em;
+    aspect-ratio:1/1;
+    border-radius:30px;
+}
+
+.btn-playlist{
+    background:transparent;
+    border:none;
+    color:#fff;
+    font-size:18px;
+    display:flex;
+    justify-content:space-between;
+}
+
+.playlist{
+    text-align:center;
     color:#fff;
 }
 
-.content-site{
-    background:linear-gradient(var(--CorFundo) 70%, var(--CorTema) 100%);
-    background-attachment:local;
+.btn-criarPlaylist{
+    padding: 10px 0px 10px;
 }
 
-/* header */
-header{
+.barra-pesquisa{
+    border:#fff;
+    width:250px;
+    height:25px;
     display:flex;
-    justify-content:space-between;
-    background:var(--CorFundo);
+    text-align:left;
+    align-items:center;
+    padding:5px;
+    position:relative;
+    border-radius:30px;
+    margin-top:20px;
+    margin-left:20px;
 }
 
-header input{
-    background:var(--CorFundo);
+.sub-main{
+    width:85%;
 }
 
-#volte-escutar{
-    display:flex;
-    justify-content: center;
-}
-
-/* banner */
-
-#banner{
-    display:flex;
-}
-
-#banner-img{
-    height:35vh;
-    min-width:600vh;
-    background-size:cover;
-    background-repeat: no-repeat;
-    background-image: url(../assets/image/banner/banner_epico.jfif);
-}
-
-/* main */
-.musica-content{
-    text-align:center;   
-}
-
-.musica img{
-    border-radius:100%;
-    max-width:20vh;
-    max-height:20vh;
-}
-
-.musica-content h1{
-    font-size:1em;
-}
-
-.musica-content h3{
-    font-size:0.8em;
+.fake-aside{
+    width:23.5vh;
 }
