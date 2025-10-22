@@ -1,8 +1,15 @@
 /* reset */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
 *{
     padding:0;
     box-sizing:border-box;
     margin:0;
+}
+
+body{
+    font-family:'Roboto Flex'
 }
 
 :root{
@@ -51,6 +58,7 @@
 
 .controle-musica{
     width:60%;
+    height:150px;
     background:var(--CorFundo);
     padding:10px;
     border-radius:10px;
@@ -86,7 +94,7 @@
 }
 
 .tocando-agora{
-    width:110px;
+    width:25%;
     aspect-ratio:1/1;
     border-radius:100%;
 }
@@ -217,11 +225,13 @@
 
 .sub-main{
     width:100%;
-    margin-left:8.25em;
+    margin-left:14.5em;
     background:transparent; /* só pra confirmar que o fundo da sub-main vai ficar transparente(é trans)*/
     overflow-y:auto;
     color:#fff;
     max-height:100vh;
+    top:0;
+    bottom:0;
 }
 
 /* header do site */
@@ -277,6 +287,7 @@
 .tipo{
     font-size:1rem;
     color:#999999;
+    font-family: 'DM Sans'
 }
 
 .artista-icon{
@@ -299,5 +310,6 @@
 
 /* tentativa de gambiarra #leonSola */
 .fake-aside{
-    width:100px;
+    width:;
+    height:100vh;
 }
