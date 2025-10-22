@@ -1,42 +1,42 @@
 /* reset */
-*{
-    padding:0;
-    box-sizing:border-box;
-    margin:0;
+* {
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
 }
 
-:root{
-    --CorTema:#AC0000;
-    --CorFundo:#000000;
+:root {
+    --CorTema: #AC0000;
+    --CorFundo: #000000;
 }
 
-.site{
-    scroll-behavior:smooth;
-    display:flex;
-    background-image:linear-gradient(var(--CorFundo) 60%, #4c0f0f 70%);
-    width:100%;
-    height:1080px
+.site {
+    scroll-behavior: smooth;
+    display: flex;
+    background-image: linear-gradient(var(--CorFundo) 60%, #4c0f0f 70%);
+    width: 100%;
+    height: 1080px
 }
 
 /* Controle da musica */
-.barra-duracao{
-    width:100%;
-    background:#5b5b5b;
-    height:12px;
-    border-radius:30px;
-    position:relative;
-    cursor:pointer;
+.barra-duracao {
+    width: 100%;
+    background: #5b5b5b;
+    height: 12px;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
 }
 
-.progresso-musica{
-    height:100%;
-    width:50%;
-    background-image:linear-gradient(90deg, var(--CorTema) 57%, #500202 100%);
-    border-radius:30px;
+.progresso-musica {
+    height: 100%;
+    width: 50%;
+    background-image: linear-gradient(90deg, var(--CorTema) 57%, #500202 100%);
+    border-radius: 30px;
 }
 
-.bolinha-musica{
-    aspect-ratio:1/1;
+.bolinha-musica {
+    aspect-ratio: 1/1;
     height: 130%;
     background-color: #fff;
     border-radius: 50%;
@@ -44,180 +44,214 @@
     top: 50%;
     transform: translateY(-50%);
     /* O JavaScript vai alterar a posição horizontal (left) */
-    left: calc(50% - 12px); 
+    left: calc(50% - 12px);
     pointer-events: none;
 }
 
-.controle-musica{
-    width:60%;
-    background:var(--CorFundo);
-    padding:10px;
-    border-radius:10px;
-    color:#fff;
-    position:fixed;
-    left:20%;
-    bottom:10px;
+.controle-musica {
+    width: 60%;
+    background: var(--CorFundo);
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    position: fixed;
+    left: 20%;
+    bottom: 10px;
 }
 
-.controle-musica p{
-    text-align:right;
+.controle-musica p {
+    text-align: right;
 }
 
-.controle-musica article{
-    display:flex;
-    justify-content:space-between;
+.controle-musica article {
+    display: flex;
+    justify-content: space-between;
 }
 
-.info-musica{
-    text-align:left;
-    display:flex;
-    gap:10px;
+.info-musica {
+    text-align: left;
+    display: flex;
+    gap: 10px;
 }
 
-.info-musica h1{
-    margin-top:10px;
-    font-size:30px;
+.info-musica h1 {
+    margin-top: 10px;
+    font-size: 30px;
 }
 
-.info-musica h2{
-    margin-top:1px;
-    font-size:20px;
+.info-musica h2 {
+    margin-top: 1px;
+    font-size: 20px;
 }
 
-.tocando-agora{
-    width:110px;
-    aspect-ratio:1/1;
-    border-radius:100%;
+.tocando-agora {
+    width: 110px;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
 }
 
 /* botões de musica */
 
-.botoes-musica{
-    display:flex;
-    gap:10px;
-    justify-content:center;
-    margin-right:calc(50% - 80px);
+.botoes-musica {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-right: calc(50% - 80px);
 }
 
-.btn-voltar{
-    background:transparent;
-    border:none;
-    cursor:pointer;
+.btn-voltar {
+    background: transparent;
+    border: none;
+    cursor: pointer;
 }
 
-.btn-voltar img{
-    transform:rotate(180deg);
-    width:30px;
-    height:auto;
+.btn-voltar img {
+    transform: rotate(180deg);
+    width: 30px;
+    height: auto;
 }
 
-.btn-avancar{
-    background:transparent;
-    border:none;
-    cursor:pointer;
+.btn-avancar {
+    background: transparent;
+    border: none;
+    cursor: pointer;
 }
 
-.btn-avancar img{
-    width:30px;
-    height:auto;
+.btn-avancar img {
+    width: 30px;
+    height: auto;
 }
 
-.btn-pausar{
-    background:transparent;
-    border:none;
+.btn-pausar {
+    background: transparent;
+    border: none;
 }
 
-.fundo-pausar{
-    display:flex;
-    background-image:linear-gradient(#ac0000 0%, #460000 100%);
-    position:relative;
-    width:5rem;
-    aspect-ratio:1/1;
-    border-radius:100%;
-    justify-content:space-around;
-    cursor:pointer;
+.fundo-pausar {
+    display: flex;
+    background-image: linear-gradient(#ac0000 0%, #460000 100%);
+    position: relative;
+    width: 5rem;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    justify-content: space-around;
+    cursor: pointer;
 }
 
-.barra-pausar1{
-    width:15%;
-    height:60%;
+.barra-pausar1 {
+    width: 15%;
+    height: 60%;
     background-image: linear-gradient(177deg, #ffffff 20%, #999999 92%);
-    margin-top:18%;
-    margin-left:10%;
+    margin-top: 18%;
+    margin-left: 10%;
 }
 
-.barra-pausar2{
-    width:15%;
-    height:60%;
+.barra-pausar2 {
+    width: 15%;
+    height: 60%;
     background-image: linear-gradient(177deg, #ffffff 20%, #999999 92%);
-    transform: matrix(-1,0,0,1,0,0);
-    margin-top:18%;
-    margin-right:10%;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    margin-top: 18%;
+    margin-right: 10%;
 }
 
 /* Playlists */
 
-.barra-lateral{
-    background-image:linear-gradient(var(--CorFundo) 0%, #4c0f0f 49%);
-    width:fit-content;
-    padding:0px 10px 0px 10px;
-    display:grid; /*permite que as setinhas fiquem na extremidade direita, não me pergunte o porque só aceite*/
-    overflow-y:auto;
-    position:fixed;
-    top:0;
-    bottom:0;
-    max-height:100vh;
-    scrollbar-width:thin;
-    scroll-behavior:smooth;
-    scrollbar-color:var(--CorTema) transparent;
+.barra-lateral {
+    background-image: linear-gradient(var(--CorFundo) 0%, #4c0f0f 49%);
+    width: fit-content;
+    padding: 0px 10px 0px 10px;
+    display: grid;
+    /*permite que as setinhas fiquem na extremidade direita, não me pergunte o porque só aceite*/
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    max-height: 100vh;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    scrollbar-color: var(--CorTema) transparent;
 }
 
-.playlist-content{
-    gap:20px;
+.playlist-content {
+    gap: 20px;
 }
 
-.playlist img{
-    width:8em;
-    aspect-ratio:1/1;
-    border-radius:30px;
+.playlist img {
+    width: 8em;
+    aspect-ratio: 1/1;
+    border-radius: 30px;
 }
 
-.btn-playlist{
-    background:transparent;
-    border:none;
-    color:#fff;
-    font-size:18px;
-    display:flex;
-    justify-content:space-between;
+.btn-playlist {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.playlist{
-    text-align:center;
-    color:#fff;
+.playlist {
+    text-align: center;
+    color: #fff;
 }
 
-.btn-criarPlaylist{
+.btn-criarPlaylist {
     padding: 10px 0px 10px;
 }
-
-.barra-pesquisa{
-    border:#fff;
-    width:250px;
-    height:25px;
-    display:flex;
-    text-align:left;
-    align-items:center;
-    padding:5px;
-    position:relative;
-    border-radius:30px;
-    margin-top:20px;
-    margin-left:20px;
+.sub-main {
+    width: 100%;
+    margin-left: 3.25em;
+    background-color: transparent;
 }
 
-.sub-main{
-    width:85%;
+.fake-aside {
+    width: 23.5vh;
 }
 
-.fake-aside{
-    width:23.5vh;
+.artista-foto {
+    box-sizing: border-box;
+    max-width: 15%;
+    height: auto;
+    display: block;
+    position: absolute;
+    top: 20%;
+    left: 50% ;
+    transform-origin: center center;
+    border-radius: 15px;
+    outline: 2px solid black;
+    z-index: 1;
+}
+.artista-banner {
+    background-image: url(../assets/image/banner/banner_epico.jfif);
+    width: 100%;
+    height: 250px;
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: translateY(-65px)
+}  
+.barra-pesquisa {
+    border: #fff;
+    width: 250px;
+    height: 25px;
+    display: flex;
+    text-align: left;
+    align-items: center;
+    padding: 5px;
+    position: relative;
+    border-radius: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+    left: 40%;
+    z-index: 1;
+}
+
+.artista-nome{
+    color: white;
+}
+
+.artista-subtitulo{
+    color: white;
 }
