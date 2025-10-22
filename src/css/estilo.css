@@ -15,7 +15,8 @@
     display:flex;
     background-image:linear-gradient(var(--CorFundo) 60%, #4c0f0f 70%);
     width:100%;
-    height:1080px
+    height:1080px;
+    position:fixed;
 }
 
 /* Controle da musica */
@@ -210,14 +211,93 @@
     padding:5px;
     position:relative;
     border-radius:30px;
-    margin-top:20px;
-    margin-left:20px;
 }
+
+/* content do site */
 
 .sub-main{
-    width:85%;
+    width:100%;
+    margin-left:8.25em;
+    background:transparent; /* só pra confirmar que o fundo da sub-main vai ficar transparente(é trans)*/
+    overflow-y:auto;
+    color:#fff;
+    max-height:100vh;
 }
 
+/* header do site */
+
+.sub-main header{
+    margin-right:2em;
+    display:flex;
+    justify-content:space-between;
+    margin-top:20px;
+    align-items:center;
+}
+
+.foto-perfil{
+    border-radius:100%;
+    width:3em;
+    height:auto;
+    aspect-ratio:1/1;
+}
+
+#volte-escutar{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
+/* banner maneiro */
+#banner-bemvindo{
+    background-image:url(../assets/image/banner/banner_epico.jfif);
+    background-size:cover;
+    height:300px;
+    width:100%;
+}
+
+/* Componentes dos icons (os treco do volte a escitar) */
+
+.album-icon{
+    text-align:center;
+}
+
+.capa-album{
+    border-radius:100%;
+    width:18vh;
+}
+
+.icon-nome{
+    font-size:1.2rem;
+}
+
+.icon-artista{
+    font-size:1.2rem;
+}
+
+.tipo{
+    font-size:1rem;
+    color:#999999;
+}
+
+.artista-icon{
+    text-align:center;
+}
+
+.capa-artista{
+    border-radius:30%;
+    width:18vh;
+}
+
+.capa-musica{
+    border-radius:100%;
+    width:18vh;
+}
+
+.musica-icon{
+    text-align:center;
+}
+
+/* tentativa de gambiarra #leonSola */
 .fake-aside{
-    width:23.5vh;
+    width:100px;
 }
