@@ -140,7 +140,7 @@ body{
     display:flex;
     background-image:linear-gradient(#ac0000 0%, #460000 100%);
     position:relative;
-    width:5rem;
+    width:4rem;
     aspect-ratio:1/1;
     border-radius:100%;
     justify-content:space-around;
@@ -219,13 +219,14 @@ body{
     padding:5px;
     position:relative;
     border-radius:30px;
+    background:transparent;
 }
 
 /* content do site */
 
 .sub-main{
     width:100%;
-    margin-left:14.5em;
+    margin-left:0.5em;
     background:transparent; /* só pra confirmar que o fundo da sub-main vai ficar transparente(é trans)*/
     overflow-y:auto;
     color:#fff;
@@ -252,6 +253,12 @@ body{
 }
 
 #volte-escutar{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
+#fora-radar{
     display:flex;
     justify-content:center;
     gap:10px;
@@ -310,6 +317,16 @@ body{
 
 /* tentativa de gambiarra #leonSola */
 .fake-aside{
-    width:;
+    width:180px;
     height:100vh;
+}
+
+/* Textos */
+#bem-vindoText{
+    margin-bottom:0.25em;
+}
+
+#volte-escutarText{
+    margin-top:0.25em;
+    margin-bottom:0.25em;
 }
