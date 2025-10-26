@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
 /* reset */
 * {
     padding: 0;
     box-sizing: border-box;
     margin: 0;
+}
+
+body{
+    font-family: "Roboto Flex";
 }
 
 :root {
@@ -212,13 +219,13 @@
 
 .artista-foto {
     box-sizing: border-box;
-    max-width: 15%;
+    width: 200px;
     height: auto;
     display: block;
     position: absolute;
-    top: 20%;
-    left: 50% ;
-    transform-origin: center center;
+    top: 67%;
+    left: 40%;
+    transform: translateY(-50%);
     border-radius: 15px;
     outline: 2px solid black;
     z-index: 1;
@@ -248,10 +255,69 @@
     z-index: 1;
 }
 
-.artista-nome{
+.artista-nome {
     color: white;
+    position: absolute;
+    text-align: right;
+    top: 67%;
+    right: 62%;
+    font-size: 35px;
+    margin-top: 10px;
 }
 
-.artista-subtitulo{
-    color: white;
+.artista-subtitulo {
+    color: #cdcdcd;
+    position: absolute;
+    text-align: right;
+    top: calc(67% + 50px);
+    right: 62%;
+    font-family: "dm sans";
+    font-size: 17.5px;
+    font-weight: normal;
+}
+
+.sub-main header{ /* que buceta do caraio mas funciona */
+    position: relative;
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+.btn-retangular {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 15px;
+    font-weight: 600;
+    font-size: 22px;
+    font-family: "dm sans";
+    position: absolute;
+    
+    background: linear-gradient(#ac0000 0%, #460000 100%);
+}
+
+#btn-tocar{
+    left: calc(40% + 200px + 15px);
+    top: 74%;
+}
+
+#btn-aleatorio{
+    left: calc(40% + 200px + 15px + 152px);
+    top: 74%;
+    padding: 5px 20px 5px 20px;
+}
+
+.btn-retangular img{
+    width: auto;
+    height: 1.2em;
+}
+
+#btn-aleatorio img{
+    height: calc(1.2em + 13px);
 }
