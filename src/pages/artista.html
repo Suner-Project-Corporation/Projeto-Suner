@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suner</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+</head>
+
+<body>
+    <main class="site"><!-- tudo vai estar dentro deste mano -->
+
+        <div class="fake-aside"></div>
+
+        <section class="sub-main">
+            <header>
+                <input type="text" placeholder="pesquisar" class="barra-pesquisa">dasd</input>
+                
+                <img class="artista-foto" src="../assets/image/playlist/capa_playlist.jpg">
+                <div class="artista-banner"></div>
+                <h1 class="artista-nome">Artista legal</h3>
+                <h3 class="artista-subtitulo">0 Ouvintes mensais</h1>
+
+                <!-- os ids aqui são para o javascript(e posição no css) -->
+                <button class="btn-retangular" id="btn-tocar" type="button"><img src="../assets/image/botoes/play.png">Tocar</button>
+                <button class="btn-retangular" id="btn-aleatorio" type="button"><img src="../assets/image/botoes/aleatorio.png">Aleatório</button>
+            </header>
+        </section>
+
+        <aside class="barra-lateral">
+
+            <img src="" class="logo">
+
+            <button type="button" class="btn-playlist btn-topPlaylist">Top Playlist<img
+                    src="../assets/image/botoes/botao_setinha_playlist.svg" class="setinha-retrair"></button>
+            <div class="playlists-content">
+
+                <article class="playlist">
+                    <img src="../assets/image/playlist/capa_playlist.jpg">
+                    <h1>Nome Playlist</h1>
+                </article>
+
+                <article class="playlist">
+                    <img src="../assets/image/playlist/capa_playlist.jpg">
+                    <h1>Nome Playlist</h1>
+                </article>
+
+                <article class="playlist">
+                    <img src="../assets/image/playlist/capa_playlist.jpg">
+                    <h1>Nome Playlist</h1>
+                </article>
+
+            </div>
+
+            <button type="button" class="btn-playlist btn-criarPlaylist"><span>+</span>Criar Playlist</button>
+
+            <button type="button" class="btn-playlist btn-suasPlaylist">Playlists<img
+                    src="../assets/image/botoes/botao_setinha_playlist.svg" class="setinha-retrair"></button>
+            <div class="playlist-content">
+
+                <article class="playlist">
+                    <img src="../assets/image/playlist/capa_playlist.jpg">
+                    <h1>Nome Playlist</h1>
+                </article>
+
+                <article class="playlist">
+                    <img src="../assets/image/playlist/capa_playlist.jpg">
+                    <h1>Nome Playlist</h1>
+                </article>
+
+                <article class="playlist">
+                    <img src="../assets/image/playlist/capa_playlist.jpg">
+                    <h1>Nome Playlist</h1>
+                </article>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+    <!-- controle de música -->
+    <div class="controle-musica">
+
+        <article>
+            <section class="info-musica">
+                <img src="../assets/image/foto_teste_tocandoAgora.jpg" class="tocando-agora">
+                <div>
+                    <h1>titulo</h1>
+                    <h2>mc aleijadinho</h2>
+                </div>
+            </section>
+
+            <section class="botoes-musica">
+                <button type="button" class="btn-voltar"><img src="../assets/image/botoes/icone_botao.svg"></button>
+                <button type="button" class="btn-pausar">
+                    <div class="fundo-pausar">
+                        <div class="barra-pausar1"></div>
+                        <div class="barra-pausar2"></div>
+                    </div>
+                </button>
+                <button type="button" class="btn-avancar"><img src="../assets/image/botoes/icone_botao.svg"></button>
+            </section>
+        </article>
+
+        <section class="minutagem-musica">
+            <p>234:3242/23123:5321</p>
+            <div class="barra-duracao">
+                <div class="progresso-musica"></div>
+                <div class="bolinha-musica"></div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+
+</html>
