@@ -5,28 +5,28 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
 
-*{
-    padding:0;
-    box-sizing:border-box;
-    margin:0;
+* {
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
 }
 
-body{
-    font-family:'Roboto Flex'
+body {
+    font-family: 'Roboto Flex'
 }
 
-:root{
-    --CorTema:#AC0000;
-    --CorFundo:#000000;
+:root {
+    --CorTema: #AC0000;
+    --CorFundo: #000000;
 }
 
-.site{
-    scroll-behavior:smooth;
-    display:flex;
-    background-image:linear-gradient(var(--CorFundo) 60%, #4c0f0f 70%);
-    width:100%;
-    height:1080px;
-    position:fixed;
+.site {
+    scroll-behavior: smooth;
+    display: flex;
+    background-image: linear-gradient(var(--CorFundo) 60%, #4c0f0f 70%);
+    width: 100%;
+    height: 1080px;
+    position: fixed;
 }
 
 /* Controle da musica */
@@ -59,16 +59,16 @@ body{
     pointer-events: none;
 }
 
-.controle-musica{
-    width:60%;
-    height:150px;
-    background:var(--CorFundo);
-    padding:10px;
-    border-radius:10px;
-    color:#fff;
-    position:fixed;
-    left:20%;
-    bottom:10px;
+.controle-musica {
+    width: 60%;
+    height: 150px;
+    background: var(--CorFundo);
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    position: fixed;
+    left: 20%;
+    bottom: 10px;
 }
 
 .controle-musica p {
@@ -212,10 +212,14 @@ body{
 .btn-criarPlaylist {
     padding: 10px 0px 10px;
 }
+
 .sub-main {
-    width: 100%;
+    width: 85.5%;
     margin-left: 3.25em;
     background-color: transparent;
+    position: fixed;
+    left:14%;
+    overflow-x:hidden;
 }
 
 .fake-aside {
@@ -235,17 +239,20 @@ body{
     outline: 2px solid black;
     z-index: 1;
 }
+
 .artista-banner {
     background-image: url(../assets/image/banner/banner_epico.jfif);
     width: 100%;
     height: 250px;
-    background-size:cover;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     transform: translateY(-65px)
-}  
+}
+
 .barra-pesquisa {
     border: #fff;
+    color: #fff;
     width: 250px;
     height: 25px;
     display: flex;
@@ -281,7 +288,8 @@ body{
     font-weight: normal;
 }
 
-.sub-main header{ /* que buceta do caraio mas funciona */
+.sub-main header {
+    /* que buceta do caraio mas funciona */
     position: relative;
     width: 100%;
     padding-bottom: 50px;
@@ -303,146 +311,148 @@ body{
     font-size: 22px;
     font-family: "dm sans";
     position: absolute;
-    
+
     background: linear-gradient(#ac0000 0%, #460000 100%);
 }
 
-#btn-tocar{
+#btn-tocar {
     left: calc(40% + 200px + 15px);
     top: 74%;
 }
 
-.barra-pesquisa{
-    border:#fff;
-    width:250px;
-    height:25px;
-    display:flex;
-    text-align:left;
-    align-items:center;
-    padding:5px;
-    position:relative;
-    border-radius:30px;
-    background:transparent;
+.barra-pesquisa {
+    border: #fff;
+    width: 250px;
+    height: 25px;
+    display: flex;
+    text-align: left;
+    align-items: center;
+    padding: 5px;
+    position: relative;
+    border-radius: 30px;
+    background: transparent;
 }
 
 /* content do site */
 
-.sub-main{
-    width:100%;
-    margin-left:0.5em;
-    background:transparent; /* só pra confirmar que o fundo da sub-main vai ficar transparente(é trans)*/
-    overflow-y:auto;
-    color:#fff;
-    max-height:100vh;
-    top:0;
-    bottom:0;
+.sub-main {
+    margin-left: 0.5em;
+    background: transparent;
+    /* só pra confirmar que o fundo da sub-main vai ficar transparente(é trans)*/
+    overflow-y: auto;
+    color: #fff;
+    max-height: 100vh;
+    top: 0;
+    bottom: 0;
 }
 
 /* header do site */
 
-.sub-main header{
-    margin-right:2em;
-    display:flex;
-    justify-content:space-between;
-    margin-top:20px;
-    align-items:center;
+.sub-main header {
+    margin-right: 2em;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    align-items: center;
 }
 
-.foto-perfil{
-    border-radius:100%;
-    width:3em;
-    height:auto;
-    aspect-ratio:1/1;
+.foto-perfil {
+    border-radius: 100%;
+    width: 3em;
+    height: auto;
+    aspect-ratio: 1/1;
 }
 
-#volte-escutar{
-    display:flex;
-    justify-content:center;
-    gap:10px;
+#volte-escutar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
-#fora-radar{
-    display:flex;
-    justify-content:center;
-    gap:10px;
+#fora-radar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 /* banner maneiro */
-#banner-bemvindo{
-    background-image:url(../assets/image/banner/banner_epico.jfif);
-    background-size:cover;
-    height:300px;
-    width:100%;
+#banner-bemvindo {
+    background-image: url(../assets/image/banner/banner_epico.jfif);
+    background-size: cover;
+    height: 300px;
+    width: 100%;
 }
 
 /* Componentes dos icons (os treco do volte a escitar) */
 
-.album-icon{
-    text-align:center;
+.album-icon {
+    text-align: center;
 }
 
-.capa-album{
-    border-radius:100%;
-    width:18vh;
+.capa-album {
+    border-radius: 100%;
+    width: 18vh;
 }
 
-.icon-nome{
-    font-size:1.2rem;
+.icon-nome {
+    font-size: 1.2rem;
 }
 
-.icon-artista{
-    font-size:1.2rem;
+.icon-artista {
+    font-size: 1.2rem;
 }
 
-.tipo{
-    font-size:1rem;
-    color:#999999;
+.tipo {
+    font-size: 1rem;
+    color: #999999;
     font-family: 'DM Sans'
 }
 
-.artista-icon{
-    text-align:center;
+.artista-icon {
+    text-align: center;
 }
 
-.capa-artista{
-    border-radius:30%;
-    width:18vh;
+.capa-artista {
+    border-radius: 30%;
+    width: 18vh;
 }
 
-.capa-musica{
-    border-radius:100%;
-    width:18vh;
+.capa-musica {
+    border-radius: 100%;
+    width: 18vh;
 }
 
-.musica-icon{
-    text-align:center;
+.musica-icon {
+    text-align: center;
 }
 
 /* tentativa de gambiarra #leonSola */
-.fake-aside{
-    width:180px;
-    height:100vh;
+.fake-aside {
+    width: 180px;
+    height: 100vh;
 }
 
 /* Textos */
-#bem-vindoText{
-    margin-bottom:0.25em;
+#bem-vindoText {
+    margin-bottom: 0.25em;
 }
 
-#volte-escutarText{
-    margin-top:0.25em;
-    margin-bottom:0.25em;
-#btn-aleatorio{
+#volte-escutarText {
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+}
+
+#btn-aleatorio {
     left: calc(40% + 200px + 15px + 152px);
     top: 74%;
     padding: 5px 20px 5px 20px;
 }
 
-.btn-retangular img{
+.btn-retangular img {
     width: auto;
     height: 1.2em;
 }
 
-#btn-aleatorio img{
+#btn-aleatorio img {
     height: calc(1.2em + 13px);
 }
