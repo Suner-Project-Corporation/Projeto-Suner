@@ -21,12 +21,18 @@ body {
 }
 
 .site {
+    grid-template-columns: fit-content fit-content;
+    grid-template-areas:
+        "barraLateral sub-main";
     scroll-behavior: smooth;
-    display: flex;
+    display: grid;
     background-image: linear-gradient(var(--CorFundo) 60%, #4c0f0f 70%);
-    width: 100%;
-    height: 1080px;
     position: fixed;
+    gap: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 /* Controle da musica */
@@ -170,19 +176,22 @@ body {
 /* Playlists */
 
 .barra-lateral {
+    grid-area: barraLateral;
     background-image: linear-gradient(var(--CorFundo) 0%, #4c0f0f 49%);
-    width: fit-content;
+    width: 15vw;
     padding: 0px 10px 0px 10px;
     display: grid;
     /*permite que as setinhas fiquem na extremidade direita, não me pergunte o porque só aceite*/
     overflow-y: auto;
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     bottom: 0;
     max-height: 100vh;
     scrollbar-width: thin;
     scroll-behavior: smooth;
     scrollbar-color: var(--CorTema) transparent;
+    min-width: 180px;
+    max-width: 250px;
 }
 
 .playlist-content {
@@ -211,19 +220,6 @@ body {
 
 .btn-criarPlaylist {
     padding: 10px 0px 10px;
-}
-
-.sub-main {
-    width: 100%;
-    margin-left: 3.25em;
-    background-color: transparent;
-    position: fixed;
-    left: 8.9vw;
-    overflow-x:hidden;
-}
-
-.fake-aside {
-    width: 23.5vh;
 }
 
 .artista-foto {
@@ -341,20 +337,20 @@ body {
     padding-top: 120px;
 }
 
-.item-musica-artista{
+.item-musica-artista {
     display: flex;
     max-height: 100px;
     align-items: center;
     margin-bottom: 3vh;
 }
 
-.musica-titulo-album{
+.musica-titulo-album {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.musica-titulo-album h2{
+.musica-titulo-album h2 {
     color: #CDCDCD;
     font-size: 17.5px;
 }
@@ -366,7 +362,7 @@ body {
     padding-right: 15px;
 }
 
-.titulo{
+.titulo {
     color: white;
     font-family: 'Roboto Flex';
     font-size: 25px;
@@ -378,47 +374,45 @@ body {
     height: 50vh;
     background: white;
     margin: 0 10px;
-    background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        white 30%,
-        white 70%,
-        transparent 100%
-    );
+    background: linear-gradient(to bottom,
+            transparent 0%,
+            white 30%,
+            white 70%,
+            transparent 100%);
 }
 
-.lista-musicas{
+.lista-musicas {
     max-width: 50vw;
 }
 
-.em-destaque{
+.em-destaque {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding-left: 1vw;
 }
 
-.destaque-artista{
+.destaque-artista {
     flex: 1;
     max-width: 34vw;
     padding-bottom: 11.5vh;
 }
 
-.destaque-imagem{
+.destaque-imagem {
     height: 35vh;
     width: auto;
     border-radius: 100%;
     padding-right: 15px;
 }
 
-.titulo-secundario{
+.titulo-secundario {
     color: #CDCDCD;
     padding-right: 3vw;
     font-size: 20px;
     flex: 0 0 12vw;
 }
 
-.titulo-grande{
+.titulo-grande {
     color: white;
     font-family: 'Roboto Flex';
     font-size: 40px;
@@ -426,7 +420,7 @@ body {
     padding-top: 5vh;
 }
 
-.titulo-destaque{
+.titulo-destaque {
     color: white;
     font-family: 'Roboto Flex';
     font-size: 35px;
@@ -434,11 +428,11 @@ body {
     padding-left: 0.5vw;
 }
 
-#em-destaque{
+#em-destaque {
     padding-left: 1vw;
 }
 
-.titulo-secundario-destaque{
+.titulo-secundario-destaque {
     color: #CDCDCD;
     font-size: 25px;
     padding-bottom: 0.5vh;
@@ -448,14 +442,17 @@ body {
 /* content do site */
 
 .sub-main {
-    margin-left: 0.5em;
     background: transparent;
     /* só pra confirmar que o fundo da sub-main vai ficar transparente(é trans)*/
     overflow-y: auto;
     color: #fff;
     max-height: 100vh;
-    top: 0;
-    bottom: 0;
+    grid-area: sub-main;
+    width: 85vw;
+    overflow-x: hidden;
+    padding: .2em;
+    scrollbar-color: var(--CorTema) transparent;
+    scrollbar-width: thin;
 }
 
 /* header do site */
