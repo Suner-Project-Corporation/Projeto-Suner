@@ -16,8 +16,10 @@ body {
 }
 
 :root {
-    --CorTema: #AC0000;
-    --CorFundo: #000000;
+    --CorTema: hsl(323, 100%, 50%);
+    --CorTemaEscuro: color-mix(in hsl, var(--CorTema), black 20%);
+    --CorFundo: hsl(0, 0%, 0%);
+    --CorBgIcon: color-mix(in hsl, var(--CorFundo), transparent 60%);
 }
 
 .site {
@@ -26,7 +28,7 @@ body {
         "barraLateral sub-main";
     scroll-behavior: smooth;
     display: grid;
-    background-image: linear-gradient(var(--CorFundo) 60%, #4c0f0f 70%);
+    background-image: linear-gradient(var(--CorFundo) 10%, var(--CorTemaEscuro) 90%);
     position: fixed;
     gap: 0;
     padding: 0;
@@ -36,6 +38,7 @@ body {
 }
 
 /* Controle da musica */
+
 .barra-duracao {
     width: 100%;
     background: #5b5b5b;
@@ -48,7 +51,7 @@ body {
 .progresso-musica {
     height: 100%;
     width: 50%;
-    background-image: linear-gradient(90deg, var(--CorTema) 57%, #500202 100%);
+    background-image: linear-gradient(90deg, var(--CorTema) 57%, var(--CorTemaEscuro) 100%);
     border-radius: 30px;
 }
 
@@ -66,18 +69,27 @@ body {
 }
 
 .controle-musica {
+    transition: ease-in-out 0.3s;
     width: 60%;
-    height: 150px;
+    height: auto;
     background: var(--CorFundo);
     padding: 10px;
     border-radius: 10px;
-    color: #fff;
+    color: #ffffff;
     position: fixed;
-    left: 20%;
+    left: 50%;
+    bottom: -125px;
+    transform: translateX(-50%);
+    opacity: 0.5;
+}
+
+.controle-musica:hover {
+    transition: ease-in-out 0.3s;
+    opacity: 1;
     bottom: 10px;
 }
 
-.controle-musica p {
+#tempo-musica {
     text-align: right;
 }
 
@@ -147,7 +159,7 @@ body {
 
 .fundo-pausar {
     display: flex;
-    background-image: linear-gradient(#ac0000 0%, #460000 100%);
+    background-image: linear-gradient(var(--CorTema) 0%, var(--CorTemaEscuro) 100%);
     position: relative;
     width: 5rem;
     aspect-ratio: 1/1;
@@ -159,47 +171,49 @@ body {
 .barra-pausar1 {
     width: 15%;
     height: 60%;
-    background-image: linear-gradient(177deg, #ffffff 20%, #999999 92%);
+    background-image: linear-gradient(177deg, var(--CorFundo) 20%, #999999 92%);
     margin-top: 18%;
     margin-left: 10%;
+    filter:invert(1);
 }
 
 .barra-pausar2 {
     width: 15%;
     height: 60%;
-    background-image: linear-gradient(177deg, #ffffff 20%, #999999 92%);
+    background-image: linear-gradient(177deg, var(--CorFundo) 20%, #999999 92%);
     transform: matrix(-1, 0, 0, 1, 0, 0);
     margin-top: 18%;
     margin-right: 10%;
+    filter:invert(1);
 }
 
 /* Playlists */
 
 .barra-lateral {
     grid-area: barraLateral;
-    background-image: linear-gradient(var(--CorFundo) 0%, #4c0f0f 49%);
+    background-color: hsla(0, 0%, 0%, 0.315);
+    /* background-image: linear-gradient(var(--CorFundo) 0%, #4c0f0f 49%); */
     width: 15vw;
     padding: 0px 10px 0px 10px;
     display: grid;
     /*permite que as setinhas fiquem na extremidade direita, não me pergunte o porque só aceite*/
     overflow-y: auto;
-    /* position: fixed; */
     top: 0;
     bottom: 0;
     max-height: 100vh;
     scrollbar-width: thin;
     scroll-behavior: smooth;
-    scrollbar-color: var(--CorTema) transparent;
+    scrollbar-color: var(--CorTema) rgba(0, 0, 0, 0.473);
     min-width: 180px;
     max-width: 250px;
 }
 
 .playlist-content {
-    gap: 20px;
+    gap: 5999px;
 }
 
 .playlist img {
-    width: 8em;
+    width: 8vw;
     aspect-ratio: 1/1;
     border-radius: 30px;
 }
@@ -216,6 +230,19 @@ body {
 .playlist {
     text-align: center;
     color: #fff;
+    font-size:.7em;
+    margin-bottom:40px;
+    padding:1rem;
+    background-color: rgba(0, 0, 0, 0.473);
+    border-radius:1rem;
+}
+
+.playlist:first-child {
+    margin-top:40px;
+}
+
+.playlist:last-child {
+    margin-bottom:20px;
 }
 
 .btn-criarPlaylist {
@@ -496,6 +523,9 @@ body {
 
 .album-icon {
     text-align: center;
+    background: var(--CorBgIcon);
+    padding:10px;
+    border-radius:10%;
 }
 
 .capa-album {
@@ -519,6 +549,9 @@ body {
 
 .artista-icon {
     text-align: center;
+    background: var(--CorBgIcon);
+    padding:10px;
+    border-radius:10%;
 }
 
 .capa-artista {
@@ -533,6 +566,9 @@ body {
 
 .musica-icon {
     text-align: center;
+    background: var(--CorBgIcon);
+    padding:10px;
+    border-radius:10%;
 }
 
 /* tentativa de gambiarra #leonSola */
