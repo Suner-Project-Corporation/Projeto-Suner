@@ -16,14 +16,15 @@ body {
 }
 
 :root {
-    --CorTema: hsl(323, 100%, 50%);
+    --CorTema: #ff0000;
     --CorTemaEscuro: color-mix(in hsl, var(--CorTema), black 20%);
     --CorFundo: hsl(0, 0%, 0%);
     --CorBgIcon: color-mix(in hsl, var(--CorFundo), transparent 60%);
+    --LarguraSubMain: 1080px;
 }
 
 .site {
-    grid-template-columns: fit-content fit-content;
+    grid-template-columns: fit-content 1fr;
     grid-template-areas:
         "barraLateral sub-main";
     scroll-behavior: smooth;
@@ -35,6 +36,10 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+}
+
+.hide {
+    visibility: hidden;
 }
 
 /* Controle da musica */
@@ -58,7 +63,7 @@ body {
 .bolinha-musica {
     aspect-ratio: 1/1;
     height: 130%;
-    background-color: #fff;
+    background-color: var(--CorFundo);
     border-radius: 50%;
     position: absolute;
     top: 50%;
@@ -66,6 +71,7 @@ body {
     /* O JavaScript vai alterar a posição horizontal (left) */
     left: calc(50% - 12px);
     pointer-events: none;
+    filter: invert(1);
 }
 
 .controle-musica {
@@ -75,12 +81,16 @@ body {
     background: var(--CorFundo);
     padding: 10px;
     border-radius: 10px;
-    color: #ffffff;
     position: fixed;
     left: 50%;
     bottom: -125px;
     transform: translateX(-50%);
     opacity: 0.5;
+}
+
+.texto-responsivo-cor {
+    color: var(--CorFundo);
+    filter: invert(1);
 }
 
 .controle-musica:hover {
@@ -174,7 +184,7 @@ body {
     background-image: linear-gradient(177deg, var(--CorFundo) 20%, #999999 92%);
     margin-top: 18%;
     margin-left: 10%;
-    filter:invert(1);
+    filter: invert(1);
 }
 
 .barra-pausar2 {
@@ -184,7 +194,7 @@ body {
     transform: matrix(-1, 0, 0, 1, 0, 0);
     margin-top: 18%;
     margin-right: 10%;
-    filter:invert(1);
+    filter: invert(1);
 }
 
 /* Playlists */
@@ -230,19 +240,19 @@ body {
 .playlist {
     text-align: center;
     color: #fff;
-    font-size:.7em;
-    margin-bottom:40px;
-    padding:1rem;
+    font-size: .7em;
+    margin-bottom: 40px;
+    padding: 1rem;
     background-color: rgba(0, 0, 0, 0.473);
-    border-radius:1rem;
+    border-radius: 1rem;
 }
 
 .playlist:first-child {
-    margin-top:40px;
+    margin-top: 40px;
 }
 
 .playlist:last-child {
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
 
 .btn-criarPlaylist {
@@ -475,7 +485,7 @@ body {
     color: #fff;
     max-height: 100vh;
     grid-area: sub-main;
-    width: 85vw;
+    width: var(--LarguraSubMain);
     overflow-x: hidden;
     padding: .2em;
     scrollbar-color: var(--CorTema) transparent;
@@ -497,18 +507,125 @@ body {
     width: 3em;
     height: auto;
     aspect-ratio: 1/1;
+    margin: 10px;
+    cursor: pointer;
 }
+
+/* barra do usuário, a lateral */
+
+#foto-perfil {
+    width: 12vw;
+    height: 12vw;
+    border-radius: 50%;
+}
+
+.foto-user {
+    position: relative;
+    justify-self: center;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+#nome-user {
+    color: var(--CorFundo);
+    filter: invert(1);
+}
+
+#barra-user {
+    color: invert(1) var(--CorFundo);
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 20vw;
+    height: 100vh;
+    padding: 15px;
+    background-color: var(--CorFundo);
+    border-radius: 20px;
+    z-index: 999;
+    transition: 0.2s ease-in-out;
+}
+
+#btn-fechar {
+    width: 4vw;
+    height: 4vh;
+    position: absolute;
+    z-index: 9999;
+    background: transparent;
+    color: var(--CorFundo);
+    filter: invert(1);
+    border: var(--CorFundo) 2px solid;
+    border-radius: 30px;
+}
+
+#btn-fechar:hover {
+    background-color: color-mix(var(--CorTema), transparent 70%);
+    border: var(--CorTema) 2px solid;
+    filter: invert(0);
+    color: color-mix(var(--CorTema), white 60%)
+}
+
+.tema-container div {
+    display: grid;
+}
+
+.tema-container {
+    display: grid;
+    gap: 10px;
+}
+
+.tema-container label {
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--CorFundo);
+    filter: invert(1);
+}
+
+.tema-container input {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 10px;
+}
+
+#btn-mudar-cor {
+    justify-self: center;
+    background: transparent;
+    color: var(--CorFundo);
+    filter: invert(1);
+    border: var(--CorFundo) 2px solid;
+    border-radius: 30px;
+    width: 60%;
+    aspect-ratio: 1/0.20;
+    font-size: 1.2rem;
+}
+
+#btn-mudar-cor:hover {
+    background-color: color-mix(var(--CorTema), transparent 70%);
+    border: var(--CorTema) 2px solid;
+    filter: invert(0);
+    color: color-mix(var(--CorTema), white 60%)
+}
+
+/* ====================== */
 
 #volte-escutar {
     display: flex;
-    justify-content: center;
     gap: 10px;
+    overflow-x: auto;
+    scroll-margin: 1000px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--CorTemaEscuro) var(--CorBgIcon);
+    padding: 10px;
 }
 
 #fora-radar {
+    padding: 10px;
     display: flex;
     justify-content: center;
     gap: 10px;
+    overflow-x: auto;
+    scrollbar-width: thin;
 }
 
 /* banner maneiro */
@@ -521,11 +638,54 @@ body {
 
 /* Componentes dos icons (os treco do volte a escitar) */
 
-.album-icon {
+.icon {
+    transition: .2s;
     text-align: center;
     background: var(--CorBgIcon);
-    padding:10px;
-    border-radius:10%;
+    padding: 10px;
+    border-radius: 10%;
+    min-width: 200px;
+    justify-content: center;
+    align-content: center;
+    max-width: 250px;
+    cursor: pointer;
+}
+
+.icon:hover {
+    transition: .2s ease-in-out;
+    transform: scale(105%);
+}
+
+.icon-btn-play {
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--CorTema);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    z-index: 99;
+    position: absolute;
+    left: 70%;
+    top: 50%;
+    visibility: hidden;
+    box-shadow: #000 0 0 15px .25rem;
+}
+
+.icon:hover .icon-btn-play {
+    visibility: visible;
+    transform: scale(120%);
+    transition: 0.2s ease-in-out;
+}
+
+.icon-barra-play {
+    width: 0;
+    height: 0;
+    transform: translateX(25%);
+    border-top: 0.625rem solid transparent;
+    border-left: 1.25rem solid var(--CorFundo);
+    border-right: 1.25rem solid transparent;
+    border-bottom: 0.625rem solid transparent;
 }
 
 .capa-album {
@@ -538,20 +698,13 @@ body {
 }
 
 .icon-artista {
-    font-size: 1.2rem;
+    font-size: 0.8rem;
 }
 
 .tipo {
     font-size: 1rem;
     color: #999999;
     font-family: 'DM Sans'
-}
-
-.artista-icon {
-    text-align: center;
-    background: var(--CorBgIcon);
-    padding:10px;
-    border-radius:10%;
 }
 
 .capa-artista {
@@ -562,13 +715,7 @@ body {
 .capa-musica {
     border-radius: 100%;
     width: 18vh;
-}
-
-.musica-icon {
-    text-align: center;
-    background: var(--CorBgIcon);
-    padding:10px;
-    border-radius:10%;
+    aspect-ratio: 1/1;
 }
 
 /* tentativa de gambiarra #leonSola */
