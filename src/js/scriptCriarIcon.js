@@ -1,7 +1,10 @@
+var jsmediatags = window.jsmediatags;
+
+
 // esse mano identifica a pag atual
 pagAtual = window.location.pathname;
 // esse mano é a lista de metadados que temos
-dados = [
+var dados = [
     {tipo:"musica", nome:"jorge da quebrada", artista:"farmador de aura supremo", imagem:"imagem_capa_teste.jfif"},
     {tipo:"musica", nome:"jorge da quebrada", artista:"farmador de aura supremo", imagem:"imagem_capa_teste.jfif"},
     {tipo:"musica", nome:"jorge da quebrada", artista:"farmador de aura supremo", imagem:"imagem_capa_teste.jfif"},
