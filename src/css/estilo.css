@@ -2,9 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
 
 /* reset */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
-
 * {
     padding: 0;
     box-sizing: border-box;
@@ -12,30 +9,31 @@
 }
 
 body {
-    font-family: 'Roboto Flex'
+    font-family: 'Roboto Flex';
+    background: linear-gradient(
+        to bottom,
+        #000000 0%,
+        #000000 70%,
+        #510000 100%
+    );
+    background-attachment: fixed;
 }
 
 :root {
-    --CorTema: #ff0000;
-    --CorTemaEscuro: color-mix(in hsl, var(--CorTema), black 20%);
+    --CorTema: #AC0000;
+    --CorTemaEscuro: #990000;
     --CorFundo: hsl(0, 0%, 0%);
     --CorBgIcon: color-mix(in hsl, var(--CorFundo), transparent 60%);
-    --LarguraSubMain: 1080px;
+    --LarguraSubMain: 100%;
 }
 
 .site {
-    grid-template-columns: fit-content 1fr;
-    grid-template-areas:
-        "barraLateral sub-main";
-    scroll-behavior: smooth;
     display: grid;
-    background-image: linear-gradient(var(--CorFundo) 10%, var(--CorTemaEscuro) 90%);
-    position: fixed;
-    gap: 0;
-    padding: 0;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    grid-template-columns: fit-content 1fr;
+    grid-template-areas: "barraLateral sub-main";
+
+    background: transparent;
+
 }
 
 .hide {
@@ -219,7 +217,7 @@ body {
 }
 
 .playlist-content {
-    gap: 5999px;
+    gap: 10px;
 }
 
 .playlist img {
@@ -269,7 +267,6 @@ body {
     left: 40%;
     transform: translateY(-50%);
     border-radius: 15px;
-    outline: 2px solid black;
     z-index: 1;
 }
 
@@ -286,18 +283,38 @@ body {
 .barra-pesquisa {
     border: #fff;
     color: #fff;
-    width: 250px;
-    height: 25px;
+    width: 20vw;
+    height: 3vh;
     display: flex;
     text-align: left;
     align-items: center;
     padding: 5px;
     position: relative;
     border-radius: 30px;
-    margin-top: 20px;
+    outline: 1px solid rgb(48, 48, 48);
     margin-left: 20px;
-    left: 40%;
     z-index: 1;
+}
+
+.input-pesquisa::placeholder{
+    font-family: 'Roboto Flex';
+    color: rgba(255, 255, 255, 0.729);
+}
+
+.input-pesquisa{
+    background-color: transparent;
+    border: #fff;
+    color: #fff;
+    outline: none;
+}
+
+.lupa-pesquisa {
+    border-radius: 100%;
+    width: auto;
+    height: 130%;
+    aspect-ratio: 1/1;
+    margin: 10px;
+    cursor: pointer;
 }
 
 .artista-nome {
@@ -319,13 +336,6 @@ body {
     font-family: "dm sans";
     font-size: 17.5px;
     font-weight: normal;
-}
-
-.sub-main header {
-    /* que buceta do caraio mas funciona */
-    position: relative;
-    width: 100%;
-    padding-bottom: 50px;
 }
 
 .btn-retangular {
@@ -351,19 +361,6 @@ body {
 #btn-tocar {
     left: calc(40% + 200px + 15px);
     top: 84%;
-}
-
-.barra-pesquisa {
-    border: #fff;
-    width: 250px;
-    height: 25px;
-    display: flex;
-    text-align: left;
-    align-items: center;
-    padding: 5px;
-    position: relative;
-    border-radius: 30px;
-    background: transparent;
 }
 
 .musicas-artista {
@@ -483,7 +480,7 @@ body {
     /* só pra confirmar que o fundo da sub-main vai ficar transparente(é trans)*/
     overflow-y: auto;
     color: #fff;
-    max-height: 100vh;
+    min-height: 100vh;
     grid-area: sub-main;
     width: var(--LarguraSubMain);
     overflow-x: hidden;
@@ -498,8 +495,10 @@ body {
     margin-right: 2em;
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 0px;
     align-items: center;
+    position: relative;
+    width: 100%;
 }
 
 .foto-perfil {
@@ -611,12 +610,12 @@ body {
 
 #volte-escutar {
     display: flex;
-    gap: 10px;
     overflow-x: auto;
     scroll-margin: 1000px;
     scrollbar-width: thin;
     scrollbar-color: var(--CorTemaEscuro) var(--CorBgIcon);
     padding: 10px;
+    justify-content: center;
 }
 
 #fora-radar {
@@ -632,8 +631,9 @@ body {
 #banner-bemvindo {
     background-image: url(../assets/image/banner/banner_epico.jfif);
     background-size: cover;
-    height: 300px;
-    width: 100%;
+    height: 40vh;
+    width: 80vw;
+     margin: 0 auto;
 }
 
 /* Componentes dos icons (os treco do volte a escitar) */
@@ -641,7 +641,7 @@ body {
 .icon {
     transition: .2s;
     text-align: center;
-    background: var(--CorBgIcon);
+    background: transparent;
     padding: 10px;
     border-radius: 10%;
     min-width: 200px;
@@ -695,20 +695,23 @@ body {
 
 .icon-nome {
     font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .icon-artista {
-    font-size: 0.8rem;
+    font-size: 1rem;
+    font-weight: 550;
 }
 
 .tipo {
-    font-size: 1rem;
-    color: #999999;
+    font-size: 0.8rem;
+    color: #9999;
     font-family: 'DM Sans'
 }
 
 .capa-artista {
-    border-radius: 30%;
+    border-radius: 10%;
+    outline: 2px solid white;
     width: 18vh;
 }
 
@@ -747,4 +750,9 @@ body {
 
 #btn-aleatorio img {
     height: calc(1.2em + 13px);
+}
+
+.site {
+    height: 100vh;
+    overflow: hidden;
 }
