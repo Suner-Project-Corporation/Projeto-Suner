@@ -11,10 +11,10 @@
 body {
     font-family: 'Roboto Flex';
     background: linear-gradient(
-        to bottom,
-        #000000 0%,
-        #000000 70%,
-        #510000 100%
+        -135deg,
+        #1B1B1B 0%,
+        #231111 70%,
+        #700808 100%
     );
     background-attachment: fixed;
 }
@@ -29,7 +29,7 @@ body {
 
 .site {
     display: grid;
-    grid-template-columns: fit-content 1fr;
+    grid-template-columns: 6vw 1fr;
     grid-template-areas: "barraLateral sub-main";
 
     background: transparent;
@@ -40,190 +40,22 @@ body {
     visibility: hidden;
 }
 
-/* Controle da musica */
-
-.barra-duracao {
-    width: 100%;
-    background: #5b5b5b;
-    height: 12px;
-    border-radius: 30px;
-    position: relative;
-    cursor: pointer;
-}
-
-.progresso-musica {
-    height: 100%;
-    width: 50%;
-    background-image: linear-gradient(90deg, var(--CorTema) 57%, var(--CorTemaEscuro) 100%);
-    border-radius: 30px;
-}
-
-.bolinha-musica {
-    aspect-ratio: 1/1;
-    height: 130%;
-    background-color: var(--CorFundo);
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    /* O JavaScript vai alterar a posição horizontal (left) */
-    left: calc(50% - 12px);
-    pointer-events: none;
-    filter: invert(1);
-}
-
-.controle-musica {
-    transition: ease-in-out 0.3s;
-    width: 60%;
-    height: auto;
-    background: var(--CorFundo);
-    padding: 10px;
-    border-radius: 10px;
-    position: fixed;
-    left: 50%;
-    bottom: -125px;
-    transform: translateX(-50%);
-    opacity: 0.5;
-}
-
-.texto-responsivo-cor {
-    color: var(--CorFundo);
-    filter: invert(1);
-}
-
-.controle-musica:hover {
-    transition: ease-in-out 0.3s;
-    opacity: 1;
-    bottom: 10px;
-}
-
-#tempo-musica {
-    text-align: right;
-}
-
-.controle-musica article {
-    display: flex;
-    justify-content: space-between;
-}
-
-.info-musica {
-    text-align: left;
-    display: flex;
-    gap: 10px;
-}
-
-.info-musica h1 {
-    margin-top: 10px;
-    font-size: 30px;
-}
-
-.info-musica h2 {
-    margin-top: 1px;
-    font-size: 20px;
-}
-
-.tocando-agora {
-    width: 110px;
-    aspect-ratio: 1/1;
-    border-radius: 100%;
-}
-
-/* botões de musica */
-
-.botoes-musica {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-right: calc(50% - 80px);
-}
-
-.btn-voltar {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-voltar img {
-    transform: rotate(180deg);
-    width: 30px;
-    height: auto;
-}
-
-.btn-avancar {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-avancar img {
-    width: 30px;
-    height: auto;
-}
-
-.btn-pausar {
-    background: transparent;
-    border: none;
-}
-
-.fundo-pausar {
-    display: flex;
-    background-image: linear-gradient(var(--CorTema) 0%, var(--CorTemaEscuro) 100%);
-    position: relative;
-    width: 5rem;
-    aspect-ratio: 1/1;
-    border-radius: 100%;
-    justify-content: space-around;
-    cursor: pointer;
-}
-
-.barra-pausar1 {
-    width: 15%;
-    height: 60%;
-    background-image: linear-gradient(177deg, var(--CorFundo) 20%, #999999 92%);
-    margin-top: 18%;
-    margin-left: 10%;
-    filter: invert(1);
-}
-
-.barra-pausar2 {
-    width: 15%;
-    height: 60%;
-    background-image: linear-gradient(177deg, var(--CorFundo) 20%, #999999 92%);
-    transform: matrix(-1, 0, 0, 1, 0, 0);
-    margin-top: 18%;
-    margin-right: 10%;
-    filter: invert(1);
-}
-
 /* Playlists */
 
 .barra-lateral {
     grid-area: barraLateral;
-    background-color: hsla(0, 0%, 0%, 0.315);
-    /* background-image: linear-gradient(var(--CorFundo) 0%, #4c0f0f 49%); */
-    width: 15vw;
-    padding: 0px 10px 0px 10px;
-    display: grid;
-    /*permite que as setinhas fiquem na extremidade direita, não me pergunte o porque só aceite*/
-    overflow-y: auto;
-    top: 0;
-    bottom: 0;
+    background-color: transparent;
+    width: 6vw;
+    display: flex;
+    flex-direction: column;
     max-height: 100vh;
-    scrollbar-width: thin;
-    scroll-behavior: smooth;
-    scrollbar-color: var(--CorTema) rgba(0, 0, 0, 0.473);
-    min-width: 180px;
-    max-width: 250px;
 }
 
 .playlist-content {
-    gap: 10px;
-}
-
-.playlist img {
-    width: 8vw;
-    aspect-ratio: 1/1;
-    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
 }
 
 .btn-playlist {
@@ -236,25 +68,56 @@ body {
 }
 
 .playlist {
-    text-align: center;
-    color: #fff;
-    font-size: .7em;
-    margin-bottom: 40px;
-    padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.473);
-    border-radius: 1rem;
+    width: 4.7vw;
+    aspect-ratio: 1/1;
+    border-radius: 16%;
+    margin-bottom: 2vh;
 }
 
-.playlist:first-child {
-    margin-top: 40px;
+.playlist-container{
+    display: flex;
+    justify-content: center;
+    position: relative;
 }
 
-.playlist:last-child {
-    margin-bottom: 20px;
+.playlist-nome{
+    position: absolute;
+    left: calc(100% + 0.5vw);
+    opacity: 0;
+    white-space: nowrap;
+    color: white;
+    background-color: #383838;
+    font-family: 'Roboto Flex';
+    font-size: 1vw;
+    pointer-events: none;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    align-self: center;
+    transform: translateY(-25%);
+    margin: 0;
+    transition: 0.2s;
 }
 
-.btn-criarPlaylist {
-    padding: 10px 0px 10px;
+.playlist-container:hover .playlist-nome {
+    opacity: 1;
+}
+
+.botao-add-playlist{
+    opacity: 0.5;
+    width: 2.5vw;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    transition: .15s;
+    margin-bottom: 2vh;
+}
+
+.botao-add-playlist:hover{
+    opacity: 1;
+    transition: 0.3s;
 }
 
 .artista-foto {
@@ -476,17 +339,19 @@ body {
 /* content do site */
 
 .sub-main {
-    background: transparent;
+    background: #000000;
     /* só pra confirmar que o fundo da sub-main vai ficar transparente(é trans)*/
     overflow-y: auto;
     color: #fff;
-    min-height: 100vh;
+    min-height: 85vh;
     grid-area: sub-main;
     width: var(--LarguraSubMain);
     overflow-x: hidden;
-    padding: .2em;
-    scrollbar-color: var(--CorTema) transparent;
-    scrollbar-width: thin;
+    padding: 1em;
+    scrollbar-color: #1B1B1B transparent;
+    scrollbar-width: thick;
+    border-left: 2px solid #323232;
+    border-bottom: 2px solid #323232;
 }
 
 /* header do site */
@@ -755,4 +620,97 @@ body {
 .site {
     height: 100vh;
     overflow: hidden;
+}
+
+/* controle da musica v2 */
+
+.controle-musica{
+    transform: translateX(-5vw);
+    display: flex;
+    margin-top: 0.5vh;
+    position: relative;
+}
+
+.imagem-musica{
+    max-width: 6.8vw;
+    max-height: 6.8vw;
+    border-radius: 100%;
+}
+
+#titulo-player-musica{
+    margin-top: 1vh;
+    margin-left: 0.5vw;
+}
+
+.botoes-player{
+    position: absolute;
+    left: 50vw;
+    transform: translateX(-61%);
+    display: flex;
+    align-items: center;
+    gap: 1.5vw;
+    margin-top: 1vh;
+    flex-wrap: wrap;
+}
+
+.botao-player-tocar{
+    max-width: 3vw;
+}
+
+.botao-player-voltaravancar{
+    max-width: 1.5vw;
+    max-height: 1.5vw;
+}
+
+#botao-player-avancar{
+    transform: rotate(180deg);
+}
+
+/* barra progresso é a parte do fundo da barra de progresso */
+.barra-progresso{ 
+    background-color: #5B5B5B;
+    border-radius: 30px;
+    width: 27vw;
+    height: 6px;
+    position: absolute;
+    left: 50vw;
+    transform: translateX(-53.5%);
+    margin-top: 10vh;
+}
+
+.progresso-musica{
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        #8B0000 57%,
+        #500202 100%
+    );
+    border-radius: 30px;
+}
+
+.barra-progresso:hover .bolinha-progresso{
+    height: 13px;
+    width: 13px;
+    transition: 0.2s;
+}
+
+.bolinha-progresso{
+    height: 11px;
+    background-color: white;
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    width: 11px;
+    left: 50%;
+    transition: 0.1s;
+}
+
+.logo{
+    max-width: 100%;
+    align-self: center;
+    margin-top: 1vh;
+    margin-bottom: 5vh;
+    border-radius: 10px;
 }

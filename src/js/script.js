@@ -1,17 +1,3 @@
-// correção para largura da sub-main
-function MudarTamanhoPag() {
-    larguraBarraLateral = document.querySelector('.barra-lateral').clientWidth;
-    larguraMonitor = document.querySelector('body').clientWidth;
-    larguraSubMain = larguraMonitor - larguraBarraLateral - 10;
-    document.documentElement.style.setProperty('--LarguraSubMain', `${larguraSubMain}px`);
-    console.log(larguraBarraLateral, larguraMonitor, larguraSubMain);
-}
-
-MudarTamanhoPag()
-window.addEventListener('resize', () => {
-    MudarTamanhoPag();
-});
-
 // define os elementos
 barraUser = document.getElementById("barra-user");
 mostra = document.getElementById("barra-user").classList;
