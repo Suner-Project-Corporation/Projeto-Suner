@@ -1,0 +1,20 @@
+{
+    "C418": [
+        {
+            "titulo": "Alpha",
+            "album": "Volume Beta",
+            "arquivo": "./src/assets/musicas\\Alpha - C418 - Volume Beta.m4a",
+            "arquivoCapa": "./src/assets/image/capaAlbuns/Volume Beta.png",
+            "arquivoFotoArtista": "./src/assets/image/fotoArtistas/C418.png"
+        }
+    ],
+    "Arctic Monkeys": [
+        {
+            "titulo": "R U Mine",
+            "album": "AM",
+            "arquivo": "./src/assets/musicas\\R U Mine - Arctic Monkeys - AM.mp3",
+            "arquivoCapa": "./src/assets/image/capaAlbuns/AM.png",
+            "arquivoFotoArtista": "./src/assets/image/fotoArtistas/Arctic Monkeys.png"
+        }
+    ]
+}

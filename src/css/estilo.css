@@ -10,12 +10,7 @@
 
 body {
     font-family: 'Roboto Flex';
-    background: linear-gradient(
-        -135deg,
-        #1B1B1B 0%,
-        #231111 70%,
-        #700808 100%
-    );
+    background: #161616
 }
 
 :root {
@@ -28,8 +23,11 @@ body {
 
 .site {
     display: grid;
-    grid-template-columns: 6vw 1fr;
-    grid-template-areas: "barraLateral sub-main";
+    grid-template-columns: minmax(75px, 6vw) 1fr;
+    grid-template-rows: 85vh auto;
+    grid-template-areas:
+        "barraLateral sub-main"
+        "controle-musica controle-musica";
 
     background: transparent;
     height: 100vh;
@@ -46,10 +44,9 @@ body {
 .barra-lateral {
     grid-area: barraLateral;
     background-color: transparent;
-    width: 6vw;
     display: flex;
     flex-direction: column;
-    max-height: 100vh;
+    max-height: 85vh;
 }
 
 .playlist-content {
@@ -69,21 +66,22 @@ body {
 }
 
 .playlist {
-    width: 4.7vw;
+    width: 80%;
     aspect-ratio: 1/1;
     border-radius: 16%;
-    margin-bottom: 2vh;
+    margin-bottom: 1rem;
 }
 
 .playlist-container{
     display: flex;
     justify-content: center;
     position: relative;
+    width: 100%;
 }
 
 .playlist-nome{
     position: absolute;
-    left: calc(100% + 0.5vw);
+    left: calc(100%);
     opacity: 0;
     white-space: nowrap;
     color: white;
@@ -107,6 +105,7 @@ body {
 .botao-add-playlist{
     opacity: 0.5;
     width: 2.5vw;
+    min-width: 24.3px;
     aspect-ratio: 1/1;
     display: flex;
     align-items: center;
@@ -339,11 +338,10 @@ body {
 /* content do site */
 
 .sub-main {
-    background: #000000;
+    background: #1D1D1D;
     /* só pra confirmar que o fundo da sub-main vai ficar transparente(é trans)*/
     overflow-y: auto;
     color: #fff;
-    height: 85vh;
     grid-area: sub-main;
     min-width: 0;
     width: var(--LarguraSubMain);
@@ -365,7 +363,6 @@ body {
 /* header do site */
 
 .sub-main header {
-    margin-right: 2em;
     display: flex;
     justify-content: space-between;
     margin-top: 0px;
@@ -626,7 +623,7 @@ body {
 
 .controle-musica{
     display: flex;
-    margin-top: 0.5vh;
+    margin-top: 1vh;
     position: relative;
     width: 100%;
     margin-left: 1vw;
@@ -656,12 +653,12 @@ body {
 }
 
 .botao-player-tocar{
-    max-width: 3vw;
+    max-width: 6vh;
 }
 
 .botao-player-voltaravancar{
-    max-width: 1.5vw;
-    max-height: 1.5vw;
+    max-width: 2.6vh;
+    max-height: 2.6vh;
 }
 
 #botao-player-avancar{
@@ -673,6 +670,7 @@ body {
     background-color: #5B5B5B;
     border-radius: 30px;
     width: 27vw;
+    min-width: 183px;
     height: 6px;
     position: absolute;
     left: 49vw;
@@ -683,11 +681,7 @@ body {
 .progresso-musica{
     width: 50%;
     height: 100%;
-    background: linear-gradient(
-        90deg,
-        #8B0000 57%,
-        #500202 100%
-    );
+    background: #8B0000;
     border-radius: 30px;
 }
 
