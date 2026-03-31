@@ -71,3 +71,4 @@ print("gerado")
 
 
 # print(extrairMetadados())
+

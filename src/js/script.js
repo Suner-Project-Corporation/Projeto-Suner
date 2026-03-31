@@ -33,3 +33,15 @@
 
 // btnMudarCor = document.getElementById("btn-mudar-cor");
 // btnMudarCor.addEventListener('click', mudarCorSite);
+
+//Código do banner:
+
+  let imagens = ["./src/assets/image/banner/banner_epico.jfif", "./src/assets/image/banner/mikey.jpg"];
+  let index = 0;
+
+  setInterval(() => {
+    index = (index + 1) % imagens.length;
+    document.getElementById("banner-bemvindo").src = imagens[index];
+  }, 3000)
+
+  
