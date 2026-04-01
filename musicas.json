@@ -15,6 +15,13 @@
             "arquivo": "./src/assets/musicas\\R U Mine - Arctic Monkeys - AM.mp3",
             "arquivoCapa": "./src/assets/image/capaAlbuns/AM.png",
             "arquivoFotoArtista": "./src/assets/image/fotoArtistas/Arctic Monkeys.png"
+        },
+        {
+        "titulo": "Daddario linda",
+        "album": "AM",
+        "arquivo": "./src/assets/musicas\\R U Mine - Arctic Monkeys - AM.mp3",
+        "arquivoCapa": "./src/assets/image/capaAlbuns/AM.png",
+        "arquivoFotoArtista": "./src/assets/image/fotoArtistas/Arctic Monkeys.png"
         }
     ]
 }
