@@ -64,7 +64,14 @@ fetch("./musicas.json")
 
     console.log(musicas);
       
-      player = new Audio(musicas[indexmusica])
+    player = new Audio(musicas[indexmusica])
+    player.addEventListener("ended", function(){
+    indexmusica += 1
+    player = new Audio(musicas[indexmusica])
+    player.play()
+    btnplay.src = "./src/assets/image/botoes/botao_pausar.png"
+    
+});
   });
 
 
@@ -98,3 +105,4 @@ function mudarmusica(direcao) {
   player.play()
   btnplay.src = "./src/assets/image/botoes/botao_pausar.png"
 }
+
