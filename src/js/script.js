@@ -74,8 +74,6 @@ fetch("./musicas.json")
 });
   });
 
-
-
   //Botão de play
  const btnplay = document.getElementById("botao-player-tocar");
   btnplay.addEventListener("click", () => {
@@ -87,7 +85,6 @@ fetch("./musicas.json")
     btnplay.src = "./src/assets/image/botoes/botao_tocar.png"
   }
 });
-
 
 //Botão de avançar e voltar:
   const btnmudar = document.getElementsByClassName("botao-player-voltaravancar");
@@ -106,3 +103,6 @@ function mudarmusica(direcao) {
   btnplay.src = "./src/assets/image/botoes/botao_pausar.png"
 }
 
+function escolher(indexmusica) {
+
+}

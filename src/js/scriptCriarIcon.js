@@ -72,3 +72,64 @@ fetch("../musicas.json")
 // else if (pagAtual == "artista.html") {
 //     CriarIconInicial(dados.tipo, dados.imagem, dados.nome, dados.artista, "#volte-escutar");
 // }
+
+
+/*
+const container = document.querySelector("#volte-escutar");
+
+let player = new Audio();
+
+fetch("../musicas.json")
+  .then(res => res.json())
+  .then(data => {
+
+    Object.entries(data).forEach(([artista, musicas]) => {
+
+      // 🎤 CARD DO ARTISTA
+      const artistaDiv = document.createElement("div");
+      artistaDiv.classList.add("icon");
+
+      const imgArtista = document.createElement("img");
+      imgArtista.src = musicas[0].arquivoFotoArtista;
+      imgArtista.classList.add("capa-artista");
+
+      const nomeArtista = document.createElement("h2");
+      nomeArtista.textContent = artista;
+
+      artistaDiv.appendChild(imgArtista);
+      artistaDiv.appendChild(nomeArtista);
+
+      container.appendChild(artistaDiv);
+
+      // 🎵 MÚSICAS
+      musicas.forEach((musica) => {
+
+        const musicaDiv = document.createElement("div");
+        musicaDiv.classList.add("icon");
+
+        const img = document.createElement("img");
+        img.src = musica.arquivoCapa;
+
+        const titulo = document.createElement("h2");
+        titulo.textContent = musica.titulo;
+
+        const nome = document.createElement("h3");
+        nome.textContent = artista;
+
+        musicaDiv.appendChild(img);
+        musicaDiv.appendChild(titulo);
+        musicaDiv.appendChild(nome);
+
+        // 🔥 AQUI É O SEGREDO (click pra tocar)
+        musicaDiv.addEventListener("click", () => {
+          player.src = musica.arquivo;
+          player.play();
+        });
+
+        container.appendChild(musicaDiv);
+      });
+
+    });
+
+  });
+*/
