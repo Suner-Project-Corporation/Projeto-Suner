@@ -43,6 +43,35 @@
     document.getElementById("banner-bemvindo").src = imagens[index];
   }, 3000)
 
+  let musicas = [];
+  let indexmusica = 0;
+
+  fetch("./musicas.json")
+  .then(res => res.json())
+  .then (data => {
+    for (let artista in data) {
+      data[artista].forEach(musica => {
+        musicas.push(musica);
+      })
+    }
+  })
+
+  player = new Audio("./src/assets/musicas/ssstik.io_1775087441826.mp3")
+  let div = document.getElementById("iconmusica").innerHTML = player;
+
+ const btnplay = document.getElementById("botao-player-tocar");
+  btnplay.addEventListener("click", () => {
+  if(player.paused) {
+    player.play();
+    btnplay.src = "./src/assets/image/botoes/botao_pausar.png"
+  }else {
+    player.pause();
+    btnplay.src = "./src/assets/image/botoes/botao_tocar.png"
+  }
+});
+
+
+  /*
 // Musicas
 let musicas = [];
 let indexmusica = 0;
