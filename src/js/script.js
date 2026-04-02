@@ -43,22 +43,33 @@
     document.getElementById("banner-bemvindo").src = imagens[index];
   }, 3000)
 
-  let musicas = [];
-  let indexmusica = 0;
+// Declarando musicas
+let musicas = [];
+let indexmusica = 0;
 
-  fetch("./musicas.json")
+fetch("./musicas.json")
   .then(res => res.json())
-  .then (data => {
+  .then(data => {
+
     for (let artista in data) {
       data[artista].forEach(musica => {
-        musicas.push(musica);
-      })
+
+        // pega o arquivo
+        console.log(musica.arquivo);
+
+        // se quiser salvar tudo
+        musicas.push(musica.arquivo);
+      });
     }
-  })
 
-  player = new Audio("./src/assets/musicas/ssstik.io_1775087441826.mp3")
-  let div = document.getElementById("iconmusica").innerHTML = player;
+    console.log(musicas);
+      
+      player = new Audio(musicas[indexmusica])
+  });
 
+
+
+  //Botão de play
  const btnplay = document.getElementById("botao-player-tocar");
   btnplay.addEventListener("click", () => {
   if(player.paused) {
@@ -71,40 +82,7 @@
 });
 
 
-  /*
-// Musicas
-let musicas = [];
-let indexmusica = 0;
-let musica = document.getElementById("musica")
-
-fetch("./musicas.json")
-  .then(res => res.json())
-  .then(data => {
-    // transformar objeto em lista
-    for (let artista in data) {
-      data[artista].forEach(musica => {
-        musicas.push(musica);
-      });
-    }
-  });
-
-    console.log(musicas); //teste
-
-//Botão de play
-const btnplay = document.getElementById("botao-player-tocar");
-
-btnplay.addEventListener("click", () => {
-  if(musica.paused) {
-    musica.play();
-    btnplay.src = "./src/assets/image/botoes/botao_pausar.png"
-  }else {
-    musica.pause();
-    btnplay.src = "./src/assets/image/botoes/botao_tocar.png"
-  }
-});
-
 //Botão de avançar e voltar:
-window.addEventListener("load", () => {
   const btnmudar = document.getElementsByClassName("botao-player-voltaravancar");
   btnmudar[0].addEventListener("click", () => mudarmusica("-"));
   btnmudar[1].addEventListener("click", () => mudarmusica("+"));
@@ -115,24 +93,8 @@ function mudarmusica(direcao) {
   } else {
     indexmusica = (indexmusica - 1 + musicas.length) % musicas.length;
   }
+  player.pause()
+  player = new Audio(musicas[indexmusica])
+  player.play()
+  btnplay.src = "./src/assets/image/botoes/botao_pausar.png"
 }
-})
-
-
-
-/*function mudarmusica(index) {
-  switch(index) {
-        case "+":
-            musicas++;
-            if(musicas == 4) {
-                musicas = 1;
-            }
-            break;
-        case "-":
-            musicas--;
-            if(musicas == 0) {
-                musicas = 3;
-            }
-            break;
-    }
-} */

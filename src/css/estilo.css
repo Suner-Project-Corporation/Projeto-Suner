@@ -546,6 +546,10 @@ body {
     transition: 0.2s ease-in-out;
 }
 
+.iconmusica {
+    color: transparent;
+}
+
 .icon-barra-play {
     width: 0;
     height: 0;
@@ -673,6 +677,7 @@ body {
 .botao-player-voltaravancar:hover{
     max-width: 3vh;
     transition: 0.15s;
+    filter: brightness(0) invert(1)
 }
 
 #botao-player-avancar{
