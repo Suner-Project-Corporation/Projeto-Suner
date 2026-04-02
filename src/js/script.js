@@ -62,15 +62,15 @@ fetch("./musicas.json")
     console.log(musicas); //teste
 
 //Botão de play
-const btnplay = document.getElementsByClassName("botao-player-tocar")[0];
+const btnplay = document.getElementById("botao-player-tocar");
 
 btnplay.addEventListener("click", () => {
   if(musica.paused) {
     musica.play();
-    //muda pra icone pausado aqui
+    btnplay.src = "./src/assets/image/botoes/botao_pausar.png"
   }else {
     musica.pause();
-    //muda pra icone de tocar aqui
+    btnplay.src = "./src/assets/image/botoes/botao_tocar.png"
   }
 });
 

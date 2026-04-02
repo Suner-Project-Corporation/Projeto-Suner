@@ -339,7 +339,6 @@ body {
 
 .sub-main {
     background: #1D1D1D;
-    /* só pra confirmar que o fundo da sub-main vai ficar transparente(é trans)*/
     overflow-y: auto;
     color: #fff;
     grid-area: sub-main;
@@ -497,9 +496,12 @@ body {
 #banner-bemvindo {
     background-image: url(../assets/image/banner/banner_epico.jfif);
     background-size: cover;
-    height: 40vh;
     width: 80vw;
-     margin: 0 auto;
+    height: 45vh;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
 }
 
 /* Componentes dos icons (os treco do volte a escitar) */
@@ -652,13 +654,25 @@ body {
     margin-top: 1vh;
 }
 
-.botao-player-tocar{
+#botao-player-tocar{
     max-width: 6vh;
+    transition: 0.15s;
+}
+
+#botao-player-tocar:hover{
+    max-width: 6.6vh;
+    transition: 0.15s;
 }
 
 .botao-player-voltaravancar{
     max-width: 2.6vh;
-    max-height: 2.6vh;
+    aspect-ratio: 1/1;
+    transition: 0.15s;
+}
+
+.botao-player-voltaravancar:hover{
+    max-width: 3vh;
+    transition: 0.15s;
 }
 
 #botao-player-avancar{
@@ -704,9 +718,21 @@ body {
 }
 
 .logo{
-    max-width: 100%;
+    max-width: 60%;
     align-self: center;
     margin-top: 1vh;
     margin-bottom: 5vh;
     border-radius: 10px;
+}
+
+.container-texto-musica{
+    display: flex;
+    flex-direction: column;
+}
+
+.container-texto-musica h2{
+    font-family: "Roboto Flex";
+    font-size: 1rem;
+    color: #CDCDCD;
+    margin-left: 0.5vw;
 }

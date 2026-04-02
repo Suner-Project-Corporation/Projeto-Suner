@@ -17,9 +17,6 @@ fetch("../musicas.json")
             `
 
         musicas.forEach((musica, index) => {
-            random = Math.random(1, 2) // escolhe se a musica vai entrar como musica(1) ou album(2) no volte a escutar
-      
-            console.log(random)
 
             container.innerHTML += `
                 <div class="icon">
