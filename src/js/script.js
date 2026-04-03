@@ -110,7 +110,7 @@ function tocar() {
   player = new Audio(musicas[indexmusica].arquivo);
   configurarPlayer();
 
-  // Reseta tempo de musica
+  // Resetar tempo de musica
   tempoAtual.innerHTML = "0:00";
   tempoTotal.innerHTML = "0:00";
 
@@ -125,6 +125,33 @@ function tocar() {
   display();
   btnplay.src = "./src/assets/image/botoes/botao_pausar.png";
 }
+
+//Volume -- Barra e Botão de mutar
+const barravolume = document.getElementById("volume-bar")
+const btnmutar = document.getElementById("btn-mutar")
+let mutado = false
+
+barravolume.addEventListener("input", () => {
+  if (!player) return;
+
+  player.volume = barravolume.value / 100;
+});
+
+btnmutar.addEventListener("click", () => {
+  if (!player) return;
+
+  mutado = !mutado;
+
+  if (mutado) {
+    player.volume = 0;
+    barravolume.value = 0;
+    btnmutar.textContent = "Desmutar" //se quiser botar um icone daora aqui;
+  } else {
+    player.volume = 0.5;
+    barravolume.value = 50;
+    btnmutar.textContent = "linha 152 do js " // se quiser botar um icone aqui tbm;
+  }
+});
 
 // FETCH
 fetch("./musicas.json")
