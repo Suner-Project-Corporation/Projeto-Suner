@@ -56,6 +56,15 @@ let player;
 // Barra de progresso
 const progresso = document.querySelector(".progresso-musica");
 const ponto = document.querySelector(".bolinha-progresso");
+const tempoAtual = document.getElementById("tempo-atual");
+const tempoTotal = document.getElementById("tempo-total");
+
+//Função formatar o tempo
+function formatarTempo(segundos) {
+  const min = Math.floor(segundos / 60);
+  const seg = Math.floor(segundos % 60);
+  return `${min}:${seg < 10 ? "0" : ""}${seg}`;
+}
 
 progresso.style.width = "0%";
 ponto.style.left = "0%";
@@ -63,11 +72,14 @@ ponto.style.left = "0%";
 // Configurar player
 function configurarPlayer() {
   player.ontimeupdate = () => {
-    if (!player.duration) return;
+    if (isNaN(player.duration)) return;
 
     let barra = (player.currentTime / player.duration) * 100;
     progresso.style.width = barra + "%";
     ponto.style.left = barra + "%";
+
+    // Tempo atual
+    tempoAtual.innerHTML = formatarTempo(player.currentTime);
   };
 
   player.onended = () => {
@@ -93,15 +105,24 @@ function display() {
 
 // Tocar música
 function tocar() {
-  if (indexmusica === -1) return;
-
+  if (indexmusica === -1) return; 
   if (player) player.pause();
-
   player = new Audio(musicas[indexmusica].arquivo);
   configurarPlayer();
+
+  // Reseta tempo de musica
+  tempoAtual.innerHTML = "0:00";
+  tempoTotal.innerHTML = "0:00";
+
+  // Pega a duração da musica
+  player.addEventListener("loadedmetadata", () => {
+    console.log(player.duration)
+    tempoTotal.innerHTML = formatarTempo(player.duration);
+  });
+
   player.play();
 
-  display(); 
+  display();
   btnplay.src = "./src/assets/image/botoes/botao_pausar.png";
 }
 
