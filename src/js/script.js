@@ -52,6 +52,7 @@ setInterval(() => {
 let musicas = [];
 let indexmusica = -1;
 let player;
+let volume = 50
 
 // Barra de progresso
 const progresso = document.querySelector(".progresso-musica");
@@ -69,8 +70,40 @@ function formatarTempo(segundos) {
 progresso.style.width = "0%";
 ponto.style.left = "0%";
 
+const barravolume = document.getElementById("volume-bar")
+const btnmutar = document.getElementById("btn-mutar")
+const imagemMutar = document.querySelector(".imagem-botao-mutar")
+let mutado = false
+
+barravolume.addEventListener("input", () => {
+  if (!player) return;
+
+  player.volume = barravolume.value / 100;
+});
+
+btnmutar.addEventListener("click", () => {
+  if (!player) return;
+
+  mutado = !mutado;
+
+  if (mutado) {
+    player.volume = 0;
+    barravolume.value = 0;
+    imagemMutar.src = "./src/assets/image/botoes/volumeMutado.png"
+  } else {
+    player.volume = 0.2;
+    barravolume.value = 20;
+    imagemMutar.src = "./src/assets/image/botoes/volume.png"
+  }
+
+  handleInput(slider)
+});
+
 // Configurar player
 function configurarPlayer() {
+
+  player.volume = barravolume.value / 100
+
   player.ontimeupdate = () => {
     if (isNaN(player.duration)) return;
 
@@ -127,31 +160,24 @@ function tocar() {
 }
 
 //Volume -- Barra e Botão de mutar
-const barravolume = document.getElementById("volume-bar")
-const btnmutar = document.getElementById("btn-mutar")
-let mutado = false
+const slider = document.querySelector('#volume-bar');
 
-barravolume.addEventListener("input", () => {
-  if (!player) return;
+const handleInput = (el) => {
+  const min = el.min || 0;
+  const max = el.max || 100;
+  const pct = (el.value - min) / (max - min) * 100;
+  el.style.setProperty('--range-pct', pct + '%');
+  volume = el.value
 
-  player.volume = barravolume.value / 100;
-});
-
-btnmutar.addEventListener("click", () => {
-  if (!player) return;
-
-  mutado = !mutado;
-
-  if (mutado) {
-    player.volume = 0;
-    barravolume.value = 0;
-    btnmutar.textContent = "Desmutar" //se quiser botar um icone daora aqui;
+  if (volume <= 0){
+    imagemMutar.src = "./src/assets/image/botoes/volumeMutado.png"
   } else {
-    player.volume = 0.5;
-    barravolume.value = 50;
-    btnmutar.textContent = "linha 152 do js " // se quiser botar um icone aqui tbm;
+    imagemMutar.src = "./src/assets/image/botoes/volume.png"
   }
-});
+};
+
+slider.addEventListener('input', (e) => handleInput(e.target));
+handleInput(slider);
 
 // FETCH
 fetch("./musicas.json")
