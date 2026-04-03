@@ -34,24 +34,42 @@
 // btnMudarCor = document.getElementById("btn-mudar-cor");
 // btnMudarCor.addEventListener('click', mudarCorSite);
 
+container = document.querySelector("#volte-escutar");
 //Código do banner:
-  let imagens = ["./src/assets/image/banner/banner_epico.jfif", "./src/assets/image/banner/mikey.jpg"];
-  let index = 0;
+let imagens = ["./src/assets/image/banner/banner_epico.jfif", "./src/assets/image/banner/mikey.jpg"];
+let index = 0;
 
-  setInterval(() => {
-    index = (index + 1) % imagens.length;
-    document.getElementById("banner-bemvindo").src = imagens[index];
-  }, 3000)
-
+setInterval(() => {
+  index = (index + 1) % imagens.length;
+  document.getElementById("banner-bemvindo").src = imagens[index];
+}, 3000)
 // Declarando musicas
 let musicas = [];
 let indexmusica = 0;
+
+function tocar() {
+  player.pause()
+  player = new Audio(musicas[indexmusica])
+  player.play()
+  btnplay.src = "./src/assets/image/botoes/botao_pausar.png"
+}
 
 fetch("./musicas.json")
   .then(res => res.json())
   .then(data => {
 
     for (let artista in data) {
+      console.log(artista)
+      const divArtista = document.createElement("div")
+      divArtista.classList.add("icon")
+
+      divArtista.innerHTML = `
+            <img src="${data[artista][0].arquivoFotoArtista}" class="capa-artista">
+            <h2 class="icon-nome">${artista}</h2>
+            <h4 class="tipo">Artista</h4>
+        `
+      container.appendChild(divArtista)
+
       data[artista].forEach(musica => {
 
         // pega o arquivo
@@ -59,37 +77,61 @@ fetch("./musicas.json")
 
         // se quiser salvar tudo
         musicas.push(musica.arquivo);
+        let indexescolher = musicas.length - 1
+
+        console.log(indexescolher)
+
+        const divMusica = document.createElement("div");
+        divMusica.classList.add("icon");
+
+        divMusica.innerHTML = `
+                <img src="${musica.arquivoCapa}" class="capa-musica">
+                <h2 class="icon-nome">${musica.titulo}</h2>
+                <h3 class="icon-artista">${artista}</h3>
+                <h4 class="tipo">Música</h4>
+            `
+
+        console.log(musica.titulo)
+
+        container.appendChild(divMusica)
+
+        divMusica.addEventListener("click", () => {
+          console.log("wolfcut lindo");
+          console.log(musica.titulo);
+          indexmusica = indexescolher
+          tocar();
+        });
       });
     }
 
     console.log(musicas);
-      
+
     player = new Audio(musicas[indexmusica])
-    player.addEventListener("ended", function(){
-    indexmusica += 1
-    player = new Audio(musicas[indexmusica])
-    player.play()
-    btnplay.src = "./src/assets/image/botoes/botao_pausar.png"
-    
-});
+    player.addEventListener("ended", function () {
+      indexmusica += 1
+      player = new Audio(musicas[indexmusica])
+      player.play()
+      btnplay.src = "./src/assets/image/botoes/botao_pausar.png"
+
+    });
   });
 
-  //Botão de play
- const btnplay = document.getElementById("botao-player-tocar");
-  btnplay.addEventListener("click", () => {
-  if(player.paused) {
+//Botão de play
+const btnplay = document.getElementById("botao-player-tocar");
+btnplay.addEventListener("click", () => {
+  if (player.paused) {
     player.play();
     btnplay.src = "./src/assets/image/botoes/botao_pausar.png"
-  }else {
+  } else {
     player.pause();
     btnplay.src = "./src/assets/image/botoes/botao_tocar.png"
   }
 });
 
 //Botão de avançar e voltar:
-  const btnmudar = document.getElementsByClassName("botao-player-voltaravancar");
-  btnmudar[0].addEventListener("click", () => mudarmusica("-"));
-  btnmudar[1].addEventListener("click", () => mudarmusica("+"));
+const btnmudar = document.getElementsByClassName("botao-player-voltaravancar");
+btnmudar[0].addEventListener("click", () => mudarmusica("-"));
+btnmudar[1].addEventListener("click", () => mudarmusica("+"));
 
 function mudarmusica(direcao) {
   if (direcao === "+") {
@@ -101,8 +143,4 @@ function mudarmusica(direcao) {
   player = new Audio(musicas[indexmusica])
   player.play()
   btnplay.src = "./src/assets/image/botoes/botao_pausar.png"
-}
-
-function escolher(indexmusica) {
-
 }
