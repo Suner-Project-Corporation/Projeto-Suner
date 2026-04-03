@@ -34,10 +34,13 @@
 // btnMudarCor = document.getElementById("btn-mudar-cor");
 // btnMudarCor.addEventListener('click', mudarCorSite);
 
-container = document.querySelector("#volte-escutar");
+const container = document.querySelector("#volte-escutar");
 
-// Código do banner:
-let imagens = ["./src/assets/image/banner/banner_epico.jfif", "./src/assets/image/banner/mikey.jpg"];
+// Banner
+let imagens = [
+  "./src/assets/image/banner/banner_epico.jfif",
+  "./src/assets/image/banner/mikey.jpg"
+];
 let index = 0;
 
 setInterval(() => {
@@ -45,9 +48,9 @@ setInterval(() => {
   document.getElementById("banner-bemvindo").src = imagens[index];
 }, 3000);
 
-// Declaran musicas
+// Player
 let musicas = [];
-let indexmusica = 0;
+let indexmusica = -1;
 let player;
 
 // Barra de progresso
@@ -57,7 +60,7 @@ const ponto = document.querySelector(".bolinha-progresso");
 progresso.style.width = "0%";
 ponto.style.left = "0%";
 
-// Configurar o player
+// Configurar player
 function configurarPlayer() {
   player.ontimeupdate = () => {
     if (!player.duration) return;
@@ -73,29 +76,39 @@ function configurarPlayer() {
   };
 }
 
-// Função de tocar musica
-function tocar() {
-  if (player) player.pause();
+// Função Display
+function display() {
+  if (indexmusica === -1) return;
 
-  player = new Audio(musicas[indexmusica]);
-  configurarPlayer(); //
-  player.play();
-  btnplay.src = "./src/assets/image/botoes/botao_pausar.png";
+  const img = document.querySelector(".imagem-musica");
+  const titulo = document.getElementById("titulo-player-musica");
+  const album = document.getElementById("titulo-player-album");
+
+  let musicaAtual = musicas[indexmusica];
+
+  img.src = musicaAtual.arquivoCapa;
+  titulo.innerHTML = musicaAtual.titulo;
+  album.innerHTML = musicaAtual.album;
 }
 
-// Formatação do tempo
-function formatarTempo(segundos) {
-  const min = Math.floor(segundos / 60);
-  const seg = Math.floor(segundos % 60);
-  return `${min}:${seg < 10 ? "0" : ""}${seg}`;
+// Tocar música
+function tocar() {
+  if (indexmusica === -1) return;
+
+  if (player) player.pause();
+
+  player = new Audio(musicas[indexmusica].arquivo);
+  configurarPlayer();
+  player.play();
+
+  display(); 
+  btnplay.src = "./src/assets/image/botoes/botao_pausar.png";
 }
 
 // FETCH
 fetch("./musicas.json")
   .then(res => res.json())
   .then(data => {
-
-
 
     for (let artista in data) {
       const divArtista = document.createElement("div");
@@ -110,7 +123,7 @@ fetch("./musicas.json")
       container.appendChild(divArtista);
 
       data[artista].forEach(musica => {
-        musicas.push(musica.arquivo);
+        musicas.push(musica);
         let indexescolher = musicas.length - 1;
 
         const divMusica = document.createElement("div");
@@ -125,37 +138,20 @@ fetch("./musicas.json")
 
         container.appendChild(divMusica);
 
-  // Função display album e imagem
-    function display() {
-    const img = document.querySelector(".imagem-musica")
-    const titulo = document.getElementById("titulo-player-musica")
-    const album = document.getElementById("titulo-player-album")
-    img.src = musica.arquivoCapa
-    console.log(musicas[indexmusica])
-    titulo.innerHTML = musica.titulo
-    album.innerHTML = musica.album
-}
-
         divMusica.addEventListener("click", () => {
           indexmusica = indexescolher;
-          console.log("wolfcut lindo");
           tocar();
-          display();
         });
       });
     }
-
-    // Inicializar o player
-    player = new Audio(musicas[indexmusica]);
-    configurarPlayer(); 
-
 });
 
-
-// Botão de play
+// Botão play
 const btnplay = document.getElementById("botao-player-tocar");
 
 btnplay.addEventListener("click", () => {
+  if (indexmusica === -1) return;
+
   if (!player) return;
 
   if (player.paused) {
@@ -174,13 +170,17 @@ btnmudar[0].addEventListener("click", () => mudarmusica("-"));
 btnmudar[1].addEventListener("click", () => mudarmusica("+"));
 
 function mudarmusica(direcao) {
-  if (direcao === "+") {
-    indexmusica = (indexmusica + 1) % musicas.length;
-  } else {
-    indexmusica = (indexmusica - 1 + musicas.length) % musicas.length;
-  }
-  tocar();
-  display();
-  
-}
+  if (musicas.length === 0) return;
 
+  if (indexmusica === -1) {
+    indexmusica = 0;
+  } else {
+    if (direcao === "+") {
+      indexmusica = (indexmusica + 1) % musicas.length;
+    } else {
+      indexmusica = (indexmusica - 1 + musicas.length) % musicas.length;
+    }
+  }
+
+  tocar();
+}
