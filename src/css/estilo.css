@@ -781,6 +781,15 @@ body {
 
 .logo-mobile{
     width: 8vw;
+    display: none;
+}
+
+.identificador-tipo-icone{
+    display: none;
+}
+
+.identificador-tipo-artista {
+    display: none;
 }
 
 @media(width <=768px) {
@@ -890,6 +899,7 @@ body {
         aspect-ratio: 1/1;
         margin-left: auto;
         margin-right: 7.5px;
+        display: block;
     }
 
     .identificador-tipo-artista{
@@ -897,5 +907,10 @@ body {
         aspect-ratio: 1/1;
         margin-left: auto;
         margin-right: 5px;
+        display: block;
+    }
+
+    .logo-mobile{
+        display: block;
     }
 }
