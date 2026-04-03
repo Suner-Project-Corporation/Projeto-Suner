@@ -102,12 +102,12 @@ fetch("./musicas.json")
       divArtista.classList.add("icon");
 
       divArtista.innerHTML = `
-        <img src="${data[artista][0].arquivoFotoArtista}" class="capa-artista">
-        <h2 class="icon-nome">${artista}</h2>
-        <h4 class="tipo">Artista</h4>
-      `;
-
-      container.appendChild(divArtista);
+            <img src="${data[artista][0].arquivoFotoArtista}" class="capa-artista">
+            <h2 class="icon-nome">${artista}</h2>
+            <h4 class="tipo">Artista</h4>
+            <img src="./src/assets/image/tipoArtista.png" class="identificador-tipo-artista">
+        `
+      container.appendChild(divArtista)
 
       data[artista].forEach(musica => {
         musicas.push(musica.arquivo);
@@ -118,9 +118,12 @@ fetch("./musicas.json")
 
         divMusica.innerHTML = `
           <img src="${musica.arquivoCapa}" class="capa-musica">
-          <h2 class="icon-nome">${musica.titulo}</h2>
-          <h3 class="icon-artista">${artista}</h3>
-          <h4 class="tipo">Música</h4>
+                <div class="container-texto-icon">
+            <h2 class="icon-nome">${musica.titulo}</h2>
+            <h3 class="icon-artista">${artista}</h3>
+            <h4 class="tipo">Música</h4>
+                </div>
+                <img src="./src/assets/image/tipoMusica.png" class="identificador-tipo-icone">
         `;
 
         container.appendChild(divMusica);
