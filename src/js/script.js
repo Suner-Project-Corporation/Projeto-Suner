@@ -80,7 +80,6 @@ function tocar() {
   player = new Audio(musicas[indexmusica]);
   configurarPlayer(); //
   player.play();
-
   btnplay.src = "./src/assets/image/botoes/botao_pausar.png";
 }
 
@@ -96,9 +95,8 @@ fetch("./musicas.json")
   .then(res => res.json())
   .then(data => {
 
-    const img = document.querySelector(".imagem-musica")
-    const titulo = document.getElementById("titulo-player-musica")
-    const album = document.getElementById("titulo-player-album")
+
+
     for (let artista in data) {
       const divArtista = document.createElement("div");
       divArtista.classList.add("icon");
@@ -127,14 +125,22 @@ fetch("./musicas.json")
 
         container.appendChild(divMusica);
 
+  // Função display album e imagem
+    function display() {
+    const img = document.querySelector(".imagem-musica")
+    const titulo = document.getElementById("titulo-player-musica")
+    const album = document.getElementById("titulo-player-album")
+    img.src = musica.arquivoCapa
+    console.log(musicas[indexmusica])
+    titulo.innerHTML = musica.titulo
+    album.innerHTML = musica.album
+}
+
         divMusica.addEventListener("click", () => {
           indexmusica = indexescolher;
           console.log("wolfcut lindo");
           tocar();
-          img.src = musica.arquivoCapa;
-          titulo.innerHTML = musica.titulo;
-          album.innerHTML = musica.album
-        
+          display();
         });
       });
     }
@@ -142,7 +148,9 @@ fetch("./musicas.json")
     // Inicializar o player
     player = new Audio(musicas[indexmusica]);
     configurarPlayer(); 
-  });
+
+});
+
 
 // Botão de play
 const btnplay = document.getElementById("botao-player-tocar");
@@ -172,4 +180,7 @@ function mudarmusica(direcao) {
     indexmusica = (indexmusica - 1 + musicas.length) % musicas.length;
   }
   tocar();
+  display();
+  
 }
+
