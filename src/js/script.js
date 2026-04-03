@@ -139,8 +139,6 @@ function mudarmusica(direcao) {
   } else {
     indexmusica = (indexmusica - 1 + musicas.length) % musicas.length;
   }
-  player.pause()
-  player = new Audio(musicas[indexmusica])
-  player.play()
-  btnplay.src = "./src/assets/image/botoes/botao_pausar.png"
+  tocar();
 }
+
