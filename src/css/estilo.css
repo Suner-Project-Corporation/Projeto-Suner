@@ -123,21 +123,21 @@ body {
 
 .artista-foto {
     box-sizing: border-box;
-    width: 200px;
-    height: auto;
-    display: block;
+    width: 150px;
+    height: 150px;
     position: absolute;
-    top: 75%;
-    left: 40%;
-    transform: translateY(-50%);
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
     border-radius: 15px;
+    outline: 2px black solid;
     z-index: 1;
 }
 
 .artista-banner {
     background-image: url(../assets/image/banner/banner_epico.jfif);
     width: 100%;
-    height: 250px;
+    height: 300px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -146,6 +146,7 @@ body {
 .barra-pesquisa {
     border: #fff;
     color: #fff;
+    background-color: #000;
     width: 20vw;
     height: 3.5vh;
     display: flex;
@@ -182,55 +183,67 @@ body {
 .artista-nome {
     color: white;
     position: absolute;
+    left: 50%;
+    transform: translateX(calc(-100% - 75px - 1vw));
     text-align: right;
-    top: 75%;
-    right: 62%;
-    font-size: 35px;
-    margin-top: 10px;
+    font-size: 2.2rem;
+    margin-top: 1vh;
 }
 
 .artista-subtitulo {
     color: #cdcdcd;
     position: absolute;
+    left: 50%;
+    transform: translateX(calc(-100% - 75px - 1vw));
+    font-size: 1rem;
+    margin-top: 6.5vh;
     text-align: right;
-    top: calc(75% + 50px);
-    right: 62%;
     font-family: "dm sans";
-    font-size: 17.5px;
     font-weight: normal;
 }
 
 .btn-retangular {
     color: #ffffff;
-    font-size: 18px;
+    font-size: clamp(12px, 1.2vw, 20px);
     font-weight: bold;
-    padding: 10px 20px 10px 20px;
+    padding: 0.7vw 1.4vw 0.7vw 1.4vw;
     border: none;
     border-radius: 10px;
+    margin-top: 1.75vh;
     cursor: pointer;
     align-items: center;
     justify-content: center;
     display: flex;
-    gap: 15px;
-    font-weight: 600;
-    font-size: 22px;
+    gap: 1vw;
     font-family: "dm sans";
-    position: absolute;
-
-    background: linear-gradient(#ac0000 0%, #460000 100%);
+    transition: 0.075s;
+    background: #8B0000;
 }
 
-#btn-tocar {
-    left: calc(40% + 200px + 15px);
-    top: 84%;
+.btn-retangular:hover{
+    transform: scale(105%);
+    transition: 0.15s;
+}
+
+.btn-retangular:active{
+    transform: scale(95%);
+    transition: 0.1s;
+}
+
+.container-botoes {
+    position: absolute;
+    left: 50%;
+    transform: translateX(calc(75px + 1vw));
+
+    display: flex;
+    gap: 15px;
 }
 
 .musicas-artista {
     display: flex;
     align-items: center;
     width: 100%;
-    padding-left: 120px;
-    padding-top: 120px;
+    padding-top: 10vh;
 }
 
 .item-musica-artista {
@@ -248,21 +261,21 @@ body {
 
 .musica-titulo-album h2 {
     color: #CDCDCD;
-    font-size: 17.5px;
+    font-size: clamp(0.75rem, 1vw, 1.2rem);
 }
 
 .musica-foto {
-    height: 12vh;
+    height: 6vw;
     width: auto;
     border-radius: 100%;
-    padding-right: 15px;
+    padding-right: 1vw;
 }
 
 .titulo {
     color: white;
     font-family: 'Roboto Flex';
-    font-size: 25px;
-    margin-right: 3vw;
+    font-size: clamp(1rem, 1.75vw, 2rem);
+    margin-right: 1.5vw;
 }
 
 .linha {
@@ -278,7 +291,7 @@ body {
 }
 
 .lista-musicas {
-    max-width: 50vw;
+    max-width: 60vw;
 }
 
 .em-destaque {
@@ -290,12 +303,12 @@ body {
 
 .destaque-artista {
     flex: 1;
-    max-width: 34vw;
+    max-width: 40vw;
     padding-bottom: 11.5vh;
 }
 
 .destaque-imagem {
-    height: 35vh;
+    height: 18vw;
     width: auto;
     border-radius: 100%;
     padding-right: 15px;
@@ -303,8 +316,8 @@ body {
 
 .titulo-secundario {
     color: #CDCDCD;
-    padding-right: 3vw;
-    font-size: 20px;
+    padding-right: 1.5vw;
+    font-size: clamp(0.5rem, 1.25vw, 1.5rem);
     flex: 0 0 12vw;
 }
 
@@ -319,7 +332,7 @@ body {
 .titulo-destaque {
     color: white;
     font-family: 'Roboto Flex';
-    font-size: 35px;
+    font-size: clamp(1rem, 2vw, 2.25rem);
     padding-bottom: 1.5vh;
     padding-left: 0.5vw;
 }
@@ -330,7 +343,7 @@ body {
 
 .titulo-secundario-destaque {
     color: #CDCDCD;
-    font-size: 25px;
+    font-size: clamp(0.75rem, 1.25vw, 1.5rem);
     padding-bottom: 0.5vh;
     padding-left: 0.5vw;
 }
@@ -380,10 +393,14 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    padding-right: 1.5vw;
+    padding-left: 1.5vw;
 }
 
 .header-artista-info {
     position: relative;
+    margin-top: -12vh;
     width: 100%;
 }
 
@@ -394,6 +411,7 @@ body {
     aspect-ratio: 1/1;
     margin: 10px;
     cursor: pointer;
+    z-index: 3;
 }
 
 /* barra do usuário, a lateral */
@@ -637,8 +655,6 @@ body {
 }
 
 #btn-aleatorio {
-    left: calc(40% + 200px + 15px + 152px);
-    top: 84%;
     padding: 5px 20px 5px 20px;
 }
 
