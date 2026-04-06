@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="x/icon" type="icon/x" href="../assets/image/logosite.png">
+</head>
+
+<body>
+
+    <main class="site">
+
+        <section class="sub-main">
+
+            <header>
+                <div class="barra-pesquisa">
+                    <img src="../assets/image/lupa-pesquisa.png" class="lupa-pesquisa">
+                    <input type="text" placeholder="Pesquisar" class="input-pesquisa"></input>
+                </div>
+
+                <img src="../assets/image/foto_teste_tocandoAgora.jpg" class="foto-perfil">
+                <img src="../assets/image/logosite.png" class="logo-mobile">
+            </header>
+
+            <div class="playlist-main">
+
+                <div class="playlist-info">
+                    <img src="../assets/image/playlist/capa_playlist.jpg">
+                    <div>
+                        <h1 class="playlist-namePage">Nome da playlist</h1>
+                        <h2 class="criador-playlist">VerdadeiroMordecai_456</h2>
+                        <h3 class="dados-playlist"><span id="qtd-musicaPlaylist">10</span> músicas <span
+                                id="tempo-playlist">45h e 35min</span></h3>
+                        <button type="button" class="btn-Playlist" id="btn-playPlaylist">Tocar</button>
+                        <button type="button" class="btn-Playlist">Aleatório</button>
+                    </div>
+                </div>
+
+                <div class="playlist-musicaContainer">
+
+                    <div class="musica-playlist" id="nome musga">
+                        <section>
+                            <img class="capa-musicaPlaylist" src="../assets/image/foto_teste_tocandoAgora.jpg">
+                            <div class="info-musicaPlaylist">
+                                <h1 class="nome-musicaPlaylist">nome da musga</h1>
+                                <h1 class="artista-musicaPlaylist">jorge samambaia</h1>
+                            </div>
+                        </section>
+                        <h1 class="tempo-musicaPlaylist">3:30</h1>
+                        <h1 class="toques-musicaPlaylist">980126789461287416</h1>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <aside class="barra-lateral">
+
+            <img src="/src/assets/image/logosite.png" class="logo">
+
+            <div class="playlist-content">
+
+                <div class="playlist-container" id="btn-criarPlaylist">
+                    <img class="botao-add-playlist" src="../assets/image/add_playlist.png">
+                    <h1 class="playlist-nome">Criar nova playlist</h1>
+                </div>
+
+                <div class="playlist-container">
+                    <img class="playlist" src="../assets/image/playlist/capa_playlist.jpg">
+                    <h1 class="playlist-nome">Nome da playlist</h1>
+                </div>
+                <div class="playlist-container">
+                    <img class="playlist" src="../assets/image/playlist/capa_playlist.jpg">
+                    <h1 class="playlist-nome">Nome da playlist</h1>
+                </div>
+                <div class="playlist-container">
+                    <img class="playlist" src="../assets/image/playlist/capa_playlist.jpg">
+                    <h1 class="playlist-nome">Nome da playlist</h1>
+                </div>
+
+
+            </div>
+
+        </aside>
+
+        <div class="controle-musica">
+            <img class="imagem-musica" src="">
+            <div class="container-texto-musica">
+                <h1 class="titulo" id="titulo-player-musica"></h1>
+                <h2 id="titulo-player-album"></h2>
+            </div>
+
+            <div class="botoes-player">
+                <img class="botao-player-voltaravancar" src="../assets/image/botoes/voltar_avancar.png">
+                <img id="botao-player-tocar" src="../assets/image/botoes/botao_tocar.png">
+                <img class="botao-player-voltaravancar" id="botao-player-avancar"
+                    src="../assets/image/botoes/voltar_avancar.png">
+            </div>
+
+            <div class="container-progresso">
+                <div class="barra-progresso">
+                    <div class="progresso-musica"></div>
+                    <div class="bolinha-progresso"></div>
+                </div>
+
+                <h4 class="tempo" id="tempo-atual">0:00</h4>
+                <h4 class="tempo" id="tempo-total">0:00</h4>
+
+            </div>
+
+            <div class="controle-volume">
+                <button id="btn-mutar" class="btn-mutar"><img class="imagem-botao-mutar"
+                        src="../assets/image/botoes/volume.png" alt="Mutar"></button>
+                <input type="range" id="volume-bar" min="0" max="100" value="50">
+            </div>
+
+    </main>
+
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

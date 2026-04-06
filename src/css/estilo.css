@@ -78,6 +78,7 @@ body {
     justify-content: center;
     position: relative;
     width: 100%;
+    cursor: pointer;
 }
 
 .playlist-nome {
@@ -116,7 +117,7 @@ body {
     margin-bottom: 2vh;
 }
 
-.botao-add-playlist:hover {
+.playlist-container:hover .botao-add-playlist {
     opacity: 1;
     transition: 0.3s;
 }
@@ -651,7 +652,7 @@ body {
     cursor: pointer;
 }
 
-.controle-volume{
+.controle-volume {
     position: absolute;
     left: 97vw;
     transform: translateX(-100%) translateY(100%);
@@ -663,26 +664,26 @@ body {
 }
 
 #volume-bar {
-  -webkit-appearance: none;
-  width: 7vw;
-  background: transparent;
-  cursor: pointer;
+    -webkit-appearance: none;
+    width: 7vw;
+    background: transparent;
+    cursor: pointer;
 }
 
 #volume-bar::-webkit-slider-runnable-track {
-  height: 5px;
-  background: linear-gradient(to right, #ff0000 var(--range-pct, 0%), #4f4f4f var(--range-pct, 0%));
-  border-radius: 10px;
-  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1);
+    height: 5px;
+    background: linear-gradient(to right, #ff0000 var(--range-pct, 0%), #4f4f4f var(--range-pct, 0%));
+    border-radius: 10px;
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1);
 }
 
 #volume-bar::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  height: 14px;
-  width: 14px;
-  background: #CDCDCD;
-  border-radius: 10px;
-  margin-top: -4.5px;
+    -webkit-appearance: none;
+    height: 14px;
+    width: 14px;
+    background: #CDCDCD;
+    border-radius: 10px;
+    margin-top: -4.5px;
 }
 
 .imagem-botao-mutar {
@@ -753,19 +754,19 @@ body {
     margin-top: 10vh;
 }
 
-.barra-progresso{
+.barra-progresso {
     height: 100%;
 }
 
-#tempo-atual{
+#tempo-atual {
     margin-top: 5px;
     color: #CDCDCD;
 }
 
-#tempo-total{
+#tempo-total {
     margin-top: -14px;
     text-align: right;
-color: #CDCDCD;
+    color: #CDCDCD;
 }
 
 .progresso-musica {
@@ -793,10 +794,10 @@ color: #CDCDCD;
 }
 
 /* Tempo (esquerda e direita) */
-.tempo{
-  font-size: 12px;
-  color: #e4dcdc;
-  min-width: 35px;
+.tempo {
+    font-size: 12px;
+    color: #e4dcdc;
+    min-width: 35px;
 }
 
 .logo {
@@ -945,7 +946,7 @@ color: #CDCDCD;
         font-size: 1rem;
     }
 
-    .container-texto-musica{
+    .container-texto-musica {
         margin-bottom: 5px;
         margin-left: 5px;
     }
@@ -1095,15 +1096,97 @@ color: #CDCDCD;
         font-size: 0.8rem;
     }
 
-    #tempo-atual{
+    #tempo-atual {
         display: none;
     }
 
-    #tempo-total{
+    #tempo-total {
         display: none;
     }
 
-    .controle-volume{
+    .controle-volume {
         display: none;
     }
+}
+
+/* estilização da pagina de playlist */
+
+.playlist-info img {
+    width: 15vw;
+    aspect-ratio: 1/1;
+    min-width: 170px;
+    border-radius: 5%;
+}
+
+.playlist-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.playlist-info div {
+    margin-left: 5vh;
+    text-align: left;
+}
+
+.playlist-namePage {
+    font-size: 3rem;
+}
+
+.criador-playlist {
+    margin-top: 10px;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.dados-playlist {
+    font-size: 1rem;
+    font-weight: 350;
+}
+
+/* bagulhinho das musicas */
+
+.musica-playlist {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.4rem;
+    background: #272727;
+    border-radius: 0.6rem;
+}
+
+.musica-playlist section {
+    display: flex;
+    align-items: center;
+}
+
+.capa-musicaPlaylist {
+    width: 7vw;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+
+.info-musicaPlaylist {
+    align-items: center;
+    font-size: 0.8rem;
+    margin-left: 0.5em;
+}
+
+.nome-musicaPlaylist {
+    font-size: 1.5rem;
+}
+
+.artista-musicaPlaylist {
+    font-size: 1.3em;
+    color: #a3a3a3
+}
+
+.tempo-musicaPlaylist {
+    font-size: 1.3em
+}
+
+.toques-musicaPlaylist {
+    font-size: 1.3em;
 }

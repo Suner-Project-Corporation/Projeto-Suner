@@ -17,27 +17,27 @@
             "arquivoFotoArtista": "./src/assets/image/fotoArtistas/Arctic Monkeys.png"
         },
         {
-        "titulo": "505",
-        "album": "Favourite Worst Nightmares",
-        "arquivo": "./src/assets/musicas/505 - Arctic Monkeys - Favourite Worst Nightmare.mp3",
-        "arquivoCapa": "./src/assets/image/capaAlbuns/AM.png",
-        "arquivoFotoArtista": "./src/assets/image/fotoArtistas/Arctic Monkeys.png"
+            "titulo": "505",
+            "album": "Favourite Worst Nightmares",
+            "arquivo": "./src/assets/musicas/505 - Arctic Monkeys - Favourite Worst Nightmare.mp3",
+            "arquivoCapa": "./src/assets/image/capaAlbuns/AM.png",
+            "arquivoFotoArtista": "./src/assets/image/fotoArtistas/Arctic Monkeys.png"
         }
     ],
     "Frank Ocean": [
         {
-        "titulo": "Nights",
-        "album": "Blond",
-        "arquivo": "src/assets/musicas/Nights - Frank Ocean - Blonde.mp3",
-        "arquivoCapa": "./src/assets/image/capaAlbuns/Blond.png",
-        "arquivoFotoArtista": "./src/assets/image/fotoArtistas/Frank Ocean.png"  
+            "titulo": "Nights",
+            "album": "Blond",
+            "arquivo": "src/assets/musicas/Nights - Frank Ocean - Blonde.mp3",
+            "arquivoCapa": "./src/assets/image/capaAlbuns/Blond.png",
+            "arquivoFotoArtista": "./src/assets/image/fotoArtistas/Frank Ocean.png"
         },
         {
-        "titulo": "Pink + White",
-        "album": "Blond",
-        "arquivo": "src/assets/musicas/Pink + white - Frank Ocean - Blonde.mp3",
-        "arquivoCapa": "./src/assets/image/capaAlbuns/Blond.png",
-        "arquivoFotoArtista": "./src/assets/image/fotoArtistas/Frank Ocean.png"  
+            "titulo": "Pink + White",
+            "album": "Blond",
+            "arquivo": "src/assets/musicas/Pink + white - Frank Ocean - Blonde.mp3",
+            "arquivoCapa": "./src/assets/image/capaAlbuns/Blond.png",
+            "arquivoFotoArtista": "./src/assets/image/fotoArtistas/Frank Ocean.png"
         }
     ]
 }

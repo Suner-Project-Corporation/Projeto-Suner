@@ -261,3 +261,6 @@ function mudarmusica(direcao) {
 
   tocar();
 }
+
+// script pra criar os icon de playlist na barra lateral :)
+
