@@ -66,12 +66,25 @@
 
             <img src="/src/assets/image/logosite.png" class="logo">
 
+            <div class="playlist-container" id="btn-criarPlaylist">
+                <img class="botao-add-playlist" src="./src/assets/image/add_playlist.png">
+                <h1 class="playlist-nome">Criar nova playlist</h1>
+                <div id="input-playlists">
+                    <div>
+                        <label for="input-nomePlaylist">Nome da playlist:</label>
+                        <input type="text" id="input-nomePlaylist" placeholder="Nome playlist">
+                    </div>
+                    <div>
+                        <label for="input-nomeCriador">Nome do criador:</label>
+                        <input type="text" id="input-nomeCriador" placeholder="Noome do criador">
+                    </div>
+                    <button type="button" id="btn-confirmarPlaylist">Confirmar</button>
+                </div>
+            </div>
+
             <div class="playlist-content">
 
-                <div class="playlist-container" id="btn-criarPlaylist">
-                    <img class="botao-add-playlist" src="./src/assets/image/add_playlist.png">
-                    <h1 class="playlist-nome">Criar nova playlist</h1>
-                </div>
+
 
                 <div class="playlist-container">
                     <img class="playlist" src="./src/assets/image/playlist/capa_playlist.jpg">
@@ -102,7 +115,8 @@
             <div class="botoes-player">
                 <img class="botao-player-voltaravancar" src="./src/assets/image/botoes/voltar_avancar.png">
                 <img id="botao-player-tocar" src="./src/assets/image/botoes/botao_tocar.png">
-                <img class="botao-player-voltaravancar" id="botao-player-avancar" src="./src/assets/image/botoes/voltar_avancar.png">
+                <img class="botao-player-voltaravancar" id="botao-player-avancar"
+                    src="./src/assets/image/botoes/voltar_avancar.png">
             </div>
 
             <div class="container-progresso">
@@ -117,7 +131,8 @@
             </div>
 
             <div class="controle-volume">
-                <button id="btn-mutar" class="btn-mutar"><img class="imagem-botao-mutar" src="./src/assets/image/botoes/volume.png" alt="Mutar"></button>
+                <button id="btn-mutar" class="btn-mutar"><img class="imagem-botao-mutar"
+                        src="./src/assets/image/botoes/volume.png" alt="Mutar"></button>
                 <input type="range" id="volume-bar" min="0" max="100" value="50">
             </div>
 

@@ -1,6 +1,7 @@
 {
     "C418": [
         {
+            "id":0,
             "titulo": "Alpha",
             "album": "Volume Beta",
             "arquivo": "src/assets/musicas/Alpha - C418 - Volume Beta.m4a",
@@ -10,6 +11,7 @@
     ],
     "Arctic Monkeys": [
         {
+            "id":1,
             "titulo": "R U Mine",
             "album": "AM",
             "arquivo": "./src/assets/musicas\\R U Mine - Arctic Monkeys - AM.mp3",
@@ -17,6 +19,7 @@
             "arquivoFotoArtista": "./src/assets/image/fotoArtistas/Arctic Monkeys.png"
         },
         {
+            "id":2,
             "titulo": "505",
             "album": "Favourite Worst Nightmares",
             "arquivo": "./src/assets/musicas/505 - Arctic Monkeys - Favourite Worst Nightmare.mp3",
@@ -26,6 +29,7 @@
     ],
     "Frank Ocean": [
         {
+            "id":3,
             "titulo": "Nights",
             "album": "Blond",
             "arquivo": "src/assets/musicas/Nights - Frank Ocean - Blonde.mp3",
@@ -33,6 +37,7 @@
             "arquivoFotoArtista": "./src/assets/image/fotoArtistas/Frank Ocean.png"
         },
         {
+            "id":4,
             "titulo": "Pink + White",
             "album": "Blond",
             "arquivo": "src/assets/musicas/Pink + white - Frank Ocean - Blonde.mp3",

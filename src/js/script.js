@@ -38,8 +38,8 @@ const container = document.querySelector("#volte-escutar");
 
 // Banner
 let imagens = [
-  "./src/assets/image/banner/banner_epico.jfif",
-  "./src/assets/image/banner/mikey.jpg"
+  "/src/assets/image/banner/banner_epico.jfif",
+  "/src/assets/image/banner/mikey.jpg"
 ];
 let index = 0;
 
@@ -89,11 +89,11 @@ btnmutar.addEventListener("click", () => {
   if (mutado) {
     player.volume = 0;
     barravolume.value = 0;
-    imagemMutar.src = "./src/assets/image/botoes/volumeMutado.png"
+    imagemMutar.src = "/src/assets/image/botoes/volumeMutado.png"
   } else {
     player.volume = 0.2;
     barravolume.value = 20;
-    imagemMutar.src = "./src/assets/image/botoes/volume.png"
+    imagemMutar.src = "/src/assets/image/botoes/volume.png"
   }
 
   handleInput(slider)
@@ -138,7 +138,7 @@ function display() {
 
 // Tocar música
 function tocar() {
-  if (indexmusica === -1) return; 
+  if (indexmusica === -1) return;
   if (player) player.pause();
   player = new Audio(musicas[indexmusica].arquivo);
   configurarPlayer();
@@ -156,7 +156,7 @@ function tocar() {
   player.play();
 
   display();
-  btnplay.src = "./src/assets/image/botoes/botao_pausar.png";
+  btnplay.src = "/src/assets/image/botoes/botao_pausar.png";
 }
 
 //Volume -- Barra e Botão de mutar
@@ -169,10 +169,10 @@ const handleInput = (el) => {
   el.style.setProperty('--range-pct', pct + '%');
   volume = el.value
 
-  if (volume <= 0){
-    imagemMutar.src = "./src/assets/image/botoes/volumeMutado.png"
+  if (volume <= 0) {
+    imagemMutar.src = "/src/assets/image/botoes/volumeMutado.png"
   } else {
-    imagemMutar.src = "./src/assets/image/botoes/volume.png"
+    imagemMutar.src = "/src/assets/image/botoes/volume.png"
   }
 };
 
@@ -192,7 +192,7 @@ fetch("./musicas.json")
             <img src="${data[artista][0].arquivoFotoArtista}" class="capa-artista">
             <h2 class="icon-nome">${artista}</h2>
             <h4 class="tipo">Artista</h4>
-            <img src="./src/assets/image/tipoArtista.png" class="identificador-tipo-artista">
+            <img src="/src/assets/image/tipoArtista.png" class="identificador-tipo-artista">
         `
       container.appendChild(divArtista)
 
@@ -221,7 +221,7 @@ fetch("./musicas.json")
         });
       });
     }
-});
+  });
 
 // Botão play
 const btnplay = document.getElementById("botao-player-tocar");
@@ -233,10 +233,10 @@ btnplay.addEventListener("click", () => {
 
   if (player.paused) {
     player.play();
-    btnplay.src = "./src/assets/image/botoes/botao_pausar.png";
+    btnplay.src = "/src/assets/image/botoes/botao_pausar.png";
   } else {
     player.pause();
-    btnplay.src = "./src/assets/image/botoes/botao_tocar.png";
+    btnplay.src = "/src/assets/image/botoes/botao_tocar.png";
   }
 });
 
@@ -261,6 +261,91 @@ function mudarmusica(direcao) {
 
   tocar();
 }
-
 // script pra criar os icon de playlist na barra lateral :)
+/* isso faz com que o script saiba em que id está as playlists,
+só pra facilitar o rastreamento de tudo
+*/
 
+//script pro localstorage
+async function criarLocalStorageArray(caminho) {
+  try {
+    const arquivo = await fetch(caminho);
+    const arrayJSON = await arquivo.json();
+    return arrayJSON;
+  }
+  catch (error) {
+    console.error("deu erro na hora de fazer local storage mano");
+  }
+}
+
+async function executarLocalStorage(nome, caminho) {
+  const arrayStorage = await criarLocalStorageArray(caminho)
+  if (arrayStorage) {
+    localStorage.setItem(nome, JSON.stringify(arrayStorage));
+  }
+
+}
+
+if (!localStorage.getItem("playlistsStorage")) {
+  // esse caba verifica a existencia do playlistsStorage
+  executarLocalStorage("playlistsStorage", '/playlists.json');
+}
+console.log(localStorage.getItem("playlistsStorage"));
+console.log(JSON.parse(localStorage.getItem("playlistsStorage")));
+
+
+function criarPlaylistIcon(nome, id) {
+  const container = document.querySelector(".playlist-content"); // container base da playlist
+  const playlistIcon = document.createElement("div"); // cria o elemento
+  playlistIcon.classList.add("playlist-container"); // adiciona a classe
+  playlistIcon.id = id; // adiciona o id
+  // abaixo fica o innerHTML para adicionar os elementos dentro do playlistIcon
+  playlistIcon.innerHTML = ` 
+    <img class="playlist" src="/src/assets/image/playlist/capa_playlist.jpg">
+    <h1 class="playlist-nome">${nome}</h1>
+  `
+  container.appendChild(playlistIcon); // esse caba faz com que seja criado dentro do container
+}
+
+async function carregarPlaylists() {
+  try {
+    const container = document.querySelector(".playlist-content");
+    if (!container) return
+    container.innerHTML = "oi";
+    const dados = JSON.parse(localStorage.getItem("playlistsStorage")).playlists; // aqui ele transforma em um array que o js pode ler
+    dados.forEach(playlists => {
+      criarPlaylistIcon(playlists.nome, playlists.index);
+    });
+    console.log(dados);
+  } catch (error) {
+    console.error("deu erro aqui parceiro, carregarPlaylist");
+  }
+}
+
+function criarPlaylistJSON(nome, criador) {
+
+  const dados = JSON.parse(localStorage.getItem("playlistsStorage"));
+  const playlist =
+  {
+    id: dados.playlists.length,
+    nome: nome,
+    criador: criador,
+    musicas: []
+  };
+  dados.playlists.push(playlist);
+  localStorage.setItem("playlistsStorage", JSON.stringify(dados))
+  console.log(localStorage.getItem("playlistsStorage"));
+}
+
+function fazerPlaylist() {
+  const nomePlaylist = document.querySelector("#input-nomePlaylist").value;
+  const nomeCriador = document.querySelector("#input-nomeCriador").value;
+  if (!nomeCriador == "" && !nomePlaylist == ""); {
+    criarPlaylistJSON(nomePlaylist, nomeCriador);
+    carregarPlaylists();
+  }
+}
+
+document.getElementById("btn-confirmarPlaylist").addEventListener('click', fazerPlaylist);
+
+carregarPlaylists();

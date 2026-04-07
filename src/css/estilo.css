@@ -50,6 +50,16 @@ body {
     max-height: 85vh;
 }
 
+#input-playlists {
+    position:absolute;
+    margin-left: 350%;
+    background: #323232;
+    color:#fff;
+    padding:.5em;
+    border-radius: 10px;
+    z-index: 999;
+}
+
 .playlist-content {
     display: flex;
     flex-direction: column;
@@ -664,7 +674,7 @@ body {
 }
 
 #volume-bar {
-    -webkit-appearance: none;
+    --webkit-appearance: none;
     width: 7vw;
     background: transparent;
     cursor: pointer;
