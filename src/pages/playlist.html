@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Playlist</title>
     <link rel="stylesheet" href="../css/estilo.css">
-    <link rel="x/icon" type="icon/x" href="../assets/image/logosite.png">
+    <link rel="icon" type="image/png" href="/src/assets/image/logosite.png">
 </head>
 
 <body>
@@ -63,12 +63,26 @@
 
             <img src="/src/assets/image/logosite.png" class="logo">
 
+            <div class="playlist-container" id="btn-criarPlaylist">
+                <img class="botao-add-playlist" src="../assets/image/add_playlist.png">
+                <h1 class="playlist-nome">Criar nova playlist</h1>
+            </div>
+
+            <div id="input-playlists" class="hide">
+                <div>
+                    <label for="input-nomePlaylist">Nome da playlist:</label>
+                    <input type="text" id="input-nomePlaylist" placeholder="Nome playlist">
+                </div>
+                <div>
+                    <label for="input-nomeCriador">Nome do criador:</label>
+                    <input type="text" id="input-nomeCriador" placeholder="Nome do criador">
+                </div>
+                <button type="button" id="btn-confirmarPlaylist">Confirmar</button>
+            </div>
+
             <div class="playlist-content">
 
-                <div class="playlist-container" id="btn-criarPlaylist">
-                    <img class="botao-add-playlist" src="../assets/image/add_playlist.png">
-                    <h1 class="playlist-nome">Criar nova playlist</h1>
-                </div>
+
 
                 <div class="playlist-container">
                     <img class="playlist" src="../assets/image/playlist/capa_playlist.jpg">
@@ -121,7 +135,7 @@
 
     </main>
 
-    <script src="../js/script.js"></script>
+    <script src="/src/js/script.js"></script>
 </body>
 
 </html>

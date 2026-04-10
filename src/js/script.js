@@ -43,10 +43,12 @@ let imagens = [
 ];
 let index = 0;
 
-setInterval(() => {
-  index = (index + 1) % imagens.length;
-  document.getElementById("banner-bemvindo").src = imagens[index];
-}, 3000);
+if (window.location.pathname == "/index.html")
+  setInterval(() => {
+    index = (index + 1) % imagens.length;
+    document.getElementById("banner-bemvindo").src = imagens[index];
+  }, 3000);
+
 
 // Player
 let musicas = [];
@@ -180,30 +182,31 @@ slider.addEventListener('input', (e) => handleInput(e.target));
 handleInput(slider);
 
 // FETCH
-fetch("./musicas.json")
-  .then(res => res.json())
-  .then(data => {
+if (window.location.pathname == "/index.html")
+  fetch("/musicas.json")
+    .then(res => res.json())
+    .then(data => {
 
-    for (let artista in data) {
-      const divArtista = document.createElement("div");
-      divArtista.classList.add("icon");
+      for (let artista in data) {
+        const divArtista = document.createElement("div");
+        divArtista.classList.add("icon");
 
-      divArtista.innerHTML = `
+        divArtista.innerHTML = `
             <img src="${data[artista][0].arquivoFotoArtista}" class="capa-artista">
             <h2 class="icon-nome">${artista}</h2>
             <h4 class="tipo">Artista</h4>
             <img src="/src/assets/image/tipoArtista.png" class="identificador-tipo-artista">
         `
-      container.appendChild(divArtista)
+        container.appendChild(divArtista)
 
-      data[artista].forEach(musica => {
-        musicas.push(musica);
-        let indexescolher = musicas.length - 1;
+        data[artista].forEach(musica => {
+          musicas.push(musica);
+          let indexescolher = musicas.length - 1;
 
-        const divMusica = document.createElement("div");
-        divMusica.classList.add("icon");
+          const divMusica = document.createElement("div");
+          divMusica.classList.add("icon");
 
-        divMusica.innerHTML = `
+          divMusica.innerHTML = `
           <img src="${musica.arquivoCapa}" class="capa-musica">
                 <div class="container-texto-icon">
             <h2 class="icon-nome">${musica.titulo}</h2>
@@ -213,15 +216,15 @@ fetch("./musicas.json")
                 <img src="./src/assets/image/tipoMusica.png" class="identificador-tipo-icone">
         `;
 
-        container.appendChild(divMusica);
+          container.appendChild(divMusica);
 
-        divMusica.addEventListener("click", () => {
-          indexmusica = indexescolher;
-          tocar();
+          divMusica.addEventListener("click", () => {
+            indexmusica = indexescolher;
+            tocar();
+          });
         });
-      });
-    }
-  });
+      }
+    });
 
 // Botão play
 const btnplay = document.getElementById("botao-player-tocar");
@@ -296,9 +299,10 @@ console.log(JSON.parse(localStorage.getItem("playlistsStorage")));
 
 function criarPlaylistIcon(nome, id) {
   const container = document.querySelector(".playlist-content"); // container base da playlist
-  const playlistIcon = document.createElement("div"); // cria o elemento
+  const playlistIcon = document.createElement("a"); // cria o elemento
   playlistIcon.classList.add("playlist-container"); // adiciona a classe
   playlistIcon.id = id; // adiciona o id
+  playlistIcon.href = "/src/pages/playlist.html";
   // abaixo fica o innerHTML para adicionar os elementos dentro do playlistIcon
   playlistIcon.innerHTML = ` 
     <img class="playlist" src="/src/assets/image/playlist/capa_playlist.jpg">
@@ -311,10 +315,10 @@ async function carregarPlaylists() {
   try {
     const container = document.querySelector(".playlist-content");
     if (!container) return
-    container.innerHTML = "oi";
+    container.innerHTML = ".";
     const dados = JSON.parse(localStorage.getItem("playlistsStorage")).playlists; // aqui ele transforma em um array que o js pode ler
     dados.forEach(playlists => {
-      criarPlaylistIcon(playlists.nome, playlists.index);
+      criarPlaylistIcon(playlists.nome, playlists.id);
     });
     console.log(dados);
   } catch (error) {
@@ -342,10 +346,27 @@ function fazerPlaylist() {
   const nomeCriador = document.querySelector("#input-nomeCriador").value;
   if (!nomeCriador == "" && !nomePlaylist == ""); {
     criarPlaylistJSON(nomePlaylist, nomeCriador);
+    mostrarOcultarInputPlaylist();
     carregarPlaylists();
   }
 }
 
+function mostrarOcultarInputPlaylist() {
+  const div = document.querySelector("#input-playlists");
+  if (div.classList == "hide")
+    div.classList.remove("hide");
+  else
+    div.classList.add("hide");
+
+}
+document.getElementById("btn-criarPlaylist").addEventListener('click', mostrarOcultarInputPlaylist)
 document.getElementById("btn-confirmarPlaylist").addEventListener('click', fazerPlaylist);
 
 carregarPlaylists();
+
+async function carregarMusicaPlaylist(id){
+  const musga = await fetch("/musicas.json");
+  const playlists = JSON.parse(localStorage.getItem("playlistsStorage"));
+}
+
+carregarMusicaPlaylist()
