@@ -36,11 +36,12 @@
 
 const container = document.querySelector("#volte-escutar");
 const pagAtual = window.location.pathname;
+console.log(pagAtual);
 
 // Banner
 let imagens = [
-  "/src/assets/image/banner/banner_epico.jfif",
-  "/src/assets/image/banner/mikey.jpg"
+  "./src/assets/image/banner/banner_epico.jfif",
+  "./src/assets/image/banner/mikey.jpg"
 ];
 let index = 0;
 
@@ -92,11 +93,11 @@ btnmutar.addEventListener("click", () => {
   if (mutado) {
     player.volume = 0;
     barravolume.value = 0;
-    imagemMutar.src = "/src/assets/image/botoes/volumeMutado.png"
+    imagemMutar.src = "./src/assets/image/botoes/volumeMutado.png"
   } else {
     player.volume = 0.2;
     barravolume.value = 20;
-    imagemMutar.src = "/src/assets/image/botoes/volume.png"
+    imagemMutar.src = "./src/assets/image/botoes/volume.png"
   }
 
   handleInput(slider)
@@ -159,7 +160,7 @@ function tocar() {
   player.play();
 
   display();
-  btnplay.src = "/src/assets/image/botoes/botao_pausar.png";
+  btnplay.src = "./src/assets/image/botoes/botao_pausar.png";
 }
 
 //Volume -- Barra e Botão de mutar
@@ -173,9 +174,9 @@ const handleInput = (el) => {
   volume = el.value
 
   if (volume <= 0) {
-    imagemMutar.src = "/src/assets/image/botoes/volumeMutado.png"
+    imagemMutar.src = "./src/assets/image/botoes/volumeMutado.png"
   } else {
-    imagemMutar.src = "/src/assets/image/botoes/volume.png"
+    imagemMutar.src = "./src/assets/image/botoes/volume.png"
   }
 };
 
@@ -183,7 +184,7 @@ slider.addEventListener('input', (e) => handleInput(e.target));
 handleInput(slider);
 
 // FETCH
-fetch("/src/json/musicas.json")
+fetch("./src/json/musicas.json")
   .then(res => res.json())
   .then(data => {
 
