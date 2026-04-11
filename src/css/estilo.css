@@ -1195,6 +1195,11 @@ body {
 
 /* bagulhinho das musicas */
 
+.playlist-musicaContainer{
+    display: grid;
+    gap:10px;
+}
+
 .musica-playlist {
     width: 100%;
     display: flex;

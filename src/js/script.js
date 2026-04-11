@@ -35,6 +35,7 @@
 // btnMudarCor.addEventListener('click', mudarCorSite);
 
 const container = document.querySelector("#volte-escutar");
+const pagAtual = window.location.pathname;
 
 // Banner
 let imagens = [
@@ -43,7 +44,7 @@ let imagens = [
 ];
 let index = 0;
 
-if (window.location.pathname == "/index.html")
+if (pagAtual == "/index.html")
   setInterval(() => {
     index = (index + 1) % imagens.length;
     document.getElementById("banner-bemvindo").src = imagens[index];
@@ -51,7 +52,7 @@ if (window.location.pathname == "/index.html")
 
 
 // Player
-let musicas = [];
+var musicas = [];
 let indexmusica = -1;
 let player;
 let volume = 50
@@ -182,12 +183,12 @@ slider.addEventListener('input', (e) => handleInput(e.target));
 handleInput(slider);
 
 // FETCH
-if (window.location.pathname == "/index.html")
-  fetch("/musicas.json")
-    .then(res => res.json())
-    .then(data => {
+fetch("/musicas.json")
+  .then(res => res.json())
+  .then(data => {
 
-      for (let artista in data) {
+    for (let artista in data) {
+      if (pagAtual == "/index.html") {
         const divArtista = document.createElement("div");
         divArtista.classList.add("icon");
 
@@ -198,11 +199,13 @@ if (window.location.pathname == "/index.html")
             <img src="/src/assets/image/tipoArtista.png" class="identificador-tipo-artista">
         `
         container.appendChild(divArtista)
+      }
 
-        data[artista].forEach(musica => {
-          musicas.push(musica);
-          let indexescolher = musicas.length - 1;
+      data[artista].forEach(musica => {
+        musicas.push(musica);
+        let indexescolher = musicas.length - 1;
 
+        if (window.location.pathname == "/index.html") {
           const divMusica = document.createElement("div");
           divMusica.classList.add("icon");
 
@@ -218,13 +221,22 @@ if (window.location.pathname == "/index.html")
 
           container.appendChild(divMusica);
 
+
           divMusica.addEventListener("click", () => {
             indexmusica = indexescolher;
             tocar();
+
           });
-        });
-      }
-    });
+        }
+
+      });
+    }
+
+    let idP = sessionStorage.getItem("idPlaylist");
+    if (pagAtual == "/src/pages/playlist.html")
+      carregarMusicaPlaylist(Number(idP));
+    console.log(idP)
+  });
 
 // Botão play
 const btnplay = document.getElementById("botao-player-tocar");
@@ -344,7 +356,7 @@ function criarPlaylistJSON(nome, criador) {
 function fazerPlaylist() {
   const nomePlaylist = document.querySelector("#input-nomePlaylist").value;
   const nomeCriador = document.querySelector("#input-nomeCriador").value;
-  if (!nomeCriador == "" && !nomePlaylist == ""); {
+  if (!nomeCriador == "" && !nomePlaylist == "") {
     criarPlaylistJSON(nomePlaylist, nomeCriador);
     mostrarOcultarInputPlaylist();
     carregarPlaylists();
@@ -364,9 +376,48 @@ document.getElementById("btn-confirmarPlaylist").addEventListener('click', fazer
 
 carregarPlaylists();
 
-async function carregarMusicaPlaylist(id){
-  const musga = await fetch("/musicas.json");
-  const playlists = JSON.parse(localStorage.getItem("playlistsStorage"));
+function carregarMusicaPlaylist(idPlaylist) {
+  try {
+    const playlists = JSON.parse(localStorage.getItem("playlistsStorage"));
+    const playlistAtual = playlists.playlists.find(p => p.id === idPlaylist);
+    console.log(playlistAtual);
+    const containerMusicas = document.querySelector(".playlist-musicaContainer");
+    if (playlistAtual) {
+      const nomePlaylist = document.querySelector(".playlist-namePage");
+      const criadorPlaylist = document.querySelector(".criador-playlist");
+      const musicasPlaylist = playlistAtual.musicas;
+      nomePlaylist.textContent = playlistAtual.nome;
+      criadorPlaylist.textContent = playlistAtual.criador;
+      containerMusicas.innerHTML = "";
+      musicasPlaylist.forEach(musga => {
+        const musgaExata = musicas[musga];
+        const musgaNome = musgaExata.titulo;
+        const musgaArtista = "depois mexo nisso";
+        const musgaCapa = musgaExata.arquivoCapa;
+        const divMusga = document.createElement("div");
+        divMusga.classList.add("musica-playlist");
+        divMusga.id = musgaExata.id;
+        divMusga.innerHTML = `
+        <section>
+          <img class="capa-musicaPlaylist" src="${musgaCapa}">
+          <div class="info-musicaPlaylist">
+            <h1 class="nome-musicaPlaylist">${musgaNome}</h1>
+            <h1 class="artista-musicaPlaylist">${musgaArtista}</h1>
+          </div>
+        </section>
+        <h1 class="tempo-musicaPlaylist">3:30</h1>
+        <h1 class="toques-musicaPlaylist">980126789461287416</h1>`
+        containerMusicas.appendChild(divMusga);
+      });
+    }
+  }
+  catch (error) {
+    console.error('deu erro ao carregar as músicas na playlist man')
+  }
 }
-
-carregarMusicaPlaylist()
+// esse bloco abaixo é usado para 'pegar' o id da playlist clickada e carregar seus dados
+document.querySelector(".playlist-content").addEventListener('click', (event) => {
+  const a = event.target.closest(".playlist-container");
+  const idClick = a.id;
+  sessionStorage.setItem("idPlaylist", idClick)
+});
