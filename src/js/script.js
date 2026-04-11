@@ -183,7 +183,7 @@ slider.addEventListener('input', (e) => handleInput(e.target));
 handleInput(slider);
 
 // FETCH
-fetch("/musicas.json")
+fetch("./musicas.json")
   .then(res => res.json())
   .then(data => {
 
