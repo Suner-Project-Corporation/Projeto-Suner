@@ -183,7 +183,7 @@ slider.addEventListener('input', (e) => handleInput(e.target));
 handleInput(slider);
 
 // FETCH
-fetch("./musicas.json")
+fetch("/src/json/musicas.json")
   .then(res => res.json())
   .then(data => {
 
@@ -303,7 +303,7 @@ async function executarLocalStorage(nome, caminho) {
 
 if (!localStorage.getItem("playlistsStorage")) {
   // esse caba verifica a existencia do playlistsStorage
-  executarLocalStorage("playlistsStorage", '/playlists.json');
+  executarLocalStorage("playlistsStorage", '/src/json/playlists.json');
 }
 console.log(localStorage.getItem("playlistsStorage"));
 console.log(JSON.parse(localStorage.getItem("playlistsStorage")));
