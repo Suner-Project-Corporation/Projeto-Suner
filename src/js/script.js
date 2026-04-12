@@ -327,18 +327,14 @@ function criarPlaylistIcon(nome, id) {
 }
 
 async function carregarPlaylists() {
-  try {
-    const container = document.querySelector(".playlist-content");
-    if (!container) return
-    container.innerHTML = ".";
-    const dados = JSON.parse(localStorage.getItem("playlistsStorage")).playlists; // aqui ele transforma em um array que o js pode ler
-    dados.forEach(playlists => {
-      criarPlaylistIcon(playlists.nome, playlists.id);
-    });
-    console.log(dados);
-  } catch (error) {
-    console.error("deu erro aqui parceiro, carregarPlaylist");
-  }
+  const container = document.querySelector(".playlist-content");
+  if (!container) return
+  container.innerHTML = ".";
+  const dados = JSON.parse(localStorage.getItem("playlistsStorage")).playlists; // aqui ele transforma em um array que o js pode ler
+  dados.forEach(playlists => {
+    criarPlaylistIcon(playlists.nome, playlists.id);
+  });
+  console.log(dados);
 }
 
 function criarPlaylistJSON(nome, criador) {
