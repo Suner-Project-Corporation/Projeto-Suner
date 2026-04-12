@@ -38,15 +38,17 @@ const container = document.querySelector("#volte-escutar");
 
 // Banner
 let imagens = [
-  "./src/assets/image/banner/banner_epico.jfif",
-  "./src/assets/image/banner/mikey.jpg"
+  "./src/assets/image/banner/banner1.png",
+  "./src/assets/image/banner/banner2.png"
 ];
 let index = 0;
 
-setInterval(() => {
-  index = (index + 1) % imagens.length;
-  document.getElementById("banner-bemvindo").src = imagens[index];
-}, 3000);
+if (document.getElementById("banner-bemvindo")) {
+  setInterval(() => {
+    index = (index + 1) % imagens.length;
+    document.getElementById("banner-bemvindo").src = imagens[index];
+  }, 10000);
+}
 
 // Player
 let musicas = [];
@@ -89,11 +91,11 @@ btnmutar.addEventListener("click", () => {
   if (mutado) {
     player.volume = 0;
     barravolume.value = 0;
-    imagemMutar.src = "./src/assets/image/botoes/volumeMutado.png"
+    imagemMutar.src = "/src/assets/image/botoes/volumeMutado.png"
   } else {
     player.volume = 0.2;
     barravolume.value = 20;
-    imagemMutar.src = "./src/assets/image/botoes/volume.png"
+    imagemMutar.src = "/src/assets/image/botoes/volume.png"
   }
 
   handleInput(slider)
@@ -170,9 +172,9 @@ const handleInput = (el) => {
   volume = el.value
 
   if (volume <= 0){
-    imagemMutar.src = "./src/assets/image/botoes/volumeMutado.png"
+    imagemMutar.src = "/src/assets/image/botoes/volumeMutado.png"
   } else {
-    imagemMutar.src = "./src/assets/image/botoes/volume.png"
+    imagemMutar.src = "/src/assets/image/botoes/volume.png"
   }
 };
 

@@ -158,41 +158,41 @@
 
         </aside>
 
-    </main>
-
-    <!-- controle de música -->
-    <div class="controle-musica">
-        <img class="imagem-musica" src="">
-        <div class="container-texto-musica">
-            <h1 class="titulo" id="titulo-player-musica"></h1>
-            <h2 id="titulo-player-album"></h2>
-        </div>
-
-        <div class="botoes-player">
-            <img class="botao-player-voltaravancar" src="../assets/image/botoes/voltar_avancar.png">
-            <img id="botao-player-tocar" src="../assets/image/botoes/botao_tocar.png">
-            <img class="botao-player-voltaravancar" id="botao-player-avancar"
-                src="../assets/image/botoes/voltar_avancar.png">
-        </div>
-
-        <div class="container-progresso">
-            <div class="barra-progresso">
-                <div class="progresso-musica"></div>
-                <div class="bolinha-progresso"></div>
+        <!-- controle de música -->
+        <div class="controle-musica">
+            <img class="imagem-musica" src="">
+            <div class="container-texto-musica">
+                <h1 class="titulo" id="titulo-player-musica"></h1>
+                <h2 id="titulo-player-album"></h2>
             </div>
 
-            <h4 class="tempo" id="tempo-atual">0:00</h4>
-            <h4 class="tempo" id="tempo-total">0:00</h4>
+            <div class="botoes-player">
+                <img class="botao-player-voltaravancar" src="../assets/image/botoes/voltar_avancar.png">
+                <img id="botao-player-tocar" src="../assets/image/botoes/botao_tocar.png">
+                <img class="botao-player-voltaravancar" id="botao-player-avancar"
+                    src="../assets/image/botoes/voltar_avancar.png">
+            </div>
 
+            <div class="container-progresso">
+                <div class="barra-progresso">
+                    <div class="progresso-musica"></div>
+                    <div class="bolinha-progresso"></div>
+                </div>
+
+                <h4 class="tempo" id="tempo-atual">0:00</h4>
+                <h4 class="tempo" id="tempo-total">0:00</h4>
+
+            </div>
+
+            <div class="controle-volume">
+                <button id="btn-mutar" class="btn-mutar"><img class="imagem-botao-mutar"
+                        src="../assets/image/botoes/volume.png" alt="Mutar"></button>
+                <input type="range" id="volume-bar" min="0" max="100" value="50">
+            </div>
         </div>
+    </main>
 
-        <div class="controle-volume">
-            <button id="btn-mutar" class="btn-mutar"><img class="imagem-botao-mutar"
-                    src="../assets/image/botoes/volume.png" alt="Mutar"></button>
-            <input type="range" id="volume-bar" min="0" max="100" value="50">
-        </div>
-    </div>
-
+    <script src="../js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.js"
         integrity="sha512-fCU+rmH3nS/RJaTSl/ylo/PxwWIZwJts3rfxRylSPqGYMJGPLXvPJGOTF+ECb0K5m9rSXbkCNg2PR7WKGWRTVQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
