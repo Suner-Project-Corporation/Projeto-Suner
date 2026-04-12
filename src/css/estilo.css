@@ -24,14 +24,14 @@ body {
 .site {
     display: grid;
     grid-template-columns: minmax(75px, 6vw) 1fr;
-    grid-template-rows: 85vh auto 0;
+    grid-template-rows: 85vh auto auto;
     grid-template-areas:
         "barraLateral sub-main"
         "controle-musica controle-musica"
         "barra-debaixo barra-debaixo";
 
     background: transparent;
-    height: 100vh;
+    min-height: 100vh;
     overflow: visible;
 
 }
