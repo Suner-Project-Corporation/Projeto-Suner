@@ -193,8 +193,7 @@ fetch("./src/json/musicas.json")
   .then(data => {
 
     for (let artista in data) {
-      if (pagAtual == "/index.html") {
-        const divArtista = document.createElement("div");
+      const divArtista = document.createElement("div");
         divArtista.classList.add("icon");
 
         divArtista.innerHTML = `
@@ -204,15 +203,13 @@ fetch("./src/json/musicas.json")
             <img src="/src/assets/image/tipoArtista.png" class="identificador-tipo-artista">
         `
         container.appendChild(divArtista)
-      }
 
       data[artista].forEach(musica => {
         musica.artista = artista
         musicas.push(musica);
         let indexescolher = musicas.length - 1;
 
-        if (window.location.pathname == "/index.html") {
-          const divMusica = document.createElement("div");
+        const divMusica = document.createElement("div");
           divMusica.classList.add("icon");
 
           divMusica.innerHTML = `
@@ -234,7 +231,6 @@ fetch("./src/json/musicas.json")
             tocar();
 
           });
-        }
 
       });
     }
