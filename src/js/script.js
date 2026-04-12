@@ -93,11 +93,11 @@ btnmutar.addEventListener("click", () => {
   if (mutado) {
     player.volume = 0;
     barravolume.value = 0;
-    imagemMutar.src = "/src/assets/image/botoes/volumeMutado.png"
+    imagemMutar.src = "./src/assets/image/botoes/volumeMutado.png"
   } else {
     player.volume = 0.2;
     barravolume.value = 20;
-    imagemMutar.src = "/src/assets/image/botoes/volume.png"
+    imagemMutar.src = "./src/assets/image/botoes/volume.png"
   }
 
   handleInput(slider)
@@ -313,7 +313,7 @@ async function executarLocalStorage(nome, caminho) {
 
 async function inicializarLocalStorage() {
   if (!localStorage.getItem("playlistsStorage")) {
-    await executarLocalStorage("playlistsStorage", './src/json/playlists.json');
+    await executarLocalStorage("playlistsStorage", '/Projeto-Suner/src/json/playlists.json');
   }
 
   console.log(localStorage.getItem("playlistsStorage"));
