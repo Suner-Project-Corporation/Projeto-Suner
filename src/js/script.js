@@ -188,9 +188,11 @@ slider.addEventListener('input', (e) => handleInput(e.target));
 handleInput(slider);
 
 // FETCH
-fetch("./src/json/musicas.json")
+fetch("/src/json/musicas.json")
   .then(res => res.json())
   .then(data => {
+
+    if (!container) return;
 
     for (let artista in data) {
       const divArtista = document.createElement("div");
@@ -288,11 +290,16 @@ só pra facilitar o rastreamento de tudo
 async function criarLocalStorageArray(caminho) {
   try {
     const arquivo = await fetch(caminho);
+
+    if (!arquivo.ok) {
+      throw new Error("Erro no fetch: " + arquivo.status);
+    }
+
     const arrayJSON = await arquivo.json();
     return arrayJSON;
   }
   catch (error) {
-    console.error("deu erro na hora de fazer local storage mano");
+    console.error(error);
   }
 }
 
@@ -304,10 +311,16 @@ async function executarLocalStorage(nome, caminho) {
 
 }
 
-if (!localStorage.getItem("playlistsStorage")) {
-  // esse caba verifica a existencia do playlistsStorage
-  executarLocalStorage("playlistsStorage", '/src/json/playlists.json');
+async function inicializarLocalStorage() {
+  if (!localStorage.getItem("playlistsStorage")) {
+    await executarLocalStorage("playlistsStorage", '/src/json/playlists.json');
+  }
+
+  console.log(localStorage.getItem("playlistsStorage"));
+  console.log(JSON.parse(localStorage.getItem("playlistsStorage")));
 }
+
+inicializarLocalStorage();
 console.log(localStorage.getItem("playlistsStorage"));
 console.log(JSON.parse(localStorage.getItem("playlistsStorage")));
 
