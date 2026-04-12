@@ -36,6 +36,9 @@
 
 const container = document.querySelector("#volte-escutar");
 const pagAtual = window.location.pathname;
+const BASE = window.location.hostname.includes("github.io")
+  ? "/Projeto-Suner/"
+  : "/";
 console.log(pagAtual);
 
 // Banner
@@ -93,11 +96,11 @@ btnmutar.addEventListener("click", () => {
   if (mutado) {
     player.volume = 0;
     barravolume.value = 0;
-    imagemMutar.src = "./src/assets/image/botoes/volumeMutado.png"
+    imagemMutar.src = BASE + "/src/assets/image/botoes/volumeMutado.png"
   } else {
     player.volume = 0.2;
     barravolume.value = 20;
-    imagemMutar.src = "./src/assets/image/botoes/volume.png"
+    imagemMutar.src = BASE + "/src/assets/image/botoes/volume.png"
   }
 
   handleInput(slider)
@@ -178,9 +181,9 @@ const handleInput = (el) => {
   volume = el.value
 
   if (volume <= 0){
-    imagemMutar.src = "/src/assets/image/botoes/volumeMutado.png"
+    imagemMutar.src = BASE + "src/assets/image/botoes/volumeMutado.png"
   } else {
-    imagemMutar.src = "/src/assets/image/botoes/volume.png"
+    imagemMutar.src = BASE + "src/assets/image/botoes/volume.png"
   }
 };
 
@@ -188,7 +191,7 @@ slider.addEventListener('input', (e) => handleInput(e.target));
 handleInput(slider);
 
 // FETCH
-fetch("/src/json/musicas.json")
+fetch(BASE + "src/json/musicas.json")
   .then(res => res.json())
   .then(data => {
 
@@ -202,7 +205,7 @@ fetch("/src/json/musicas.json")
             <img src="${data[artista][0].arquivoFotoArtista}" class="capa-artista">
             <h2 class="icon-nome">${artista}</h2>
             <h4 class="tipo">Artista</h4>
-            <img src="/src/assets/image/tipoArtista.png" class="identificador-tipo-artista">
+            <img src="${BASE}src/assets/image/tipoArtista.png" class="identificador-tipo-artista">
         `
         container.appendChild(divArtista)
 
@@ -238,7 +241,7 @@ fetch("/src/json/musicas.json")
     }
 
     let idP = sessionStorage.getItem("idPlaylist");
-    if (pagAtual == "/src/pages/playlist.html")
+    if (pagAtual == BASE + "src/pages/playlist.html")
       carregarMusicaPlaylist(Number(idP));
     console.log(idP)
   });
@@ -253,10 +256,10 @@ btnplay.addEventListener("click", () => {
 
   if (player.paused) {
     player.play();
-    btnplay.src = "/src/assets/image/botoes/botao_pausar.png";
+    btnplay.src = BASE + "src/assets/image/botoes/botao_pausar.png";
   } else {
     player.pause();
-    btnplay.src = "/src/assets/image/botoes/botao_tocar.png";
+    btnplay.src = BASE + "src/assets/image/botoes/botao_tocar.png";
   }
 });
 
@@ -313,7 +316,7 @@ async function executarLocalStorage(nome, caminho) {
 
 async function inicializarLocalStorage() {
   if (!localStorage.getItem("playlistsStorage")) {
-    await executarLocalStorage("playlistsStorage", '/Projeto-Suner/src/json/playlists.json');
+    await executarLocalStorage("playlistsStorage", BASE + 'src/json/playlists.json');
   }
 
   console.log(localStorage.getItem("playlistsStorage"));
@@ -339,7 +342,7 @@ function criarPlaylistIcon(nome, id) {
   playlistIcon.href = "/src/pages/playlist.html";
   // abaixo fica o innerHTML para adicionar os elementos dentro do playlistIcon
   playlistIcon.innerHTML = ` 
-    <img class="playlist" src="/src/assets/image/playlist/capa_playlist.jpg">
+    <img class="playlist" src="${BASE}src/assets/image/playlist/capa_playlist.jpg">
     <h1 class="playlist-nome">${nome}</h1>
   `
   container.appendChild(playlistIcon); // esse caba faz com que seja criado dentro do container

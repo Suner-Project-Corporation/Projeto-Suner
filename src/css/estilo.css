@@ -1039,6 +1039,10 @@ body {
         font-size: 0.7rem;
     }
 
+    #titulo-player-album{
+        font-size: 0.7rem;
+    }
+
     .container-progresso {
         border-radius: 10px;
         width: 100%;
