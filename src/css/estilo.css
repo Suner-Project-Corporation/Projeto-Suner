@@ -734,7 +734,7 @@ body {
 }
 
 #volume-bar {
-    --webkit-appearance: none;
+    -webkit-appearance: none;
     width: 7vw;
     background: transparent;
     cursor: pointer;
