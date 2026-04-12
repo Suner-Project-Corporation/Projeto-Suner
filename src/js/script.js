@@ -47,7 +47,7 @@ if (document.getElementById("banner-bemvindo")) {
   setInterval(() => {
     index = (index + 1) % imagens.length;
     document.getElementById("banner-bemvindo").src = imagens[index];
-  }, 10000);
+  }, 5000);
 }
 
 // Player
@@ -123,19 +123,23 @@ function configurarPlayer() {
   };
 }
 
+const img = document.querySelector(".imagem-musica");
+const titulo = document.getElementById("titulo-player-musica");
+const album = document.getElementById("titulo-player-album");
+const artistaPlayer = document.getElementById("titulo-player-artista");
+
 // Função Display
 function display() {
   if (indexmusica === -1) return;
 
-  const img = document.querySelector(".imagem-musica");
-  const titulo = document.getElementById("titulo-player-musica");
-  const album = document.getElementById("titulo-player-album");
-
   let musicaAtual = musicas[indexmusica];
+
+  console.log(musicaAtual)
 
   img.src = musicaAtual.arquivoCapa;
   titulo.innerHTML = musicaAtual.titulo;
   album.innerHTML = musicaAtual.album;
+  artistaPlayer.innerHTML = musicaAtual.artista
 }
 
 // Tocar música
@@ -199,6 +203,7 @@ fetch("./musicas.json")
       container.appendChild(divArtista)
 
       data[artista].forEach(musica => {
+        musica.artista = artista
         musicas.push(musica);
         let indexescolher = musicas.length - 1;
 
@@ -207,12 +212,13 @@ fetch("./musicas.json")
 
         divMusica.innerHTML = `
           <img src="${musica.arquivoCapa}" class="capa-musica">
-                <div class="container-texto-icon">
+          <div class="container-texto-icon">
             <h2 class="icon-nome">${musica.titulo}</h2>
             <h3 class="icon-artista">${artista}</h3>
             <h4 class="tipo">Música</h4>
-                </div>
-                <img src="./src/assets/image/tipoMusica.png" class="identificador-tipo-icone">
+          </div>
+          <img src="./src/assets/image/botoes/botao_tocar.png" class="botao-play-icon">
+          <img src="./src/assets/image/tipoMusica.png" class="identificador-tipo-icone">
         `;
 
         container.appendChild(divMusica);
