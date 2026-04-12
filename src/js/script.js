@@ -434,7 +434,7 @@ function carregarMusicaPlaylist(idPlaylist) {
     console.error('deu erro ao carregar as músicas na playlist man')
   }
 }
-// esse bloco abaixo é usado para 'pegar' o id da playlist clickada e carregar seus dados
+// esse bloco abaixo é usado para 'pegar' o id da playlist clickada e carregar seus  dados
 document.querySelector(".playlist-content").addEventListener('click', (event) => {
   const a = event.target.closest(".playlist-container");
   const idClick = a.id;
