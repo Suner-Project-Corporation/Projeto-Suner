@@ -324,6 +324,12 @@ inicializarLocalStorage();
 console.log(localStorage.getItem("playlistsStorage"));
 console.log(JSON.parse(localStorage.getItem("playlistsStorage")));
 
+async function initStorage() {
+  await inicializarLocalStorage();
+  carregarPlaylists();
+}
+
+initStorage();
 
 function criarPlaylistIcon(nome, id) {
   const container = document.querySelector(".playlist-content"); // container base da playlist
@@ -385,8 +391,6 @@ function mostrarOcultarInputPlaylist() {
 }
 document.getElementById("btn-criarPlaylist").addEventListener('click', mostrarOcultarInputPlaylist)
 document.getElementById("btn-confirmarPlaylist").addEventListener('click', fazerPlaylist);
-
-carregarPlaylists();
 
 function carregarMusicaPlaylist(idPlaylist) {
   try {
