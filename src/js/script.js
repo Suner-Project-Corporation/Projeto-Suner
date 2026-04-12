@@ -40,17 +40,17 @@ console.log(pagAtual);
 
 // Banner
 let imagens = [
-  "./src/assets/image/banner/banner_epico.jfif",
-  "./src/assets/image/banner/mikey.jpg"
+  "./src/assets/image/banner/banner1.png",
+  "./src/assets/image/banner/banner2.png"
 ];
 let index = 0;
 
-if (pagAtual == "/index.html")
+if (document.getElementById("banner-bemvindo")) {
   setInterval(() => {
     index = (index + 1) % imagens.length;
     document.getElementById("banner-bemvindo").src = imagens[index];
-  }, 3000);
-
+  }, 5000);
+}
 
 // Player
 var musicas = [];
@@ -93,11 +93,11 @@ btnmutar.addEventListener("click", () => {
   if (mutado) {
     player.volume = 0;
     barravolume.value = 0;
-    imagemMutar.src = "./src/assets/image/botoes/volumeMutado.png"
+    imagemMutar.src = "/src/assets/image/botoes/volumeMutado.png"
   } else {
     player.volume = 0.2;
     barravolume.value = 20;
-    imagemMutar.src = "./src/assets/image/botoes/volume.png"
+    imagemMutar.src = "/src/assets/image/botoes/volume.png"
   }
 
   handleInput(slider)
@@ -125,19 +125,23 @@ function configurarPlayer() {
   };
 }
 
+const img = document.querySelector(".imagem-musica");
+const titulo = document.getElementById("titulo-player-musica");
+const album = document.getElementById("titulo-player-album");
+const artistaPlayer = document.getElementById("titulo-player-artista");
+
 // Função Display
 function display() {
   if (indexmusica === -1) return;
 
-  const img = document.querySelector(".imagem-musica");
-  const titulo = document.getElementById("titulo-player-musica");
-  const album = document.getElementById("titulo-player-album");
-
   let musicaAtual = musicas[indexmusica];
+
+  console.log(musicaAtual)
 
   img.src = musicaAtual.arquivoCapa;
   titulo.innerHTML = musicaAtual.titulo;
   album.innerHTML = musicaAtual.album;
+  artistaPlayer.innerHTML = musicaAtual.artista
 }
 
 // Tocar música
@@ -173,10 +177,10 @@ const handleInput = (el) => {
   el.style.setProperty('--range-pct', pct + '%');
   volume = el.value
 
-  if (volume <= 0) {
-    imagemMutar.src = "./src/assets/image/botoes/volumeMutado.png"
+  if (volume <= 0){
+    imagemMutar.src = "/src/assets/image/botoes/volumeMutado.png"
   } else {
-    imagemMutar.src = "./src/assets/image/botoes/volume.png"
+    imagemMutar.src = "/src/assets/image/botoes/volume.png"
   }
 };
 
@@ -203,6 +207,7 @@ fetch("./src/json/musicas.json")
       }
 
       data[artista].forEach(musica => {
+        musica.artista = artista
         musicas.push(musica);
         let indexescolher = musicas.length - 1;
 
@@ -212,12 +217,13 @@ fetch("./src/json/musicas.json")
 
           divMusica.innerHTML = `
           <img src="${musica.arquivoCapa}" class="capa-musica">
-                <div class="container-texto-icon">
+          <div class="container-texto-icon">
             <h2 class="icon-nome">${musica.titulo}</h2>
             <h3 class="icon-artista">${artista}</h3>
             <h4 class="tipo">Música</h4>
-                </div>
-                <img src="./src/assets/image/tipoMusica.png" class="identificador-tipo-icone">
+          </div>
+          <img src="./src/assets/image/botoes/botao_tocar.png" class="botao-play-icon">
+          <img src="./src/assets/image/tipoMusica.png" class="identificador-tipo-icone">
         `;
 
           container.appendChild(divMusica);

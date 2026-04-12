@@ -6,186 +6,196 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suner</title>
     <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="icon" type="image/png" href="../assets/image/logosite.png">
 </head>
 
 <body>
     <main class="site"><!-- tudo vai estar dentro deste mano -->
-
         <section class="sub-main">
-            <header>
-                <input type="text" placeholder="pesquisar" class="barra-pesquisa"></input>
-
-                <img class="artista-foto" src="../assets/image/playlist/capa_playlist.jpg">
-                <div class="artista-banner"></div>
-                <h1 class="artista-nome">Artista legal</h3>
-                    <h3 class="artista-subtitulo">0 Ouvintes mensais
-                </h1>
-
-                <!-- os ids aqui são para o javascript(e posição no css) -->
-                <button class="btn-retangular" id="btn-tocar" type="button"><img
-                        src="../assets/image/botoes/play.png">Tocar</button>
-                <button class="btn-retangular" id="btn-aleatorio" type="button"><img
-                        src="../assets/image/botoes/aleatorio.png">Aleatório</button>
-            </header>
-
-            <section class="musicas-artista">
-
-                <section class="lista-musicas">
-                    <h1 class="titulo-grande">Mais tocadas</h1>
-
-                    <div class="item-musica-artista">
-                        <img class="musica-foto" src="../assets/image/musicas/imagem_capa_teste.jfif">
-
-                        <div class="musica-titulo-album">
-                            <h1 class="titulo">Escape (The Piña Colada Song)</h1>
-                            <h2>Album</h2>
-                        </div>
-
-                        <h1 class="titulo-secundario">999,9 mil toques</h1>
-                        <h1 class="titulo-secundario">Lil Hitler 1939, Jair Bolsonaro e Enildo Candido</h1>
+            <header class="header-artista">
+                <div class="header-topo">
+                    <div class="barra-pesquisa">
+                        <img src="../assets/image/lupa-pesquisa.png" class="lupa-pesquisa">
+                        <input type="text" placeholder="Pesquisar" class="input-pesquisa">
                     </div>
 
-                    <div class="item-musica-artista">
-                        <img class="musica-foto" src="../assets/image/musicas/imagem_capa_teste.jfif">
+                    <img src="../assets/image/foto_teste_tocandoAgora.jpg" class="foto-perfil">
+                    <img src="../assets/image/logosite.png" class="logo-mobile">
+                </div>
 
-                        <div class="musica-titulo-album">
-                            <h1 class="titulo">Escape (The Piña Colada Song)</h1>
-                            <h2>Album</h2>
-                        </div>
+                <div class="header-artista-info">
+                    <img class="artista-foto" src="../assets/image/playlist/capa_playlist.jpg">
+                    <div class="artista-banner"></div>
 
-                        <h1 class="titulo-secundario">999,9 mil toques</h1>
-                        <h1 class="titulo-secundario">Eminem, Jair Bolsonaro e Enildo Candido</h1>
-                    </div>
+                    <h1 class="artista-nome">Artista legal</h1>
+                    <h3 class="artista-subtitulo">0 Ouvintes mensais</h3>
 
-                    <div class="item-musica-artista">
-                        <img class="musica-foto" src="../assets/image/musicas/imagem_capa_teste.jfif">
+                    <div class="container-botoes">
+                        <button class="btn-retangular" id="btn-tocar">
+                            <img src="../assets/image/botoes/icone_play.png">Tocar
+                        </button>
 
-                        <div class="musica-titulo-album">
-                            <h1 class="titulo">Escape (The Piña Colada Song)</h1>
-                            <h2>Album</h2>
-                        </div>
-
-                        <h1 class="titulo-secundario">999,9 mil toques</h1>
-                        <h1 class="titulo-secundario">Eminem, Jair Bolsonaro e Enildo Candido</h1>
-                    </div>
-
-                    <div class="item-musica-artista">
-                        <img class="musica-foto" src="../assets/image/musicas/imagem_capa_teste.jfif">
-
-                        <div class="musica-titulo-album">
-                            <h1 class="titulo">Escape (The Piña Colada Song)</h1>
-                            <h2>Album</h2>
-                        </div>
-
-                        <h1 class="titulo-secundario">999,9 mil toques</h1>
-                        <h1 class="titulo-secundario">Eminem, Jair Bolsonaro e Enildo Candido</h1>
-                    </div>
-                </section>
-
-                <div class="linha"></div>
-
-                <div class="destaque-artista">
-                    <h1 class="titulo-grande" id="em-destaque">Em destaque</h1>
-
-                    <div class="em-destaque">
-                        <img class="destaque-imagem" src="../assets/image/musicas/imagem_capa_teste.jfif">
-                        <div>
-                            <h1 class="titulo-destaque">Escape (The Piña Colada Song)</h1>
-                            <h2 class="titulo-secundario-destaque">Album nome ou single</h2>
-                        </div>
+                        <button class="btn-retangular" id="btn-aleatorio">
+                            <img src="../assets/image/botoes/aleatorio.png">Aleatório
+                        </button>
                     </div>
                 </div>
 
-            </section>
+                <section class="musicas-artista">
+
+                    <section class="lista-musicas">
+                        <h1 class="titulo-grande">Mais tocadas</h1>
+
+                        <div class="item-musica-artista">
+                            <img class="musica-foto" src="../assets/image/capaAlbuns/AM.png">
+
+                            <div class="musica-titulo-album">
+                                <h1 class="titulo">Escape (The Piña Colada Song)</h1>
+                                <h2>Album</h2>
+                            </div>
+
+                            <h1 class="titulo-secundario">999,9 mil toques</h1>
+                            <h1 class="titulo-secundario">Lil Hitler 1939, Jair Bolsonaro e Enildo Candido</h1>
+                        </div>
+
+                        <div class="item-musica-artista">
+                            <img class="musica-foto" src="../assets/image/capaAlbuns/AM.png">
+
+                            <div class="musica-titulo-album">
+                                <h1 class="titulo">Escape (The Piña Colada Song)</h1>
+                                <h2>Album</h2>
+                            </div>
+
+                            <h1 class="titulo-secundario">999,9 mil toques</h1>
+                            <h1 class="titulo-secundario">Eminem, Jair Bolsonaro e Enildo Candido</h1>
+                        </div>
+
+                        <div class="item-musica-artista">
+                            <img class="musica-foto" src="../assets/image/capaAlbuns/AM.png">
+
+                            <div class="musica-titulo-album">
+                                <h1 class="titulo">Escape (The Piña Colada Song)</h1>
+                                <h2>Album</h2>
+                            </div>
+
+                            <h1 class="titulo-secundario">999,9 mil toques</h1>
+                            <h1 class="titulo-secundario">Eminem, Jair Bolsonaro e Enildo Candido</h1>
+                        </div>
+
+                        <div class="item-musica-artista">
+                            <img class="musica-foto" src="../assets/image/capaAlbuns/AM.png">
+
+                            <div class="musica-titulo-album">
+                                <h1 class="titulo">Escape (The Piña Colada Song)</h1>
+                                <h2>Album</h2>
+                            </div>
+
+                            <h1 class="titulo-secundario">999,9 mil toques</h1>
+                            <h1 class="titulo-secundario">Eminem, Jair Bolsonaro e Enildo Candido</h1>
+                        </div>
+                    </section>
+
+                    <div class="linha"></div>
+
+                    <div class="destaque-artista">
+                        <h1 class="titulo-grande" id="em-destaque">Em destaque</h1>
+
+                        <div class="em-destaque">
+                            <img class="destaque-imagem" src="../assets/image/capaAlbuns/AM.png">
+                            <div>
+                                <h1 class="titulo-destaque">Escape (The Piña Colada Song)</h1>
+                                <h2 class="titulo-secundario-destaque">Album nome ou single</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section class="barra-debaixo">
+                    <div class="container-barra-debaixo">
+                        <img class="img-barra-debaixo" src="../assets/image/botoes/homepreenchido.png">
+                        <h1>Início</h1>
+                    </div>
+
+                    <div class="container-barra-debaixo">
+                        <img class="imagem-nao-selecionada" src="../assets/image/botoes/playlistspreenchido.png">
+                        <h1 class="nao-selecionado">Playlists</h1>
+                    </div>
+
+                    <div class="container-barra-debaixo">
+                        <img class="imagem-nao-selecionada" src="../assets/image/botoes/usuariopreenchido.png">
+                        <h1 class="nao-selecionado">Conta</h1>
+                    </div>
+                </section>
         </section>
 
         <aside class="barra-lateral">
 
-            <img src="" class="logo">
+            <img src="../assets/image/logosite.png" class="logo">
 
-            <button type="button" class="btn-playlist btn-topPlaylist">Top Playlist<img
-                    src="../assets/image/botoes/botao_setinha_playlist.svg" class="setinha-retrair"></button>
-            <div class="playlists-content">
-
-                <article class="playlist">
-                    <img src="../assets/image/playlist/capa_playlist.jpg">
-                    <h1>Nome Playlist</h1>
-                </article>
-
-                <article class="playlist">
-                    <img src="../assets/image/playlist/capa_playlist.jpg">
-                    <h1>Nome Playlist</h1>
-                </article>
-
-                <article class="playlist">
-                    <img src="../assets/image/playlist/capa_playlist.jpg">
-                    <h1>Nome Playlist</h1>
-                </article>
-
-            </div>
-
-            <button type="button" class="btn-playlist btn-criarPlaylist"><span>+</span>Criar Playlist</button>
-
-            <button type="button" class="btn-playlist btn-suasPlaylist">Playlists<img
-                    src="../assets/image/botoes/botao_setinha_playlist.svg" class="setinha-retrair"></button>
             <div class="playlist-content">
 
-                <article class="playlist">
-                    <img src="../assets/image/playlist/capa_playlist.jpg">
-                    <h1>Nome Playlist</h1>
-                </article>
+                <div class="playlist-container">
+                    <img class="botao-add-playlist" src="../assets/image/add_playlist.png">
+                    <h1 class="playlist-nome">Criar nova playlist</h1>
+                </div>
 
-                <article class="playlist">
-                    <img src="../assets/image/playlist/capa_playlist.jpg">
-                    <h1>Nome Playlist</h1>
-                </article>
+                <div class="playlist-container">
+                    <img class="playlist" src="../assets/image/playlist/capa_playlist.jpg">
+                    <h1 class="playlist-nome">Nome da playlist</h1>
+                </div>
+                <div class="playlist-container">
+                    <img class="playlist" src="../assets/image/playlist/capa_playlist.jpg">
+                    <h1 class="playlist-nome">Nome da playlist</h1>
+                </div>
+                <div class="playlist-container">
+                    <img class="playlist" src="../assets/image/playlist/capa_playlist.jpg">
+                    <h1 class="playlist-nome">Nome da playlist</h1>
+                </div>
 
-                <article class="playlist">
-                    <img src="../assets/image/playlist/capa_playlist.jpg">
-                    <h1>Nome Playlist</h1>
-                </article>
 
             </div>
 
         </aside>
 
+        <!-- controle de música -->
+        <div class="controle-musica">
+            <img class="imagem-musica" src="">
+            <div class="container-texto-musica">
+                <h1 class="titulo" id="titulo-player-musica"></h1>
+                <h2 id="titulo-player-album"></h2>
+            </div>
+
+            <div class="botoes-player">
+                <img class="botao-player-voltaravancar" src="../assets/image/botoes/voltar_avancar.png">
+                <img id="botao-player-tocar" src="../assets/image/botoes/botao_tocar.png">
+                <img class="botao-player-voltaravancar" id="botao-player-avancar"
+                    src="../assets/image/botoes/voltar_avancar.png">
+            </div>
+
+            <div class="container-progresso">
+                <div class="barra-progresso">
+                    <div class="progresso-musica"></div>
+                    <div class="bolinha-progresso"></div>
+                </div>
+
+                <h4 class="tempo" id="tempo-atual">0:00</h4>
+                <h4 class="tempo" id="tempo-total">0:00</h4>
+
+            </div>
+
+            <div class="controle-volume">
+                <button id="btn-mutar" class="btn-mutar"><img class="imagem-botao-mutar"
+                        src="../assets/image/botoes/volume.png" alt="Mutar"></button>
+                <input type="range" id="volume-bar" min="0" max="100" value="50">
+            </div>
+        </div>
     </main>
 
-    <!-- controle de música -->
-    <div class="controle-musica">
-
-        <article>
-            <section class="info-musica">
-                <img src="../assets/image/foto_teste_tocandoAgora.jpg" class="tocando-agora">
-                <div>
-                    <h1>titulo</h1>
-                    <h2>mc aleijadinho</h2>
-                </div>
-            </section>
-
-            <section class="botoes-musica">
-                <button type="button" class="btn-voltar"><img src="../assets/image/botoes/icone_botao.svg"></button>
-                <button type="button" class="btn-pausar">
-                    <div class="fundo-pausar">
-                        <div class="barra-pausar1"></div>
-                        <div class="barra-pausar2"></div>
-                    </div>
-                </button>
-                <button type="button" class="btn-avancar"><img src="../assets/image/botoes/icone_botao.svg"></button>
-            </section>
-        </article>
-
-        <section class="minutagem-musica">
-            <p id="tempo-musica">234:3242/23123:5321</p>
-            <div class="barra-duracao">
-                <div class="progresso-musica"></div>
-                <div class="bolinha-musica"></div>
-            </div>
-        </section>
-
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.js" integrity="sha512-fCU+rmH3nS/RJaTSl/ylo/PxwWIZwJts3rfxRylSPqGYMJGPLXvPJGOTF+ECb0K5m9rSXbkCNg2PR7WKGWRTVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.js"
+        integrity="sha512-fCU+rmH3nS/RJaTSl/ylo/PxwWIZwJts3rfxRylSPqGYMJGPLXvPJGOTF+ECb0K5m9rSXbkCNg2PR7WKGWRTVQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </body>
 
