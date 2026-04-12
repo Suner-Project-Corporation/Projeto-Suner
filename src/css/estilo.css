@@ -51,6 +51,11 @@ body {
     max-height: 85vh;
 }
 
+.barra-lateral a{
+    display: flex;
+    justify-content: center;
+}
+
 #input-playlists {
     transition: ease 0.2s;
     position: absolute;

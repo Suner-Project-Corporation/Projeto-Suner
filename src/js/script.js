@@ -313,7 +313,7 @@ async function executarLocalStorage(nome, caminho) {
 
 async function inicializarLocalStorage() {
   if (!localStorage.getItem("playlistsStorage")) {
-    await executarLocalStorage("playlistsStorage", '/src/json/playlists.json');
+    await executarLocalStorage("playlistsStorage", './src/json/playlists.json');
   }
 
   console.log(localStorage.getItem("playlistsStorage"));
