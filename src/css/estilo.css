@@ -51,7 +51,7 @@ body {
     max-height: 85vh;
 }
 
-.barra-lateral a{
+.barra-lateral a {
     display: flex;
     justify-content: center;
 }
@@ -89,16 +89,16 @@ body {
     border: 2px solid #fff;
     width: 50%;
     aspect-ratio: 3/1;
-    margin-top:15px;
+    margin-top: 15px;
     margin-bottom: 10px;
     border-radius: 10px;
     cursor: pointer;
-    margin-left:25%;
+    margin-left: 25%;
 }
 
 #btn-confirmarPlaylist:hover {
     background: #810000;
-    margin-left:25%;
+    margin-left: 25%;
     transform: scale(105%);
     transition: 0.1s ease-in-out;
 
@@ -109,6 +109,112 @@ body {
     flex-direction: column;
     align-items: center;
     max-width: 100%;
+}
+
+.btn-Playlist {
+    background: #ac0000;
+    color: #fff;
+    border: #fff 2px solid;
+    border-radius: 10px;
+    width: 5em;
+    height: 2rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.btn-Playlist:hover {
+    background: #810000;
+    transform: scale(105%);
+    transition: 0.1s ease-in-out;
+}
+
+.addMusga {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30vw;
+    font-size: 0.8em;
+    color: #8b8b8b;
+    background: #161616;
+    padding: 10px;
+    border-bottom: #424242 2px solid;
+    cursor: pointer;
+}
+
+.addMusga:hover {
+    background: #272727;
+}
+
+.addMusga:first-child {
+    border-radius: 20px 20px 0px 0px;
+}
+
+.addMusga:last-child {
+    border-radius: 0 0 20px 20px;
+    border-bottom: 0;
+}
+
+#div-addMusga {
+    background: #0e0e0e;
+    display: grid;
+    justify-content: center;
+    position: absolute;
+    padding: 20px;
+    border-radius: 20px;
+    left: 50%;
+    top: 10vh;
+    transform: translateX(-50%);
+    z-index: 999999;
+}
+
+#div-addMusga article {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+#btn-fecharAddMusga {
+    background: none;
+    color: #fff;
+    border: none;
+    font-weight: 400;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#btn-fecharAddMusga:hover {
+    color: #ac0000;
+}
+
+#container-addMusga {
+    overflow-y: auto;
+}
+
+#btn-addMusga {
+    background: #ac0000;
+    color: #fff;
+    border: #fff 2px solid;
+    font-size: 1.7rem;
+    width:2.5rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    font-weight: 750;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn-addMusga:hover{
+    background: #810000;
+}
+
+.addMusga img {
+    height: 4rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+
 }
 
 .btn-playlist {
@@ -275,12 +381,12 @@ body {
     background: #8B0000;
 }
 
-.btn-retangular:hover{
+.btn-retangular:hover {
     transform: scale(105%);
     transition: 0.15s;
 }
 
-.btn-retangular:active{
+.btn-retangular:active {
     transform: scale(95%);
     transition: 0.1s;
 }
@@ -438,7 +544,7 @@ body {
     width: 100%;
 }
 
-.header-artista{
+.header-artista {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -611,7 +717,7 @@ body {
     position: relative;
 }
 
-.botao-play-icon{
+.botao-play-icon {
     max-width: 6vh;
     max-height: 6vh;
     position: absolute;
@@ -747,19 +853,19 @@ body {
 }
 
 #volume-bar::-webkit-slider-runnable-track {
-  height: 5px;
-  background: linear-gradient(to right, #8B0000 var(--range-pct, 0%), #4f4f4f var(--range-pct, 0%));
-  border-radius: 10px;
-  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1);
+    height: 5px;
+    background: linear-gradient(to right, #8B0000 var(--range-pct, 0%), #4f4f4f var(--range-pct, 0%));
+    border-radius: 10px;
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1);
 }
 
 #volume-bar::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  height: 12px;
-  width: 12px;
-  background: #CDCDCD;
-  border-radius: 10px;
-  margin-top: -3px;
+    -webkit-appearance: none;
+    height: 12px;
+    width: 12px;
+    background: #CDCDCD;
+    border-radius: 10px;
+    margin-top: -3px;
 }
 
 .imagem-botao-mutar {
@@ -840,7 +946,7 @@ body {
     color: #CDCDCD;
 }
 
-#tempo-total{
+#tempo-total {
     margin-top: -17px;
     text-align: right;
     color: #CDCDCD;
@@ -898,7 +1004,7 @@ body {
     white-space: nowrap;
 }
 
-#titulo-player-album{
+#titulo-player-album {
     font-family: "dm sans";
     font-size: 1.15rem;
     color: white;
@@ -1040,7 +1146,7 @@ body {
         font-size: 0.7rem;
     }
 
-    #titulo-player-album{
+    #titulo-player-album {
         font-size: 0.7rem;
     }
 
@@ -1239,9 +1345,9 @@ body {
 
 /* bagulhinho das musicas */
 
-.playlist-musicaContainer{
+.playlist-musicaContainer {
     display: grid;
-    gap:10px;
+    gap: 10px;
 }
 
 .musica-playlist {

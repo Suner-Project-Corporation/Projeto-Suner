@@ -141,7 +141,7 @@ function display() {
 
   console.log(musicaAtual)
 
-  img.src = musicaAtual.arquivoCapa;
+  img.src = BASE + musicaAtual.arquivoCapa;
   titulo.innerHTML = musicaAtual.titulo;
   album.innerHTML = musicaAtual.album;
   artistaPlayer.innerHTML = musicaAtual.artista
@@ -151,7 +151,7 @@ function display() {
 function tocar() {
   if (indexmusica === -1) return;
   if (player) player.pause();
-  player = new Audio(musicas[indexmusica].arquivo);
+  player = new Audio(BASE + musicas[indexmusica].arquivo);
   configurarPlayer();
 
   // Resetar tempo de musica
@@ -167,7 +167,7 @@ function tocar() {
   player.play();
 
   display();
-  btnplay.src = "./src/assets/image/botoes/botao_pausar.png";
+  btnplay.src = BASE + "src/assets/image/botoes/botao_pausar.png";
 }
 
 //Volume -- Barra e Botão de mutar
@@ -180,7 +180,7 @@ const handleInput = (el) => {
   el.style.setProperty('--range-pct', pct + '%');
   volume = el.value
 
-  if (volume <= 0){
+  if (volume <= 0) {
     imagemMutar.src = BASE + "src/assets/image/botoes/volumeMutado.png"
   } else {
     imagemMutar.src = BASE + "src/assets/image/botoes/volume.png"
@@ -191,33 +191,38 @@ slider.addEventListener('input', (e) => handleInput(e.target));
 handleInput(slider);
 
 // FETCH
+if (BASE + "src/json/musicas.json")
+  console.log('tudo certo');
 fetch(BASE + "src/json/musicas.json")
   .then(res => res.json())
   .then(data => {
-
-    if (!container) return;
+    console.log('tudo certo');
+    //if (!container) return;
 
     for (let artista in data) {
       const divArtista = document.createElement("div");
-        divArtista.classList.add("icon");
+      divArtista.classList.add("icon");
 
-        divArtista.innerHTML = `
+      divArtista.innerHTML = `
             <img src="${data[artista][0].arquivoFotoArtista}" class="capa-artista">
             <h2 class="icon-nome">${artista}</h2>
             <h4 class="tipo">Artista</h4>
             <img src="${BASE}src/assets/image/tipoArtista.png" class="identificador-tipo-artista">
         `
+      if (container)
         container.appendChild(divArtista)
+      console.log("artista carregado")
 
       data[artista].forEach(musica => {
         musica.artista = artista
         musicas.push(musica);
+        console.log(musicas);
         let indexescolher = musicas.length - 1;
 
         const divMusica = document.createElement("div");
-          divMusica.classList.add("icon");
+        divMusica.classList.add("icon");
 
-          divMusica.innerHTML = `
+        divMusica.innerHTML = `
           <img src="${musica.arquivoCapa}" class="capa-musica">
           <div class="container-texto-icon">
             <h2 class="icon-nome">${musica.titulo}</h2>
@@ -227,24 +232,30 @@ fetch(BASE + "src/json/musicas.json")
           <img src="./src/assets/image/botoes/botao_tocar.png" class="botao-play-icon">
           <img src="./src/assets/image/tipoMusica.png" class="identificador-tipo-icone">
         `;
-
+        if (container)
           container.appendChild(divMusica);
 
+        divMusica.addEventListener("click", () => {
+          indexmusica = indexescolher;
+          tocar();
 
-          divMusica.addEventListener("click", () => {
-            indexmusica = indexescolher;
-            tocar();
+        });
 
-          });
+
 
       });
-    }
+    };
 
     let idP = sessionStorage.getItem("idPlaylist");
-    if (pagAtual == BASE + "src/pages/playlist.html")
+    if (pagAtual == BASE + "src/pages/playlist.html") {
       carregarMusicaPlaylist(Number(idP));
+    }
     console.log(idP)
+    console.log(musicas);
+    carregarMusgaAdd()
   });
+
+
 
 // Botão play
 const btnplay = document.getElementById("botao-player-tocar");
@@ -339,7 +350,7 @@ function criarPlaylistIcon(nome, id) {
   const playlistIcon = document.createElement("a"); // cria o elemento
   playlistIcon.classList.add("playlist-container"); // adiciona a classe
   playlistIcon.id = id; // adiciona o id
-  playlistIcon.href = "/src/pages/playlist.html";
+  playlistIcon.href = BASE + "src/pages/playlist.html";
   // abaixo fica o innerHTML para adicionar os elementos dentro do playlistIcon
   playlistIcon.innerHTML = ` 
     <img class="playlist" src="${BASE}src/assets/image/playlist/capa_playlist.jpg">
@@ -405,20 +416,29 @@ function carregarMusicaPlaylist(idPlaylist) {
       const nomePlaylist = document.querySelector(".playlist-namePage");
       const criadorPlaylist = document.querySelector(".criador-playlist");
       const musicasPlaylist = playlistAtual.musicas;
+      document.getElementById("qtd-musicaPlaylist").textContent = musicasPlaylist.length;
       nomePlaylist.textContent = playlistAtual.nome;
       criadorPlaylist.textContent = playlistAtual.criador;
       containerMusicas.innerHTML = "";
       musicasPlaylist.forEach(musga => {
+        console.log(musga);
         const musgaExata = musicas[musga];
+        console.log(musgaExata)
         const musgaNome = musgaExata.titulo;
         const musgaArtista = "depois mexo nisso";
         const musgaCapa = musgaExata.arquivoCapa;
         const divMusga = document.createElement("div");
         divMusga.classList.add("musica-playlist");
-        divMusga.id = musgaExata.id;
+        divMusga.id = musga;
+        divMusga.addEventListener("click", () => {
+          indexmusica = divMusga.id;
+          tocar();
+        })
+        console.log(divMusga.id);
+        console.log(musgaExata);
         divMusga.innerHTML = `
         <section>
-          <img class="capa-musicaPlaylist" src="${musgaCapa}">
+          <img class="capa-musicaPlaylist" src="${BASE + musgaCapa}">
           <div class="info-musicaPlaylist">
             <h1 class="nome-musicaPlaylist">${musgaNome}</h1>
             <h1 class="artista-musicaPlaylist">${musgaArtista}</h1>
@@ -438,5 +458,31 @@ function carregarMusicaPlaylist(idPlaylist) {
 document.querySelector(".playlist-content").addEventListener('click', (event) => {
   const a = event.target.closest(".playlist-container");
   const idClick = a.id;
-  sessionStorage.setItem("idPlaylist", idClick)
+  console.log(idClick);
+  sessionStorage.setItem("idPlaylist", idClick);
+  console.log(sessionStorage.getItem("idPlaylist"));
 });
+
+function carregarMusgaAdd() {
+  musicas.forEach(Musca => {
+    const containerAdd = document.getElementById("container-addMusga")
+    const divAdd = document.createElement("div");
+    divAdd.classList.add("addMusga");
+    divAdd.id = musicas.indexOf(Musca);
+    divAdd.innerHTML = `
+    <img src=${BASE + Musca.arquivoCapa}>
+    <h1>${Musca.titulo}</h1>
+    `;
+    containerAdd.appendChild(divAdd);
+  })
+}
+
+document.getElementById("btn-fecharAddMusga").addEventListener("click", () => {
+  document.getElementById("div-addMusga").classList.add("hide")
+}
+);
+
+document.getElementById("btn-addMusga").addEventListener("click", () => {
+  document.getElementById("div-addMusga").classList.remove("hide")
+}
+)

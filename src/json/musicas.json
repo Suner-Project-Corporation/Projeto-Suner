@@ -3,41 +3,41 @@
         {
             "titulo": "505",
             "album": "Favourite Worst Nightmare",
-            "arquivo": "./src/assets/musicas\\505 - Arctic Monkeys - Favourite Worst Nightmare.mp3",
-            "arquivoCapa": "./src/assets/image/capaAlbuns/Favourite Worst Nightmare.png",
-            "arquivoFotoArtista": "./src/assets/image/fotoArtistas/Arctic Monkeys.png"
+            "arquivo": "src/assets/musicas\\505 - Arctic Monkeys - Favourite Worst Nightmare.mp3",
+            "arquivoCapa": "src/assets/image/capaAlbuns/Favourite_Worst_Nightmare.png",
+            "arquivoFotoArtista": "src/assets/image/fotoArtistas/Arctic Monkeys.png"
         },
         {
             "titulo": "R U Mine",
             "album": "AM",
-            "arquivo": "./src/assets/musicas\\R U Mine - Arctic Monkeys - AM.mp3",
-            "arquivoCapa": "./src/assets/image/capaAlbuns/AM.png",
-            "arquivoFotoArtista": "./src/assets/image/fotoArtistas/Arctic Monkeys.png"
+            "arquivo": "src/assets/musicas\\R U Mine - Arctic Monkeys - AM.mp3",
+            "arquivoCapa": "src/assets/image/capaAlbuns/AM.png",
+            "arquivoFotoArtista": "src/assets/image/fotoArtistas/Arctic Monkeys.png"
         }
     ],
     "C418": [
         {
             "titulo": "Alpha",
             "album": "Volume Beta",
-            "arquivo": "./src/assets/musicas\\Alpha - C418 - Volume Beta.m4a",
-            "arquivoCapa": "./src/assets/image/capaAlbuns/Volume Beta.png",
-            "arquivoFotoArtista": "./src/assets/image/fotoArtistas/C418.png"
+            "arquivo": "src/assets/musicas\\Alpha - C418 - Volume Beta.m4a",
+            "arquivoCapa": "src/assets/image/capaAlbuns/Volume_Beta.png",
+            "arquivoFotoArtista": "src/assets/image/fotoArtistas/C418.png"
         }
     ],
     "Frank Ocean": [
         {
             "titulo": "Nights",
             "album": "Blonde",
-            "arquivo": "./src/assets/musicas\\Nights - Frank Ocean - Blonde.mp3",
-            "arquivoCapa": "./src/assets/image/capaAlbuns/Blonde.png",
-            "arquivoFotoArtista": "./src/assets/image/fotoArtistas/Frank Ocean.png"
+            "arquivo": "src/assets/musicas\\Nights - Frank Ocean - Blonde.mp3",
+            "arquivoCapa": "src/assets/image/capaAlbuns/Blonde.png",
+            "arquivoFotoArtista": "src/assets/image/fotoArtistas/Frank Ocean.png"
         },
         {
             "titulo": "Pink + white",
             "album": "Blonde",
-            "arquivo": "./src/assets/musicas\\Pink + white - Frank Ocean - Blonde.mp3",
-            "arquivoCapa": "./src/assets/image/capaAlbuns/Blonde.png",
-            "arquivoFotoArtista": "./src/assets/image/fotoArtistas/Frank Ocean.png"
+            "arquivo": "src/assets/musicas\\Pink + white - Frank Ocean - Blonde.mp3",
+            "arquivoCapa": "src/assets/image/capaAlbuns/Blonde.png",
+            "arquivoFotoArtista": "src/assets/image/fotoArtistas/Frank Ocean.png"
         }
     ]
 }

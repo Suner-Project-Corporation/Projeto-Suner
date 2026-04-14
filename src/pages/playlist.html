@@ -32,11 +32,22 @@
                     <div>
                         <h1 class="playlist-namePage">Nome da playlist</h1>
                         <h2 class="criador-playlist">VerdadeiroMordecai_456</h2>
-                        <h3 class="dados-playlist"><span id="qtd-musicaPlaylist">10</span> músicas <span
+                        <h3 class="dados-playlist"><span id="qtd-musicaPlaylist">0</span> músicas <span
                                 id="tempo-playlist">45h e 35min</span></h3>
                         <button type="button" class="btn-Playlist" id="btn-playPlaylist">Tocar</button>
                         <button type="button" class="btn-Playlist">Aleatório</button>
                     </div>
+                </div>
+
+                <button id="btn-addMusga" type="button">+</button>
+                <div id="div-addMusga" class="hide">
+                    <article>
+                        <h1>Adicionar música</h1>
+                        <button type="button" id="btn-fecharAddMusga">X</button>
+                    </article>
+                    <section id="container-addMusga">
+
+                    </section>
                 </div>
 
                 <div class="playlist-musicaContainer">
@@ -56,17 +67,6 @@
             <div class="playlist-container" id="btn-criarPlaylist">
                 <img class="botao-add-playlist" src="../assets/image/add_playlist.png">
                 <h1 class="playlist-nome">Criar nova playlist</h1>
-                <div id="input-playlists" class="hide">
-                    <div>
-                        <label for="input-nomePlaylist">Nome da playlist:</label>
-                        <input type="text" id="input-nomePlaylist" placeholder="Nome playlist">
-                    </div>
-                    <div>
-                        <label for="input-nomeCriador">Nome do criador:</label>
-                        <input type="text" id="input-nomeCriador" placeholder="Nome do criador">
-                    </div>
-                    <button type="button" id="btn-confirmarPlaylist">Confirmar</button>
-                </div>
             </div>
 
             <div id="input-playlists" class="hide">
