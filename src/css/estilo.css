@@ -130,10 +130,8 @@ body {
 }
 
 .btn-Playlist img{
-    height: 20px;
-    width: auto !important;
-    max-width: none !important;
-    flex: 0 0 auto;
+    height: 1.2em;
+    width: auto;
 }
 
 .btn-Playlist:hover {
@@ -406,6 +404,12 @@ body {
 
     display: flex;
     gap: 15px;
+}
+
+.container-botoes-playlist{
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
 }
 
 .musicas-artista {
@@ -1332,7 +1336,7 @@ body {
     align-items: flex-start
 }
 
-.playlist-info div {
+.informacao-playlist {
     margin-left: 2vw;
     margin-top: 4vh;
     text-align: left;
