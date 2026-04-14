@@ -583,9 +583,9 @@ document.querySelector(".playlist-content").addEventListener('click', (event) =>
 
 function carregarMusgaAdd() {
   musicas.forEach(Musca => {
-    const containerAdd = document.getElementById("container-addMusga")
+    const containerAdd = document.getElementById("container-addMusica")
     const divAdd = document.createElement("div");
-    divAdd.classList.add("addMusga");
+    divAdd.classList.add("addMusica");
     divAdd.id = musicas.indexOf(Musca);
     divAdd.innerHTML = `
     <img src=${BASE + Musca.arquivoCapa}>
@@ -601,13 +601,13 @@ function carregarMusgaAdd() {
   })
 }
 
-document.getElementById("btn-fecharAddMusga").addEventListener("click", () => {
-  document.getElementById("div-addMusga").classList.add("hide")
+document.getElementById("btn-fecharAddMusica").addEventListener("click", () => {
+  document.getElementById("div-addMusica").classList.add("hide")
 }
 );
 
-document.getElementById("btn-addMusga").addEventListener("click", () => {
-  document.getElementById("div-addMusga").classList.remove("hide")
+document.getElementById("btn-addMusica").addEventListener("click", () => {
+  document.getElementById("div-addMusica").classList.remove("hide")
 }
 )
 
