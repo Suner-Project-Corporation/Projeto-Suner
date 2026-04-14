@@ -73,7 +73,7 @@ const barra = document.querySelector(".barra-progresso");
 let arrastando = false;
 let porcentagemAtual = 0;
 
-ponto.addEventListener("mousedown", () => {
+barra.addEventListener("mousedown", () => {
   arrastando = true;
 });
 

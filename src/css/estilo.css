@@ -972,7 +972,7 @@ body {
     border-radius: 30px;
 }
 
-.barra-progresso * {
+.container-progresso * {
   user-select: none;
   -webkit-user-select: none;
 }
