@@ -918,6 +918,7 @@ body {
 #botao-player-tocar:hover {
     transform: scale(105%);
     transition: 0.15s;
+    cursor: pointer;
 }
 
 .botao-player-voltaravancar {
@@ -971,9 +972,19 @@ body {
     border-radius: 30px;
 }
 
+.barra-progresso * {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.barra-progresso:hover{
+    cursor:pointer
+}
+
 .barra-progresso:hover .bolinha-progresso {
     transform: scale(110%) translateY(-50%) translateX(-50%);
     transition: 0.1s;
+    cursor:pointer
 }
 
 .bolinha-progresso {

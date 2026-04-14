@@ -67,6 +67,60 @@ const ponto = document.querySelector(".bolinha-progresso");
 const tempoAtual = document.getElementById("tempo-atual");
 const tempoTotal = document.getElementById("tempo-total");
 
+//Mexer na barra
+const barra = document.querySelector(".barra-progresso");
+
+let arrastando = false;
+let porcentagemAtual = 0;
+
+ponto.addEventListener("mousedown", () => {
+  arrastando = true;
+});
+
+document.addEventListener("mouseup", () => {
+  if (!arrastando || !player || isNaN(player.duration)) return;
+  arrastando = false;
+
+  //Atualiza o tempo quando solta
+  player.currentTime = porcentagemAtual * player.duration;
+});
+
+//Alterar com o mover do mouse
+document.addEventListener("mousemove", (e) => {
+  if (!arrastando || !player || isNaN(player.duration)) return;
+
+  const rect = barra.getBoundingClientRect();
+  let posX = e.clientX - rect.left;
+
+  if (posX < 0) posX = 0;
+  if (posX > rect.width) posX = rect.width;
+
+  porcentagemAtual = posX / rect.width;
+
+  // Só atualiza visual enquanto arrasta
+  progresso.style.width = (porcentagemAtual * 100) + "%";
+  ponto.style.left = (porcentagemAtual * 100) + "%";
+
+  
+});
+//Alterar com o click na barra
+barra.addEventListener("click", (e) => {
+  if (!player || isNaN(player.duration)) return;
+
+  const rect = barra.getBoundingClientRect();
+  let posX = e.clientX - rect.left;
+
+  if (posX < 0) posX = 0;
+  if (posX > rect.width) posX = rect.width;
+
+  porcentagemAtual = posX / rect.width;
+
+  progresso.style.width = (porcentagemAtual * 100) + "%";
+  ponto.style.left = (porcentagemAtual * 100) + "%";
+
+  player.currentTime = porcentagemAtual * player.duration;
+});
+
 //Função formatar o tempo
 function formatarTempo(segundos) {
   const min = Math.floor(segundos / 60);
@@ -112,7 +166,7 @@ function configurarPlayer() {
   player.volume = barravolume.value / 100
 
   player.ontimeupdate = () => {
-    if (isNaN(player.duration)) return;
+    if (isNaN(player.duration) || arrastando) return;
 
     let barra = (player.currentTime / player.duration) * 100;
     progresso.style.width = barra + "%";
@@ -295,6 +349,7 @@ function mudarmusica(direcao) {
 
   tocar();
 }
+
 // script pra criar os icon de playlist na barra lateral :)
 /* isso faz com que o script saiba em que id está as playlists,
 só pra facilitar o rastreamento de tudo
