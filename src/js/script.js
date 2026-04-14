@@ -123,7 +123,17 @@ function configurarPlayer() {
   };
 
   player.onended = () => {
-    indexmusica = (indexmusica + 1) % musicas.length;
+    if (window.location.pathname.includes("playlist.html") || window.hostname.pathname.includes("playlist.html")) {
+      const playlists = JSON.parse(localStorage.getItem("playlistsStorage"));
+      const playlistAtual = playlists.playlists[sessionStorage.getItem("idPlaylist")];
+      const musicasPlaylist = playlistAtual.musicas;
+      console.log(musicasPlaylist)
+      const musicaSelecionada = musicasPlaylist[indexmusica];
+      player = new Audio(BASE + musicas[Number(musicaSelecionada)].arquivo)
+      console.log(musicaSelecionada, musicas[Number(musicaSelecionada)])
+      indexmusica = (indexmusica + 1) % musicasPlaylist.length;
+    } else
+      indexmusica = (indexmusica + 1) % musicas.length;
     tocar();
   };
 }
@@ -137,7 +147,17 @@ const artistaPlayer = document.getElementById("titulo-player-artista");
 function display() {
   if (indexmusica === -1) return;
 
-  let musicaAtual = musicas[indexmusica];
+  if (window.location.pathname.includes("playlist.html") || window.hostname.pathname.includes("playlist.html")) {
+    const playlists = JSON.parse(localStorage.getItem("playlistsStorage"));
+    const playlistAtual = playlists.playlists[sessionStorage.getItem("idPlaylist")];
+    const musicasPlaylist = playlistAtual.musicas;
+    console.log(musicasPlaylist)
+    const musicaSelecionada = musicasPlaylist[indexmusica];
+    console.log(musicaSelecionada, musicas[Number(musicaSelecionada)]);
+    var musicaAtual = musicas[musicaSelecionada]
+  } else {
+    var musicaAtual = musicas[indexmusica];
+  }
 
   console.log(musicaAtual)
 
@@ -151,7 +171,16 @@ function display() {
 function tocar() {
   if (indexmusica === -1) return;
   if (player) player.pause();
-  player = new Audio(BASE + musicas[indexmusica].arquivo);
+  if (window.location.pathname.includes("playlist.html") || window.hostname.pathname.includes("playlist.html")) {
+    const playlists = JSON.parse(localStorage.getItem("playlistsStorage"));
+    const playlistAtual = playlists.playlists[sessionStorage.getItem("idPlaylist")];
+    const musicasPlaylist = playlistAtual.musicas;
+    console.log(musicasPlaylist)
+    const musicaSelecionada = musicasPlaylist[indexmusica];
+    player = new Audio(BASE + musicas[Number(musicaSelecionada)].arquivo)
+    console.log(musicaSelecionada, musicas[Number(musicaSelecionada)])
+  } else
+    player = new Audio(BASE + musicas[indexmusica].arquivo);
   configurarPlayer();
 
   // Resetar tempo de musica
@@ -191,12 +220,12 @@ slider.addEventListener('input', (e) => handleInput(e.target));
 handleInput(slider);
 
 // FETCH
-if (BASE + "src/json/musicas.json")
-  console.log('tudo certo');
+//if (BASE + "src/json/musicas.json")
+//console.log('tudo certo');
 fetch(BASE + "src/json/musicas.json")
   .then(res => res.json())
   .then(data => {
-    console.log('tudo certo');
+    //console.log('tudo certo');
     //if (!container) return;
 
     for (let artista in data) {
@@ -211,12 +240,12 @@ fetch(BASE + "src/json/musicas.json")
         `
       if (container)
         container.appendChild(divArtista)
-      console.log("artista carregado")
+      //console.log("artista carregado")
 
       data[artista].forEach(musica => {
         musica.artista = artista
         musicas.push(musica);
-        console.log(musicas);
+        //console.log(musicas);
         let indexescolher = musicas.length - 1;
 
         const divMusica = document.createElement("div");
@@ -281,19 +310,40 @@ btnmudar[0].addEventListener("click", () => mudarmusica("-"));
 btnmudar[1].addEventListener("click", () => mudarmusica("+"));
 
 function mudarmusica(direcao) {
-  if (musicas.length === 0) return;
+  if (window.location.pathname.includes("playlist.html") || window.hostname.pathname.includes("playlist.html")) {
+    const playlists = JSON.parse(localStorage.getItem("playlistsStorage"))
+    const idmudar = sessionStorage.getItem("idPlaylist")
+    const playlistAtual = playlists.playlists[idmudar]
+    console.log(playlistAtual, playlists, idmudar);
 
-  if (indexmusica === -1) {
-    indexmusica = 0;
-  } else {
-    if (direcao === "+") {
-      indexmusica = (indexmusica + 1) % musicas.length;
+
+    if (musicas.length === 0) return;
+    if (indexmusica === -1) {
+      indexmusica = 0;
     } else {
-      indexmusica = (indexmusica - 1 + musicas.length) % musicas.length;
+      if (direcao === "+") {
+        indexmusica = (indexmusica + 1) % playlistAtual.musicas.length;
+      } else {
+        indexmusica = (indexmusica - 1 + playlistAtual.musicas.length) % playlistAtual.musicas.length;
+      }
     }
-  }
 
-  tocar();
+    tocar()
+  } else {
+    if (musicas.length === 0) return;
+
+    if (indexmusica === -1) {
+      indexmusica = 0;
+    } else {
+      if (direcao === "+") {
+        indexmusica = (indexmusica + 1) % musicas.length;
+      } else {
+        indexmusica = (indexmusica - 1 + musicas.length) % musicas.length;
+      }
+    }
+
+    tocar();
+  }
 }
 // script pra criar os icon de playlist na barra lateral :)
 /* isso faz com que o script saiba em que id está as playlists,
@@ -326,6 +376,7 @@ async function executarLocalStorage(nome, caminho) {
 }
 
 async function inicializarLocalStorage() {
+  //resetar storage
   if (!localStorage.getItem("playlistsStorage")) {
     await executarLocalStorage("playlistsStorage", BASE + 'src/json/playlists.json');
   }
@@ -409,6 +460,7 @@ document.getElementById("btn-confirmarPlaylist").addEventListener('click', fazer
 function carregarMusicaPlaylist(idPlaylist) {
   try {
     const playlists = JSON.parse(localStorage.getItem("playlistsStorage"));
+    console.log(playlists);
     const playlistAtual = playlists.playlists.find(p => p.id === idPlaylist);
     console.log(playlistAtual);
     const containerMusicas = document.querySelector(".playlist-musicaContainer");
@@ -420,18 +472,21 @@ function carregarMusicaPlaylist(idPlaylist) {
       nomePlaylist.textContent = playlistAtual.nome;
       criadorPlaylist.textContent = playlistAtual.criador;
       containerMusicas.innerHTML = "";
+      let indexescolher = musicasPlaylist.length - 1
+      let contadorMusga = 0;
       musicasPlaylist.forEach(musga => {
         console.log(musga);
         const musgaExata = musicas[musga];
         console.log(musgaExata)
         const musgaNome = musgaExata.titulo;
-        const musgaArtista = "depois mexo nisso";
+        const musgaArtista = musgaExata.artista;
         const musgaCapa = musgaExata.arquivoCapa;
         const divMusga = document.createElement("div");
         divMusga.classList.add("musica-playlist");
         divMusga.id = musga;
         divMusga.addEventListener("click", () => {
-          indexmusica = divMusga.id;
+          indexescolher = divMusga.id;
+          indexmusica = indexescolher;
           tocar();
         })
         console.log(divMusga.id);
@@ -445,9 +500,16 @@ function carregarMusicaPlaylist(idPlaylist) {
           </div>
         </section>
         <h1 class="tempo-musicaPlaylist">3:30</h1>
-        <h1 class="toques-musicaPlaylist">980126789461287416</h1>`
+        <button type='button' class='btn-apagarMusga' id='0${contadorMusga}'>Remover</button>`
         containerMusicas.appendChild(divMusga);
-      });
+        const btnApagar = document.getElementById("0" + contadorMusga)
+        btnApagar.addEventListener("click", () => {
+          console.log(btnApagar.id)
+          removerMusga(btnApagar.id);
+          carregarMusicaPlaylist(Number(sessionStorage.getItem("idPlaylist")))
+        })
+        contadorMusga++;
+      })
     }
   }
   catch (error) {
@@ -463,6 +525,7 @@ document.querySelector(".playlist-content").addEventListener('click', (event) =>
   console.log(sessionStorage.getItem("idPlaylist"));
 });
 
+
 function carregarMusgaAdd() {
   musicas.forEach(Musca => {
     const containerAdd = document.getElementById("container-addMusga")
@@ -471,8 +534,14 @@ function carregarMusgaAdd() {
     divAdd.id = musicas.indexOf(Musca);
     divAdd.innerHTML = `
     <img src=${BASE + Musca.arquivoCapa}>
-    <h1>${Musca.titulo}</h1>
+    <div>
+      <h1>${Musca.titulo}</h1>
+      <h2>${Musca.artista}</h2>
+    </div>
     `;
+    divAdd.addEventListener("click", () => {
+      adicionarMusga(divAdd.id);
+    })
     containerAdd.appendChild(divAdd);
   })
 }
@@ -486,3 +555,31 @@ document.getElementById("btn-addMusga").addEventListener("click", () => {
   document.getElementById("div-addMusga").classList.remove("hide")
 }
 )
+
+function adicionarMusga(idMusica) {
+  const playlists = JSON.parse(localStorage.getItem("playlistsStorage"));
+  const playlistAtual = playlists.playlists[sessionStorage.getItem("idPlaylist")]
+  const musicasPlaylist = playlistAtual.musicas;
+  musicasPlaylist.push(idMusica);
+  playlistAtual.musicas = musicasPlaylist;
+  playlists.playlists[sessionStorage.getItem("idPlaylist")] = playlistAtual
+  console.log(playlistAtual, playlists, musicasPlaylist);
+  const playlistsString = JSON.stringify(playlists);
+  localStorage.setItem("playlistsStorage", playlistsString);
+  console.log(JSON.stringify(playlists), localStorage.getItem("playlistsStorage"));
+
+  carregarMusicaPlaylist(Number(sessionStorage.getItem("idPlaylist")));
+}
+
+function removerMusga(idMusica) {
+  const playlists = JSON.parse(localStorage.getItem("playlistsStorage"));
+  const playlistAtual = playlists.playlists[sessionStorage.getItem("idPlaylist")]
+  const musicasPlaylist = playlistAtual.musicas;
+  musicasPlaylist.splice(idMusica, 1);
+  playlistAtual.musicas = musicasPlaylist;
+  playlists.playlists[sessionStorage.getItem("idPlaylist")] = playlistAtual
+  console.log(playlistAtual, playlists, musicasPlaylist);
+  const playlistsString = JSON.stringify(playlists);
+  localStorage.setItem("playlistsStorage", playlistsString);
+  console.log(JSON.stringify(playlists), localStorage.getItem("playlistsStorage"));
+}
