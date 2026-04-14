@@ -112,23 +112,38 @@ body {
 }
 
 .btn-Playlist {
-    background: #ac0000;
-    color: #fff;
-    border: #fff 2px solid;
+    color: #ffffff;
+    font-size: clamp(12px, 1.2vw, 20px);
+    font-weight: bold;
+    padding: 0.7vw 1.4vw 0.7vw 1.4vw;
+    border: none;
     border-radius: 10px;
-    width: 5em;
-    height: 2rem;
-    font-size: 1.2rem;
+    margin-top: 1.75vh;
     cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 1vw;
+    font-family: "dm sans";
+    transition: 0.1s;
+    background: #8B0000;
+}
+
+.btn-Playlist img{
+    height: 1.2em;
+    width: auto;
 }
 
 .btn-Playlist:hover {
-    background: #810000;
     transform: scale(105%);
-    transition: 0.1s ease-in-out;
+    transition: 0.15s;
 }
 
-.addMusga {
+.btn-Playlist:active {
+    transform: scale(95%);
+    transition: 0.1s;
+}
+.addMusica {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -141,20 +156,20 @@ body {
     cursor: pointer;
 }
 
-.addMusga:hover {
+.addMusica:hover {
     background: #272727;
 }
 
-.addMusga:first-child {
+.addMusica:first-child {
     border-radius: 20px 20px 0px 0px;
 }
 
-.addMusga:last-child {
+.addMusica:last-child {
     border-radius: 0 0 20px 20px;
     border-bottom: 0;
 }
 
-#div-addMusga {
+#div-addMusica {
     background: #0e0e0e;
     display: grid;
     justify-content: center;
@@ -167,13 +182,13 @@ body {
     z-index: 999999;
 }
 
-#div-addMusga article {
+#div-addMusica article {
     display: flex;
     justify-content: space-between;
     margin-bottom: 0.5rem;
 }
 
-#btn-fecharAddMusga {
+#btn-fecharAddMusica {
     background: none;
     color: #fff;
     border: none;
@@ -182,15 +197,15 @@ body {
     cursor: pointer;
 }
 
-#btn-fecharAddMusga:hover {
+#btn-fecharAddMusica:hover {
     color: #ac0000;
 }
 
-#container-addMusga {
+#container-addMusica {
     overflow-y: auto;
 }
 
-#btn-addMusga {
+#btn-addMusica {
     background: #ac0000;
     color: #fff;
     border: #fff 2px solid;
@@ -206,24 +221,15 @@ body {
     align-items: center;
 }
 
-#btn-addMusga:hover{
+#btn-addMusica:hover{
     background: #810000;
 }
 
-.addMusga img {
+.addMusica img {
     height: 4rem;
     aspect-ratio: 1/1;
     border-radius: 50%;
 
-}
-
-.btn-playlist {
-    background: transparent;
-    border: none;
-    color: #fff;
-    font-size: 18px;
-    display: flex;
-    justify-content: space-between;
 }
 
 .playlist {
@@ -377,7 +383,7 @@ body {
     display: flex;
     gap: 1vw;
     font-family: "dm sans";
-    transition: 0.075s;
+    transition: 0.1s;
     background: #8B0000;
 }
 
@@ -398,6 +404,12 @@ body {
 
     display: flex;
     gap: 15px;
+}
+
+.container-botoes-playlist{
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
 }
 
 .musicas-artista {
@@ -810,8 +822,8 @@ body {
 }
 
 .btn-retangular img {
-    width: auto;
     height: 1.2em;
+    width: auto;
 }
 
 #btn-aleatorio img {
@@ -906,6 +918,7 @@ body {
 #botao-player-tocar:hover {
     transform: scale(105%);
     transition: 0.15s;
+    cursor: pointer;
 }
 
 .botao-player-voltaravancar {
@@ -959,9 +972,19 @@ body {
     border-radius: 30px;
 }
 
+.container-progresso * {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.barra-progresso:hover{
+    cursor:pointer
+}
+
 .barra-progresso:hover .bolinha-progresso {
     transform: scale(110%) translateY(-50%) translateX(-50%);
     transition: 0.1s;
+    cursor:pointer
 }
 
 .bolinha-progresso {
@@ -1310,7 +1333,7 @@ body {
 
 /* estilização da pagina de playlist */
 
-.playlist-info img {
+.capaPlaylist {
     width: 15vw;
     aspect-ratio: 1/1;
     min-width: 170px;
@@ -1321,26 +1344,32 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 3rem;
+    align-items: flex-start
 }
 
-.playlist-info div {
-    margin-left: 5vh;
+.informacao-playlist {
+    margin-left: 2vw;
+    margin-top: 4vh;
     text-align: left;
 }
 
 .playlist-namePage {
-    font-size: 3rem;
+    font-size: 4rem;
 }
 
 .criador-playlist {
-    margin-top: 10px;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    color: #CDCDCD;
+    font-family: "DM Sans";
     font-weight: 500;
 }
 
 .dados-playlist {
-    font-size: 1rem;
-    font-weight: 350;
+    font-size: 1.3rem;
+    color: #CDCDCD;
+    font-family: "DM Sans";
+    font-weight: 500;
+    margin-top: 2vh;
 }
 
 /* bagulhinho das musicas */
