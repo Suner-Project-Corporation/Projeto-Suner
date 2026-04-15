@@ -101,7 +101,7 @@ document.addEventListener("mousemove", (e) => {
   progresso.style.width = (porcentagemAtual * 100) + "%";
   ponto.style.left = (porcentagemAtual * 100) + "%";
 
-  
+
 });
 //Alterar com o click na barra
 barra.addEventListener("click", (e) => {
@@ -206,7 +206,7 @@ function display() {
     const playlistAtual = playlists.playlists[sessionStorage.getItem("idPlaylist")];
     const musicasPlaylist = playlistAtual.musicas;
     console.log(musicasPlaylist)
-    const musicaSelecionada = musicasPlaylist[indexmusica];
+    const musicaSelecionada = musicasPlaylist[Number(indexmusica)];
     console.log(musicaSelecionada, musicas[Number(musicaSelecionada)]);
     var musicaAtual = musicas[musicaSelecionada]
   } else {
@@ -224,34 +224,64 @@ function display() {
 // Tocar música
 function tocar() {
   if (indexmusica === -1) return;
+
   if (player) player.pause();
+
   if (window.location.pathname.includes("playlist.html") || window.hostname.pathname.includes("playlist.html")) {
+
     const playlists = JSON.parse(localStorage.getItem("playlistsStorage"));
+
     const playlistAtual = playlists.playlists[sessionStorage.getItem("idPlaylist")];
+
     const musicasPlaylist = playlistAtual.musicas;
+
     console.log(musicasPlaylist)
-    const musicaSelecionada = musicasPlaylist[indexmusica];
+
+    const musicaSelecionada = musicasPlaylist[Number(indexmusica)];
+
     player = new Audio(BASE + musicas[Number(musicaSelecionada)].arquivo)
+
     console.log(musicaSelecionada, musicas[Number(musicaSelecionada)])
+
   } else
+
     player = new Audio(BASE + musicas[indexmusica].arquivo);
+
   configurarPlayer();
 
+
+
   // Resetar tempo de musica
+
   tempoAtual.innerHTML = "0:00";
+
   tempoTotal.innerHTML = "0:00";
 
+
+
   // Pega a duração da musica
+
   player.addEventListener("loadedmetadata", () => {
+
     console.log(player.duration)
+
     tempoTotal.innerHTML = formatarTempo(player.duration);
+
   });
+
+
 
   player.play();
 
+
+
   display();
+
   btnplay.src = BASE + "src/assets/image/botoes/botao_pausar.png";
+
 }
+
+
 
 //Volume -- Barra e Botão de mutar
 const slider = document.querySelector('#volume-bar');
@@ -367,7 +397,7 @@ function mudarmusica(direcao) {
   if (window.location.pathname.includes("playlist.html") || window.hostname.pathname.includes("playlist.html")) {
     const playlists = JSON.parse(localStorage.getItem("playlistsStorage"))
     const idmudar = sessionStorage.getItem("idPlaylist")
-    const playlistAtual = playlists.playlists[idmudar]
+    const playlistAtual = playlists.playlists[sessionStorage.getItem("idPlaylist")]
     console.log(playlistAtual, playlists, idmudar);
 
 
@@ -539,11 +569,7 @@ function carregarMusicaPlaylist(idPlaylist) {
         const divMusga = document.createElement("div");
         divMusga.classList.add("musica-playlist");
         divMusga.id = musga;
-        divMusga.addEventListener("click", () => {
-          indexescolher = divMusga.id;
-          indexmusica = indexescolher;
-          tocar();
-        })
+
         console.log(divMusga.id);
         console.log(musgaExata);
         divMusga.innerHTML = `
@@ -562,6 +588,11 @@ function carregarMusicaPlaylist(idPlaylist) {
           console.log(btnApagar.id)
           removerMusga(btnApagar.id);
           carregarMusicaPlaylist(Number(sessionStorage.getItem("idPlaylist")))
+        })
+        divMusga.addEventListener("click", () => {
+          indexescolher = btnApagar.id;
+          indexmusica = indexescolher;
+          tocar();
         })
         contadorMusga++;
       })
