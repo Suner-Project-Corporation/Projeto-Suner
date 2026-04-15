@@ -428,6 +428,16 @@ body {
     margin-bottom: 3vh;
 }
 
+.secundario-musica{
+    margin-left: 10vw;
+    color: #CDCDCD;
+    font-size: clamp(0.5rem, 1.25vw, 1.5rem);
+}
+
+.titulo-musica-artista{
+    white-space: nowrap;
+}
+
 .musica-titulo-album {
     display: flex;
     flex-direction: column;
@@ -466,7 +476,7 @@ body {
 }
 
 .lista-musicas {
-    max-width: 60vw;
+    width: 60vw;
 }
 
 .em-destaque {
