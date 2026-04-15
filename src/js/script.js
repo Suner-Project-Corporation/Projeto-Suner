@@ -201,7 +201,7 @@ const artistaPlayer = document.getElementById("titulo-player-artista");
 function display() {
   if (indexmusica === -1) return;
 
-  if (window.location.pathname.includes("playlist.html") || window.hostname.pathname.includes("playlist.html")) {
+  if (window.location.pathname.includes("playlist.html")) {
     const playlists = JSON.parse(localStorage.getItem("playlistsStorage"));
     const playlistAtual = playlists.playlists[sessionStorage.getItem("idPlaylist")];
     const musicasPlaylist = playlistAtual.musicas;
@@ -227,7 +227,7 @@ function tocar() {
 
   if (player) player.pause();
 
-  if (window.location.pathname.includes("playlist.html") || window.hostname.pathname.includes("playlist.html")) {
+  if (window.location.pathname.includes("playlist.html")) {
 
     const playlists = JSON.parse(localStorage.getItem("playlistsStorage"));
 
@@ -627,7 +627,6 @@ function carregarMusgaAdd() {
     divAdd.classList.add("addMusica");
     divAdd.id = musicas.indexOf(Musca);
     divAdd.innerHTML = `
-    <img src=${BASE + Musca.arquivoCapa}>
     <div>
       <h1>${Musca.titulo}</h1>
       <h2>${Musca.artista}</h2>
