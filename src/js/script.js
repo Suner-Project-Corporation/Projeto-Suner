@@ -315,6 +315,10 @@ fetch(BASE + "src/json/musicas.json")
       const divArtista = document.createElement("div");
       divArtista.classList.add("icon");
 
+      divArtista.addEventListener("click", () => {
+        window.location.href = "./src/pages/artista.html";
+      });
+
       divArtista.innerHTML = `
             <img src="${data[artista][0].arquivoFotoArtista}" class="capa-artista">
             <h2 class="icon-nome">${artista}</h2>
