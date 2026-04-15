@@ -203,6 +203,7 @@ body {
 
 #container-addMusica {
     overflow-y: auto;
+    max-height: 600px;
 }
 
 #btn-addMusica {
@@ -1270,6 +1271,8 @@ body {
     .icon-nome {
         font-size: 1rem;
         text-align: left;
+        width: 100%;
+        margin-left: 0;
     }
 
     .icon-artista {
