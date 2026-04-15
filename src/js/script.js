@@ -34,7 +34,7 @@
 // btnMudarCor = document.getElementById("btn-mudar-cor");
 // btnMudarCor.addEventListener('click', mudarCorSite);
 
-const container = document.querySelector("#volte-escutar");
+let container = document.querySelector("#volte-escutar");
 const pagAtual = window.location.pathname;
 const BASE = window.location.hostname.includes("github.io")
   ? "/Projeto-Suner/"
@@ -322,7 +322,7 @@ fetch(BASE + "src/json/musicas.json")
             <img src="${BASE}src/assets/image/tipoArtista.png" class="identificador-tipo-artista">
         `
       if (container){
-        if (container.length >= 10) {
+        if (container.childElementCount >= 15) {
           container = document.querySelector("#fora-radar")
         }
         container.appendChild(divArtista) 
@@ -349,7 +349,7 @@ fetch(BASE + "src/json/musicas.json")
           <img src="./src/assets/image/tipoMusica.png" class="identificador-tipo-icone">
         `;
         if (container){
-          if (container.length >= 10) {
+          if (container.childElementCount >= 15) {
             container = document.querySelector("#fora-radar")
           }
           container.appendChild(divMusica);
