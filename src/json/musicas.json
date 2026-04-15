@@ -3,14 +3,14 @@
         {
             "titulo": "505",
             "album": "Favourite Worst Nightmare",
-            "arquivo": "src/assets/musicas\\505 - Arctic Monkeys - Favourite Worst Nightmare.mp3",
-            "arquivoCapa": "src/assets/image/capaAlbuns/Favourite_Worst_Nightmare.png",
+            "arquivo": "src/assets/musicas/505 - Arctic Monkeys - Favourite Worst Nightmare.mp3",
+            "arquivoCapa": "src/assets/image/capaAlbuns/Favourite Worst Nightmare.png",
             "arquivoFotoArtista": "src/assets/image/fotoArtistas/Arctic Monkeys.png"
         },
         {
             "titulo": "R U Mine",
             "album": "AM",
-            "arquivo": "src/assets/musicas\\R U Mine - Arctic Monkeys - AM.mp3",
+            "arquivo": "src/assets/musicas/R U Mine - Arctic Monkeys - AM.mp3",
             "arquivoCapa": "src/assets/image/capaAlbuns/AM.png",
             "arquivoFotoArtista": "src/assets/image/fotoArtistas/Arctic Monkeys.png"
         }
@@ -19,25 +19,146 @@
         {
             "titulo": "Alpha",
             "album": "Volume Beta",
-            "arquivo": "src/assets/musicas\\Alpha - C418 - Volume Beta.m4a",
-            "arquivoCapa": "src/assets/image/capaAlbuns/Volume_Beta.png",
+            "arquivo": "src/assets/musicas/Alpha - C418 - Volume Beta.m4a",
+            "arquivoCapa": "src/assets/image/capaAlbuns/Volume Beta.png",
             "arquivoFotoArtista": "src/assets/image/fotoArtistas/C418.png"
+        },
+        {
+            "titulo": "Blind Spots",
+            "album": "Volume Beta",
+            "arquivo": "src/assets/musicas/Blind Spots - C418 - Volume Beta.mp3",
+            "arquivoCapa": "src/assets/image/capaAlbuns/Volume Beta.png",
+            "arquivoFotoArtista": "src/assets/image/fotoArtistas/C418.png"
+        },
+        {
+            "titulo": "Moog City 2",
+            "album": "Volume Beta",
+            "arquivo": "src/assets/musicas/Moog City 2 - C418 - Volume Beta.mp3",
+            "arquivoCapa": "src/assets/image/capaAlbuns/Volume Beta.png",
+            "arquivoFotoArtista": "src/assets/image/fotoArtistas/C418.png"
+        }
+    ],
+    "Daft Punk": [
+        {
+            "titulo": "Around The World",
+            "album": "Homework",
+            "arquivo": "src/assets/musicas/Around The World - Daft Punk - Homework.mp3",
+            "arquivoCapa": "src/assets/image/capaAlbuns/Homework.png",
+            "arquivoFotoArtista": "src/assets/image/fotoArtistas/Daft Punk.png"
+        },
+        {
+            "titulo": "Something About Us",
+            "album": "Discovery",
+            "arquivo": "src/assets/musicas/Something About Us - Daft Punk - Discovery.mp3",
+            "arquivoCapa": "src/assets/image/capaAlbuns/Discovery.png",
+            "arquivoFotoArtista": "src/assets/image/fotoArtistas/Daft Punk.png"
+        }
+    ],
+    "Elton John": [
+        {
+            "titulo": "I'm Still Standing",
+            "album": "Too Low for Zero",
+            "arquivo": "src/assets/musicas/I'm Still Standing - Elton John - Too Low for Zero.mp3",
+            "arquivoCapa": "src/assets/image/capaAlbuns/Too Low for Zero.png",
+            "arquivoFotoArtista": "src/assets/image/fotoArtistas/Elton John.png"
+        },
+        {
+            "titulo": "Sacrifice",
+            "album": "Sleeping with the Past",
+            "arquivo": "src/assets/musicas/Sacrifice - Elton John - Sleeping with the Past.mp3",
+            "arquivoCapa": "src/assets/image/capaAlbuns/Sleeping with the Past.png",
+            "arquivoFotoArtista": "src/assets/image/fotoArtistas/Elton John.png"
+        }
+    ],
+    "Eminem": [
+        {
+            "titulo": "Love The Way You Lie",
+            "album": "Recovery",
+            "arquivo": "src/assets/musicas/Love The Way You Lie - Eminem - Recovery.mp3",
+            "arquivoCapa": "src/assets/image/capaAlbuns/Recovery.png",
+            "arquivoFotoArtista": "src/assets/image/fotoArtistas/Eminem.png"
+        },
+        {
+            "titulo": "Mockingbird",
+            "album": "Encore",
+            "arquivo": "src/assets/musicas/Mockingbird - Eminem - Encore.mp3",
+            "arquivoCapa": "src/assets/image/capaAlbuns/Encore.png",
+            "arquivoFotoArtista": "src/assets/image/fotoArtistas/Eminem.png"
+        }
+    ],
+    "Kendrick Lamar": [
+        {
+            "titulo": "Luther",
+            "album": "Kendrick Lamar",
+            "arquivo": "src/assets/musicas/Luther - Kendrick Lamar - Kendrick Lamar.mp3",
+            "arquivoCapa": "src/assets/image/capaAlbuns/Kendrick Lamar.png",
+            "arquivoFotoArtista": "src/assets/image/fotoArtistas/Kendrick Lamar.png"
+        },
+        {
+            "titulo": "Not Like Us",
+            "album": "Kendrick Lamar",
+            "arquivo": "src/assets/musicas/Not Like Us - Kendrick Lamar - Kendrick Lamar.mp3",
+            "arquivoCapa": "src/assets/image/capaAlbuns/Kendrick Lamar.png",
+            "arquivoFotoArtista": "src/assets/image/fotoArtistas/Kendrick Lamar.png"
+        }
+    ],
+    "Toby Fox": [
+        {
+            "titulo": "Megalovania",
+            "album": "Undertale",
+            "arquivo": "src/assets/musicas/Megalovania - Toby Fox - Undertale.mp3",
+            "arquivoCapa": "src/assets/image/capaAlbuns/Undertale.png",
+            "arquivoFotoArtista": "src/assets/image/fotoArtistas/Toby Fox.png"
         }
     ],
     "Frank Ocean": [
         {
             "titulo": "Nights",
             "album": "Blonde",
-            "arquivo": "src/assets/musicas\\Nights - Frank Ocean - Blonde.mp3",
+            "arquivo": "src/assets/musicas/Nights - Frank Ocean - Blonde.mp3",
             "arquivoCapa": "src/assets/image/capaAlbuns/Blonde.png",
             "arquivoFotoArtista": "src/assets/image/fotoArtistas/Frank Ocean.png"
         },
         {
             "titulo": "Pink + white",
             "album": "Blonde",
-            "arquivo": "src/assets/musicas\\Pink + white - Frank Ocean - Blonde.mp3",
+            "arquivo": "src/assets/musicas/Pink + white - Frank Ocean - Blonde.mp3",
             "arquivoCapa": "src/assets/image/capaAlbuns/Blonde.png",
             "arquivoFotoArtista": "src/assets/image/fotoArtistas/Frank Ocean.png"
+        }
+    ],
+    "Metallica": [
+        {
+            "titulo": "Nothing Else Matters",
+            "album": "Metallica",
+            "arquivo": "src/assets/musicas/Nothing Else Matters - Metallica - Metallica.mp3",
+            "arquivoCapa": "src/assets/image/capaAlbuns/Metallica.png",
+            "arquivoFotoArtista": "src/assets/image/fotoArtistas/Metallica.png"
+        },
+        {
+            "titulo": "The Unforgiven",
+            "album": "Metallica",
+            "arquivo": "src/assets/musicas/The Unforgiven - Metallica - Metallica.mp3",
+            "arquivoCapa": "src/assets/image/capaAlbuns/Metallica.png",
+            "arquivoFotoArtista": "src/assets/image/fotoArtistas/Metallica.png"
+        }
+    ],
+    "Earth, Wind & Fire": [
+        {
+            "titulo": "September",
+            "album": "September",
+            "arquivo": "src/assets/musicas/September - Earth, Wind & Fire - September.mp3",
+            "arquivoCapa": "src/assets/image/capaAlbuns/September.png",
+            "arquivoFotoArtista": "src/assets/image/fotoArtistas/Earth, Wind & Fire.png"
+        }
+    ],
+    "Mick Gordon": [
+        {
+            "titulo": "The Only Thing They Fear Is You",
+            "album": "Doom Eternal",
+            "arquivo": "src/assets/musicas/The Only Thing They Fear Is You - Mick Gordon - Doom Eternal.mp3",
+            "arquivoCapa": "src/assets/image/capaAlbuns/Doom Eternal.png",
+            "arquivoFotoArtista": "src/assets/image/fotoArtistas/Mick Gordon.png"
         }
     ]
 }

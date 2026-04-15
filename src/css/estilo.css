@@ -206,23 +206,24 @@ body {
 }
 
 #btn-addMusica {
-    background: #ac0000;
-    color: #fff;
-    border: #fff 2px solid;
-    font-size: 1.7rem;
-    width:2.5rem;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    margin-bottom: 1rem;
-    cursor: pointer;
-    font-weight: 750;
     display:flex;
     justify-content: center;
     align-items: center;
+    background-color: transparent;
+    border: none;
+    margin-bottom: 2vh;
+    transition: 0.1s;
+}
+
+#btn-addMusica img{
+    height: 5vh;
+    width: auto;
 }
 
 #btn-addMusica:hover{
-    background: #810000;
+    transition: 0.15s;
+    transform: scale(110%);
+    cursor: pointer;
 }
 
 .addMusica img {
@@ -705,8 +706,8 @@ body {
 #banner-bemvindo {
     background-image: url(../assets/image/banner/banner_epico.jfif);
     background-size: cover;
-    width: 80vw;
-    height: 45vh;
+    width: 70vw;
+    height: 50vh;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -766,6 +767,8 @@ body {
 .icon-nome {
     font-size: 1.5rem;
     font-weight: bold;
+    width: calc(100% + 50px);
+    margin-left: -25px;
 }
 
 .icon-artista {
@@ -1371,11 +1374,10 @@ body {
 .musica-playlist {
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     cursor: pointer;
     padding: 0.4rem;
-    background: #272727;
+    background: transparent;
     border-radius: 0.6rem;
 }
 
@@ -1392,12 +1394,13 @@ body {
 
 .info-musicaPlaylist {
     align-items: center;
-    font-size: 0.8rem;
-    margin-left: 0.5em;
+    margin-left: 0.75vw;
+    width: 32.75vw;
 }
 
 .nome-musicaPlaylist {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
+    margin-bottom: 1vh;
 }
 
 .artista-musicaPlaylist {
@@ -1406,9 +1409,109 @@ body {
 }
 
 .tempo-musicaPlaylist {
-    font-size: 1.3em
+    font-size: 1.3em;
+    width: 41.5vw;
+    font-family: "DM sans";
+    color: #CDCDCD;
+    font-weight: 500;
 }
 
 .toques-musicaPlaylist {
     font-size: 1.3em;
+    font-family: "DM sans";
+    color: #CDCDCD;
+    font-weight: 500;
+}
+
+.container-info-musica-playlist{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 5vw;
+    margin-bottom: 2vh;
+}
+
+.sobre-nos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo-sobrenos{
+    color: #FFFF;
+    font-size: 8rem;
+    margin-top: 5vh;
+    font-family: "dm sans"
+}
+
+.logo-sobrenos{
+    height: auto;
+    width: 300px;
+}
+
+.sobrenos-subtitulo{
+    color: white;
+    font-size: 4rem;
+    margin-top: 2vh;
+}
+
+.texto-corrido-sobrenos{
+    color: white;
+    margin-top: 2vh;
+    font-weight: normal;
+    font-size: 1.75rem;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+.texto-corrido-sobrenos p{
+    text-indent: 2em;
+}
+
+.foto-time{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    gap: 3vw;
+    margin-bottom: 3vh;
+    margin-top: 1.5vh;
+}
+
+.card-time{
+    background-color: #212121;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 1vw;
+    border-radius: 20px;
+    width: 13vw;
+}
+
+.imagem-card{
+    border-radius: 10px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center 20%;
+}
+
+#alvaro{
+    object-position: center;
+}
+
+.nome-card-time{
+    margin-top: 1vh;
+    font-size: 1.75rem;
+}
+
+.card-time-cargo{
+    font-size: 1.15rem;
+    font-family: "dm sans";
+    color: #CDCDCD;
+}
+
+footer p{
+    color: white;
+    font-size: 1.25rem;
 }
